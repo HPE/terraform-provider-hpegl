@@ -25,3 +25,19 @@ The above will install the latest available release. To install a specific relea
 ```shell
 VERSION=v0.0.5 bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/tools/install-hpegl-provider.sh)
 ```
+
+### MacOS
+
+Before using the install script, install GNU grep via homebrew with `brew install grep`
+
+Use the script `tools/install-hpegl-provider-macos.sh` (or `tools/install-hpegl-provider-macos-m1.sh` on an Apple Silicon machine) to automatically download and install hpegl provider:
+
+```shell
+bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/tools/install-hpegl-provider-macos.sh)
+```
+
+The above will install the latest available release. To install a specific release:
+
+```shell
+VERSION=v0.0.5 bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/tools/install-hpegl-provider-macos.sh)
+```
