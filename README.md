@@ -30,7 +30,10 @@ VERSION=v0.0.5 bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/
 
 Before using the install script, install GNU grep via homebrew with `brew install grep`
 
-Use the script `tools/install-hpegl-provider-macos.sh` (or `tools/install-hpegl-provider-macos-m1.sh` on an Apple Silicon machine) to automatically download and install hpegl provider:
+**Please note: Running a terminal on Apple Silicon through Rosetta will return the wrong architecture for the machine, installing amd64 rather than arm64**
+
+Use the script `tools/install-hpegl-provider-macos.sh` to automatically download and install hpegl provider:
+
 
 ```shell
 bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/tools/install-hpegl-provider-macos.sh)

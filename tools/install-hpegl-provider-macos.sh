@@ -3,7 +3,17 @@
 set -e
 
 os="darwin"
-arch="amd64"
+
+if [[ `uname -m` == 'x86_64']] 
+then
+  echo 'Intel Architecture detected'
+  arch="amd64"
+elif [[ `uname -m` == 'arm64' ]] 
+then
+  echo 'Apple Silicon Architecture detected'
+  arch="arm64"
+fi
+
 repo="HewlettPackard/terraform-provider-hpegl"
 macos_hpegl_dir="${HOME}/.terraform.d/plugins/registry.terraform.io/hewlettpackard/hpegl"
 
