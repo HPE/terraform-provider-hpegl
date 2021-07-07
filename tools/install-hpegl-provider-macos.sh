@@ -4,7 +4,7 @@ set -e
 
 os="darwin"
 
-if [[ `uname -m` == 'x86_64']] 
+if [[ `uname -m` == 'x86_64' ]] 
 then
   echo 'Intel Architecture detected'
   arch="amd64"
