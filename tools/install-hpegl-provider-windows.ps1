@@ -5,6 +5,8 @@ $arch="amd64"
 $repo="HewlettPackard/terraform-provider-hpegl"
 $windows_hpegl_dir="$env:appdata\terraform.d\plugins\registry.terraform.io\hewlettpackard\hpegl"
 
+$users_pwd = Get-Location
+
 function get_latest_release {
     Write-Host Getting latest release
     $release_url="https://api.github.com/repos/${repo}/releases/latest"
@@ -25,10 +27,21 @@ $hpegl_zip="terraform-provider-hpegl_${version_number}_${os}_${arch}.zip"
 $hpegl=$hpegl_zip -replace '.zip'
 $hpegl_dl_url="https://github.com/${repo}/releases/download/${VERSION}/${hpegl_zip}"
 
-Write-Host Downloading latest release
 mkdir "$dest_dir" 
 Set-Location "$dest_dir"
-Invoke-WebRequest $hpegl_dl_url -Out $hpegl_zip
+
+try {
+    Invoke-WebRequest $hpegl_dl_url -Out $hpegl_zip     
+}
+catch {
+    Write-Host "Error: The version that was specified does not exist."
+
+    Set-Location "${users_pwd}"
+    Remove-Item -Path "${windows_hpegl_dir}\${version_number}" -Recurse -Force -ErrorAction SilentlyContinue 
+
+    Write-Host "Exiting..."
+    Return 
+}
 
 Write-Host Extracting release files
 Expand-Archive $hpegl_zip -Force
