@@ -3,30 +3,29 @@ layout: ""
 page_title: "hpegl_vmaas_instance Resource - vmaas-terraform-resources"
 description: |-
     Instance resource facilitates creating,
-          updating and deleting virtual machines.
-          For creating an instance, provide a unique name and all the Mandatory(Required) parameters.
-          It is recommend to use the Vmware type for provisioning.
+          updating and deleting virtual machines. It is recommend to use the Vmware type for provisioning.
 ---
 
 # Resource hpegl_vmaas_instance
 
 Instance resource facilitates creating,
-		updating and deleting virtual machines.
-		For creating an instance, provide a unique name and all the Mandatory(Required) parameters.
-		It is recommend to use the Vmware type for provisioning.
+		updating and deleting virtual machines. It is recommend to use the Vmware type for provisioning.
 
-`hpegl_vmaas_instance` resource support instance creation as well cloning an existing
+`hpegl_vmaas_instance` resource supports instance creation as well cloning an existing
 instance.
 
--> It is mandatory to choose the 'template_id' while creating the instance of type 'vmware'
-(for this purpose `hpegl_vmaas_template` can be used). If not, an error will be returned. This mandation 
-does not apply for other instance types(no error will be prompted in this case).
+-> It is mandatory to choose the `template_id` while creating the instance of type 'vmware'
+(for this purpose `hpegl_vmaas_template` can be used). If not, an error will be returned. This mandation
+does not apply for other instance types (no error will be prompted in this case).
 
 For creating an instance please refer following examples.
 
-~> Volume name should be unique. No error will be prompted if the volume name is repeated, but 
-unexpected behavior can be expected, during instance update.
+~> Volume name should be unique. An error will be prompted if the volume name is repeated.
 
+Terraform will consider first volume as the primary volume. `root` attribute (computed field) will set to
+root volume.
+
+-> Deletion of root volume is also is not supported.
 
 ## Example usage for creating new instance with only required attributes
 
@@ -49,7 +48,6 @@ resource "hpegl_vmaas_instance" "minimal_instance" {
     name         = "root_vol"
     size         = 5
     datastore_id = data.hpegl_vmaas_datastore.c_3par.id
-    root         = true
   }
 
   config {
@@ -59,8 +57,18 @@ resource "hpegl_vmaas_instance" "minimal_instance" {
 }
 ```
 
--> `power` attribute is supported upon creating an instance. But only `poweron`  operation is supported
-    while creating an instance.
+-> `power` attribute is supported for `hpegl_vmaas_instance`, but only `poweron`  operation is supported
+    while creating.
+
+For creating snapshot use `snapshot` attribute. Any update in snapshot's `name` or `description`
+will cause to create a new snapshot with preserving existing one.
+
+~> Instance reconfigure will cause snapshot to be deleted.
+
+`is_snapshot_exist` field in `snapshot` will be true if the snapshot exists under instance. Use
+this field to identify whether snapshot got deleted (because of reconfigure or anything else).
+
+-> Snapshot update, apply and delete is not supported yet.
 
 ## Example usage for creating new instance with all possible attributes
 
@@ -86,14 +94,12 @@ resource "hpegl_vmaas_instance" "tf_instance" {
     name         = "root_vol"
     size         = 5
     datastore_id = data.hpegl_vmaas_datastore.c_3par.id
-    root         = true
   }
 
   volume {
     name         = "Local_vol"
     size         = 5
     datastore_id = data.hpegl_vmaas_datastore.c_3par.id
-    root         = false
   }
 
   labels = ["test_label"]
@@ -126,72 +132,12 @@ resource "hpegl_vmaas_instance" "tf_instance" {
   # On creating only poweron operation is supported. Upon updation all other
   # lifecycle operations are permitted.
   power = "poweron"
+  # Restarts the instance if set to any positive integer.
+  # Restart works only on pre-created instance.`,
+  restart_instance = 1
 }
 ```
 
-You can also create instance by cloning from an existing instance. To do so use `clone` attribute
-and provide `source_instance_id` along with it
-
-~> While cloning an instance you need to make sure that the Primary volume and Primary Network should
-  be the same as the **parent instance**. Terraform will not return any error but cloning an instance with
-  updated Primary volume/Network may result parent instance goes into failed state
-
-Cloned instance can have all the possible attributes (same as create new instance). The only difference will be
-the additional `clone` attribute.
-
-## Example usage for creating cloned instance
-
-```terraform
-# (C) Copyright 2021 Hewlett Packard Enterprise Development LP
-
-
-# Clone a instance from an existing instance
-resource "hpegl_vmaas_instance" "tf_instance_clone" {
-  name               = "tf_clone"
-  cloud_id           = data.hpegl_vmaas_cloud.cloud.id
-  group_id           = data.hpegl_vmaas_group.default_group.id
-  layout_id          = data.hpegl_vmaas_layout.vmware.id
-  plan_id            = data.hpegl_vmaas_plan.g1_small.id
-  instance_type_code = data.hpegl_vmaas_layout.vmware.instance_type_code
-  network {
-    id = data.hpegl_vmaas_network.blue_net.id
-  }
-  network {
-    id = data.hpegl_vmaas_network.green_net.id
-  }
-
-  volume {
-    name         = "root_vol"
-    size         = 5
-    datastore_id = data.hpegl_vmaas_datastore.c_3par.id
-    root         = true
-  }
-
-  volume {
-    name         = "Local_vol"
-    size         = 5
-    datastore_id = data.hpegl_vmaas_datastore.c_3par.id
-    root         = false
-  }
-
-  config {
-    resource_pool_id = data.hpegl_vmaas_resource_pool.cl_resource_pool.id
-    template_id      = data.hpegl_vmaas_template.vanilla.id
-    no_agent         = true
-    create_user      = false
-    asset_tag        = "vm_tag"
-  }
-  hostname = "hpegl_tf_host_clone"
-  scale    = 2
-  evars = {
-    proxy = "http://some:proxy"
-  }
-  power_schedule_id = data.hpegl_vmaas_powerSchedule.weekday.id
-  clone {
-    source_instance_id = hpegl_vmaas_instance.tf_instance.id
-  }
-}
-```
 
 
 <!-- schema generated by tfplugindocs -->
@@ -212,21 +158,27 @@ resource "hpegl_vmaas_instance" "tf_instance_clone" {
 
 ### Optional
 
-- **clone** (Block Set) If Clone is provided, this instance will created from cloning an existing instance (see [below for nested schema](#nestedblock--clone))
 - **env_prefix** (String) Environment prefix
 - **environment_code** (String) Environment code, which can be obtained via
 				hpegl_vmaas_environment.code
 - **evars** (Map of String) Environment Variables to be added to the provisioned instance.
 - **hostname** (String) Hostname for the instance
 - **id** (String) The ID of this resource.
+- **ip** (List of String) IP assigned to instance
 - **labels** (List of String) An array of strings used for labelling instance.
-- **port** (Block List) Provide port (see [below for nested schema](#nestedblock--port))
+- **port** (Block List) Provide port for the instance (see [below for nested schema](#nestedblock--port))
 - **power** (String) Power operation for an instance. Power attribute can be
 				use to update power state of an existing instance. Allowed power operations are
-				'poweroff','poweron','restart' and 'suspend'. Upon creating an instance only 'poweron' operation is allowed.
+				'poweroff', 'poweron' and 'suspend'. Upon creating an instance only 'poweron' operation is allowed.
 - **power_schedule_id** (Number) Scheduled power operations
+- **restart_instance** (Number) Restarts the instance if set to any positive integer.
+				Restart works only on pre-created instance.
 - **scale** (Number) Number of nodes within an instance.
+- **snapshot** (Block Set, Max: 1) Snapshot details to be created. Snapshot name and description
+				 should be unique. Any change in those will results into creation of new snapshot,
+				 with preserving previous snapshot(s). (see [below for nested schema](#nestedblock--snapshot))
 - **tags** (Map of String) A list of key and value pairs used to tag instances of similar type.
+- **timeouts** (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only
 
@@ -265,25 +217,18 @@ Optional:
 
 Required:
 
-- **datastore_id** (String) Unique ID to identify a datastore.
+- **datastore_id** (String) Datastore ID can be obtained from hpegl_vmaas_datastore
+							data source. Please provide 'auto' as value to select datastore as auto.
 - **name** (String) Unique name for the volume.
 - **size** (Number) Size of the volume in GB.
 
 Optional:
 
-- **root** (Boolean) If true then the given volume as considered as root volume.
+- **root** (Boolean) true if volume is root
 
 Read-Only:
 
 - **id** (Number) ID for the volume
-
-
-<a id="nestedblock--clone"></a>
-### Nested Schema for `clone`
-
-Required:
-
-- **source_instance_id** (String) Instance ID of the source.
 
 
 <a id="nestedblock--port"></a>
@@ -292,6 +237,30 @@ Required:
 Required:
 
 - **lb** (String) Load balancing configuration for ports.
-							 Supported values are "No LB", "HTTP", "HTTPS", "TCP"
+					 Supported values are "No LB", "HTTP", "HTTPS", "TCP"
 - **name** (String) Name of the port
 - **port** (String) Port value in string
+
+
+<a id="nestedblock--snapshot"></a>
+### Nested Schema for `snapshot`
+
+Required:
+
+- **name** (String) Name of the snapshot.
+
+Optional:
+
+- **description** (String) Description of the snapshot
+- **id** (Number) ID of the snapshot.
+- **is_snapshot_exists** (Boolean) Flag which will be set to be true if the snapshot with the name
+							exists.
+
+
+<a id="nestedblock--timeouts"></a>
+### Nested Schema for `timeouts`
+
+Optional:
+
+- **create** (String)
+- **delete** (String)
