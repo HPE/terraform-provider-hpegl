@@ -21,7 +21,7 @@ the provider:
 export HPEGL_TENANT_ID=< tenant-id >
 export HPEGL_USER_ID=< service client id >
 export HPEGL_USER_SECRET=< service client secret >
-export HPEGL_IAM_SERVICE_URL=< GL iam service url, defaults to https://client.greenlake.hpe.com/api/iam >
+export HPEGL_IAM_SERVICE_URL=< the "issuer" URL for the service client  >
 ```
 
 
@@ -54,6 +54,7 @@ provider "hpegl" {
 
 ### Optional
 
+- **api_vended_service_client** (Boolean)
 - **iam_service_url** (String) The IAM service URL to be used to generate tokens, defaults to production GLC,
 				can be set by HPEGL_IAM_SERVICE_URL env-var
 - **tenant_id** (String) The tenant-id to be used, can be set by HPEGL_TENANT_ID env-var

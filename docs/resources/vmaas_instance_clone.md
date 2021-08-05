@@ -81,11 +81,10 @@ Optional:
 Optional:
 
 - **asset_tag** (String) Asset tag
-- **create_user** (Boolean) If true new user will be created
+- **folder_code** (String) Folder in which all VMs to be spawned, use hpegl_vmaas_folder.code datasource
 - **no_agent** (Boolean) If true agent will not be installed on the instance.
 - **resource_pool_id** (Number) Unique ID to identify a resource pool.
 - **template_id** (Number) Unique ID for the template
-- **vm_folder** (String) Folder name where will be stored.
 
 
 <a id="nestedblock--snapshot"></a>

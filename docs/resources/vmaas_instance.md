@@ -97,7 +97,7 @@ resource "hpegl_vmaas_instance" "tf_instance" {
   }
 
   volume {
-    name         = "Local_vol"
+    name         = "local_vol"
     size         = 5
     datastore_id = data.hpegl_vmaas_datastore.c_3par.id
   }
@@ -106,20 +106,20 @@ resource "hpegl_vmaas_instance" "tf_instance" {
   tags = {
     key  = "value"
     name = "data"
-    some = "fdsfs"
+    some = "random"
   }
 
   config {
     resource_pool_id = data.hpegl_vmaas_resource_pool.cl_resource_pool.id
     template_id      = data.hpegl_vmaas_template.vanilla.id
     no_agent         = true
-    create_user      = true
     asset_tag        = "vm_tag"
+    folder_code      = data.hpegl_vmaas_cloud_folder.compute_folder.code
   }
-  hostname = "hpegl_tf_host"
+  hostname = "tf_host_1"
   scale    = 2
   evars = {
-    proxy = "http://some:proxy"
+    proxy = "http://address:port"
   }
   env_prefix        = "tf_test"
   power_schedule_id = data.hpegl_vmaas_power_schedule.weekday.id
@@ -135,6 +135,12 @@ resource "hpegl_vmaas_instance" "tf_instance" {
   # Restarts the instance if set to any positive integer.
   # Restart works only on pre-created instance.`,
   restart_instance = 1
+  # any update in snapshot will end up to creating new snapshot and existing
+  # snapshot will be still in backend.
+  snapshot {
+    name        = "test_snapshot_1"
+    description = "test snapshot description is optional"
+  }
 }
 ```
 
@@ -194,10 +200,9 @@ Required:
 Optional:
 
 - **asset_tag** (String) Asset tag
-- **create_user** (Boolean) If true new user will be created
+- **folder_code** (String) Folder in which all VMs to be spawned, use hpegl_vmaas_folder.code datasource
 - **no_agent** (Boolean) If true agent will not be installed on the instance.
 - **template_id** (Number) Unique ID for the template
-- **vm_folder** (String) Folder name where will be stored.
 
 
 <a id="nestedblock--network"></a>
