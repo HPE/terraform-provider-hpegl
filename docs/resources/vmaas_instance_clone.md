@@ -105,7 +105,7 @@ resource "hpegl_vmaas_instance_clone" "tf_instance_clone" {
 ### Required
 
 - **name** (String) Name of the instance to be provisioned.
-- **network** (Block List, Min: 1) Details of the network to which the instance should belong. (see [below for nested schema](#nestedblock--network))
+- **network** (Block List, Min: 1, Max: 5) Details of the network to which the instance should belong. (see [below for nested schema](#nestedblock--network))
 - **source_instance_id** (Number) Instance ID of the source instance. For getting source instance ID
 		use 'hpeg_vmaas_instance' resource.
 
@@ -121,7 +121,6 @@ resource "hpegl_vmaas_instance_clone" "tf_instance_clone" {
 - **hostname** (String) Hostname for the instance
 - **id** (String) The ID of this resource.
 - **instance_type_code** (String) Unique code used to identify the instance type.
-- **ip** (List of String) IP assigned to instance
 - **labels** (List of String) An array of strings used for labelling instance.
 - **layout_id** (Number) Unique ID to identify a layout.
 - **plan_id** (Number) Unique ID to identify a plan.
@@ -142,6 +141,9 @@ resource "hpegl_vmaas_instance_clone" "tf_instance_clone" {
 
 ### Read-Only
 
+- **containers** (List of Object) Containers details for the instance which contains ip addresses, hostname and other stats (see [below for nested schema](#nestedatt--containers))
+- **history** (List of Object) History details for the instance (see [below for nested schema](#nestedatt--history))
+- **server_id** (Number) Unique ID to identify a server.
 - **status** (String) Status of the instance.
 
 <a id="nestedblock--network"></a>
@@ -154,6 +156,12 @@ Required:
 Optional:
 
 - **interface_id** (Number) Unique ID to identify a network interface type.
+- **name** (String) name of the interface
+
+Read-Only:
+
+- **internal_id** (Number) Unique ID to identify a network intternal ID.
+- **is_primary** (Boolean) Flag to identify given network is primary or not. Primary network cannot be updated or deleted.
 
 
 <a id="nestedblock--config"></a>
@@ -209,3 +217,122 @@ Optional:
 Read-Only:
 
 - **id** (Number) ID for the volume
+
+
+<a id="nestedatt--containers"></a>
+### Nested Schema for `containers`
+
+Read-Only:
+
+- **container_type** (Set of Object) (see [below for nested schema](#nestedobjatt--containers--container_type))
+- **external_fqdn** (String)
+- **hostname** (String)
+- **id** (Number)
+- **ip** (String)
+- **max_cores** (Number)
+- **max_memory** (Number)
+- **max_storage** (Number)
+- **name** (String)
+- **server** (Set of Object) (see [below for nested schema](#nestedobjatt--containers--server))
+
+<a id="nestedobjatt--containers--container_type"></a>
+### Nested Schema for `containers.container_type`
+
+Read-Only:
+
+- **name** (String)
+
+
+<a id="nestedobjatt--containers--server"></a>
+### Nested Schema for `containers.server`
+
+Read-Only:
+
+- **compute_server_type** (Set of Object) (see [below for nested schema](#nestedobjatt--containers--server--compute_server_type))
+- **date_created** (String)
+- **id** (Number)
+- **last_updated** (String)
+- **owner** (Set of Object) (see [below for nested schema](#nestedobjatt--containers--server--owner))
+- **platform** (String)
+- **platform_version** (String)
+- **server_os** (Set of Object) (see [below for nested schema](#nestedobjatt--containers--server--server_os))
+- **ssh_host** (String)
+- **ssh_port** (Number)
+- **visibility** (String)
+
+<a id="nestedobjatt--containers--server--compute_server_type"></a>
+### Nested Schema for `containers.server.compute_server_type`
+
+Read-Only:
+
+- **external_delete** (Boolean)
+- **managed** (Boolean)
+- **name** (String)
+
+
+<a id="nestedobjatt--containers--server--owner"></a>
+### Nested Schema for `containers.server.owner`
+
+Read-Only:
+
+- **username** (String)
+
+
+<a id="nestedobjatt--containers--server--server_os"></a>
+### Nested Schema for `containers.server.server_os`
+
+Read-Only:
+
+- **name** (String)
+
+
+
+
+<a id="nestedatt--history"></a>
+### Nested Schema for `history`
+
+Read-Only:
+
+- **account_id** (Number)
+- **created_by** (Set of Object) (see [below for nested schema](#nestedobjatt--history--created_by))
+- **date_created** (String)
+- **display_name** (String)
+- **duration** (Number)
+- **end_date** (String)
+- **id** (Number)
+- **instance_id** (Number)
+- **last_updated** (String)
+- **percent** (Number)
+- **process_type** (Set of Object) (see [below for nested schema](#nestedobjatt--history--process_type))
+- **reason** (String)
+- **start_date** (String)
+- **status** (String)
+- **status_eta** (Number)
+- **unique_id** (String)
+- **updated_by** (Set of Object) (see [below for nested schema](#nestedobjatt--history--updated_by))
+
+<a id="nestedobjatt--history--created_by"></a>
+### Nested Schema for `history.created_by`
+
+Read-Only:
+
+- **display_name** (String)
+- **username** (String)
+
+
+<a id="nestedobjatt--history--process_type"></a>
+### Nested Schema for `history.process_type`
+
+Read-Only:
+
+- **code** (String)
+- **name** (String)
+
+
+<a id="nestedobjatt--history--updated_by"></a>
+### Nested Schema for `history.updated_by`
+
+Read-Only:
+
+- **display_name** (String)
+- **username** (String)
