@@ -36,13 +36,5 @@ data "hpegl_vmaas_datastore" "c_3par" {
 ### Optional
 
 - **id** (String) The ID of this resource.
-- **timeouts** (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
-
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
-
-Optional:
-
-- **read** (String)
 
 

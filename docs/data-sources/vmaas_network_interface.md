@@ -36,17 +36,9 @@ data "hpegl_vmaas_network_interface" "e1000" {
 ### Optional
 
 - **id** (String) The ID of this resource.
-- **timeouts** (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only
 
 - **code** (String) code corresponding to the network interface type
-
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
-
-Optional:
-
-- **read** (String)
 
 

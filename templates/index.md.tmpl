@@ -1,0 +1,32 @@
+---
+layout: ""
+page_title: "{{.ProviderShortName}} Provider"
+subcategory: ""
+description: |-
+  This is the hpegl (HPE GreenLake) terraform provider
+---
+
+# {{.ProviderShortName}} Provider
+
+This is the hpegl (HPE GreenLake) terraform provider for use in managing HPE GreenLake
+services.  The VMaaS service is currently supported.
+
+Note that a service-client must be used with this provider.  For information on how to
+create a service-client see [here]().
+
+The following env-vars can be used to supply service-client creds and related information to
+the provider:
+
+```bash
+export HPEGL_TENANT_ID=< tenant-id >
+export HPEGL_USER_ID=< service client id >
+export HPEGL_USER_SECRET=< service client secret >
+export HPEGL_IAM_SERVICE_URL=< the "issuer" URL for the service client  >
+```
+
+
+## Example Usage
+
+{{ tffile "examples/provider/provider.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

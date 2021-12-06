@@ -1,14 +1,14 @@
-#terraform-provider-hpegl
+- [terraform-provider-hpegl](#terraform-provider-hpegl)
+  * [Introduction](#introduction)
+  * [Provider Installation Prerequisites](#prerequisites)
+  * [Provider Installation](#provider-installation)
+  * [Quick guide to create GreenLake Private Cloud Instance:](#quick-guide-to-create-greenlake-private-cloud-instance)
+
+# terraform-provider-hpegl
 
 ## Introduction
 
 This is the main repo for the GreenLake terraform provider which provides terraform support fot GreenLake services.
-
-We're currently in the process of open sourcing all the code, meanwhile, this repository holds the following:
-
-1. HPEGL release binaries,
-1. HPEGL provider [documentation](docs/)
-1. A set of scripts to automate the provider installation.
 
 ## Prerequisites
 
@@ -20,29 +20,29 @@ We're currently in the process of open sourcing all the code, meanwhile, this re
 
 ### Linux
 
-Use the script `tools/install-hpegl-provider.sh` to automatically download and install hpegl provider:
+Use the script `scripts/install-hpegl-provider.sh` to automatically download and install hpegl provider:
 
 ```shell
-bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/tools/install-hpegl-provider.sh)
+bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/scripts/install-hpegl-provider.sh)
 ```
 
 The above will install the latest available release. To install a specific release:
 
 ```shell
-VERSION=v0.0.5 bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/tools/install-hpegl-provider.sh)
+VERSION=v0.0.5 bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/scripts/install-hpegl-provider.sh)
 ```
 
 ### Windows
 
-Use the script `tools/install-hpegl-provider-windows.ps1` to automatically download and install hpegl provider:
+Use the script `scripts/install-hpegl-provider-windows.ps1` to automatically download and install hpegl provider:
 
 ```shell
-. { iwr -useb https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/tools/install-hpegl-provider-windows.ps1 } | iex ;
+. { iwr -useb https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/scripts/install-hpegl-provider-windows.ps1 } | iex ;
 ```
 The above will install the latest available release. To install a specific release:
 
 ```shell
-iex "& { $(irm https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/tools/install-hpegl-provider-windows.ps1) } -VERSION v0.0.1"
+iex "& { $(irm https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/scripts/install-hpegl-provider-windows.ps1) } -VERSION v0.0.1"
 ```
 
 
@@ -52,16 +52,16 @@ Before using the install script, install GNU grep via homebrew with `brew instal
 
 **Please note: Running a terminal on Apple Silicon through Rosetta will return the wrong architecture for the machine, installing amd64 rather than arm64**
 
-Use the script `tools/install-hpegl-provider-macos.sh` to automatically download and install hpegl provider:
+Use the script `scripts/install-hpegl-provider-macos.sh` to automatically download and install hpegl provider:
 
 ```shell
-bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/tools/install-hpegl-provider-macos.sh)
+bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/scripts/install-hpegl-provider-macos.sh)
 ```
 
 The above will install the latest available release. To install a specific release:
 
 ```shell
-VERSION=v0.0.5 bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/tools/install-hpegl-provider-macos.sh)
+VERSION=v0.0.5 bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/scripts/install-hpegl-provider-macos.sh)
 ```
 
 ### Other OS and Manual steps
@@ -88,6 +88,7 @@ VERSION=v0.0.5 bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/
 ```shell
 ${HOME}/.local/share/terraform/plugins/registry.terraform.io/hewlettpackard/hpegl/0.1.0-alpha2/
 ```
+
 
 ## Quick guide to create GreenLake Private Cloud Instance:
 

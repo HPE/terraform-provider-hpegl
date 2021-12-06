@@ -1,1 +1,12 @@
 .idea/
+vendor/
+bin/
+env.sh
+terraform-provider-hpegl
+build/
+env.sh
+*.tfstate*
+.gltform*
+.terraform/
+.terraform.lock*
+.vscode

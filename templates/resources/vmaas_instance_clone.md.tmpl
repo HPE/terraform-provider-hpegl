@@ -1,0 +1,36 @@
+---
+layout: ""
+page_title: "hpegl_vmaas_instance_clone Resource - vmaas-terraform-resources-clone"
+description: |-
+  {{ .Description | plainmarkdown | trimspace | prefixlines "  " }}
+---
+
+-> Compatible version >= 5.2.4
+
+# Resource hpegl_vmaas_instance_clone
+
+{{ .Description | trimspace }}
+
+
+Create instance by cloning from an existing instance.
+
+-> While cloning only source_instance_id, name and network is required. All other attributes are optional.
+    if not provided, those attributes will inherits from source instance.
+
+
+Cloned instance can have all the possible attributes (same as `hpegl_vmaas_instance`) apart `port`.
+
+## Example usage for creating cloned instance with minimal attributes.
+
+{{tffile "examples/resources/hpegl_vmaas_instance_clone/minimal.tf"}}
+
+-> On cloning an instance parent volume will be appended with child volume. If same parent's
+  volume name used in cloned instance, then the volume will be reused.
+
+
+## Example usage for creating cloned instance with all available attributes.
+
+{{tffile "examples/resources/hpegl_vmaas_instance_clone/all_options.tf"}}
+
+
+{{ .SchemaMarkdown | trimspace }}

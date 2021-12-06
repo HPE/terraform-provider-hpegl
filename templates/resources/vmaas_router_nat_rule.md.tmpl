@@ -1,0 +1,24 @@
+---
+layout: ""
+page_title: "hpegl_vmaas_router_nat_rule Resource - vmaas-terraform-resources"
+description: |-
+  {{ .Description | plainmarkdown | trimspace | prefixlines "  " }}
+---
+
+-> Compatible version >= 5.2.10
+
+# Resource hpegl_vmaas_router_nat_rule
+
+{{ .Description | trimspace }}
+`hpegl_vmaas_router_nat_rule` resource supports NSX-T network router NAT rule creation.
+
+For creating an NSX-T network router NAT rule, please refer following examples.
+
+## Example usage for creating NSX-T Network router NAT rule with all possible attributes
+
+{{tffile "examples/resources/hpegl_vmaas_router_nat_rule/resource.tf"}}
+
+-> `destination_network` should be set when `action` is set to `DNAT`. Similarly `source_network`
+should be set when `action` is set to `SNAT`.
+
+{{ .SchemaMarkdown | trimspace }}
