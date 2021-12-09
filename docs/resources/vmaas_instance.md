@@ -6,8 +6,6 @@ description: |-
           updating and deleting virtual machines. It is recommend to use the Vmware type for provisioning.
 ---
 
--> Compatible version >= 5.2.4
-
 # Resource hpegl_vmaas_instance
 
 Instance resource facilitates creating,
@@ -185,6 +183,7 @@ resource "hpegl_vmaas_instance" "tf_instance" {
 				 should be unique. Any change in those will results into creation of new snapshot,
 				 with preserving previous snapshot(s). (see [below for nested schema](#nestedblock--snapshot))
 - **tags** (Map of String) A list of key and value pairs used to tag instances of similar type.
+- **timeouts** (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only
 
@@ -269,6 +268,15 @@ Optional:
 - **id** (Number) ID of the snapshot.
 - **is_snapshot_exists** (Boolean) Flag which will be set to be true if the snapshot with the name
 							exists.
+
+
+<a id="nestedblock--timeouts"></a>
+### Nested Schema for `timeouts`
+
+Optional:
+
+- **create** (String)
+- **delete** (String)
 
 
 <a id="nestedatt--containers"></a>
