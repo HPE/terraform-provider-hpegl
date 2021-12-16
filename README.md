@@ -1,7 +1,5 @@
 - [terraform-provider-hpegl](#terraform-provider-hpegl)
   * [Introduction](#introduction)
-  * [Provider Installation Prerequisites](#prerequisites)
-  * [Provider Installation](#provider-installation)
   * [Quick guide to create GreenLake Private Cloud Instance:](#quick-guide-to-create-greenlake-private-cloud-instance)
 
 # terraform-provider-hpegl
@@ -16,80 +14,6 @@ This is the main repo for the GreenLake terraform provider which provides terraf
 1. A Service Client to authenticate against GreenLake.
 1. Terraform basics. [Terraform Introduction](https://www.terraform.io/intro/index.html)
 
-## Provider Installation
-
-### Linux
-
-Use the script `scripts/install-hpegl-provider.sh` to automatically download and install hpegl provider:
-
-```shell
-bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/scripts/install-hpegl-provider.sh)
-```
-
-The above will install the latest available release. To install a specific release:
-
-```shell
-VERSION=v0.0.5 bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/scripts/install-hpegl-provider.sh)
-```
-
-### Windows
-
-Use the script `scripts/install-hpegl-provider-windows.ps1` to automatically download and install hpegl provider:
-
-```shell
-. { iwr -useb https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/scripts/install-hpegl-provider-windows.ps1 } | iex ;
-```
-The above will install the latest available release. To install a specific release:
-
-```shell
-iex "& { $(irm https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/scripts/install-hpegl-provider-windows.ps1) } -VERSION v0.0.1"
-```
-
-
-### MacOS
-
-Before using the install script, install GNU grep via homebrew with `brew install grep`
-
-**Please note: Running a terminal on Apple Silicon through Rosetta will return the wrong architecture for the machine, installing amd64 rather than arm64**
-
-Use the script `scripts/install-hpegl-provider-macos.sh` to automatically download and install hpegl provider:
-
-```shell
-bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/scripts/install-hpegl-provider-macos.sh)
-```
-
-The above will install the latest available release. To install a specific release:
-
-```shell
-VERSION=v0.0.5 bash <(curl -sL https://raw.githubusercontent.com/HewlettPackard/terraform-provider-hpegl/main/scripts/install-hpegl-provider-macos.sh)
-```
-
-### Other OS and Manual steps
-
-1. [Download](https://github.com/HewlettPackard/terraform-provider-hpegl/releases) the appropriate provider build to your operating system and architecture.
-1. Extract the provider file to:
-    - Linux
-      ```shell
-      ${HOME}/.local/share/terraform/plugins/registry.terraform.io/hewlettpackard/hpegl/<version>/
-      ```
-    - Mac
-      ```shell
-      ${HOME}/.terraform.d/plugins/registry.terraform.io/hewlettpackard/hpegl/<version>/
-      ```
-    - Windows
-      ```
-      $env:appdata\terraform.d\plugins\registry.terraform.io\hewlettpackard\hpegl\<version>\
-      ```
-    - Other: Consult Terraform documentation for your OS.
-
-
-*NOTE*: `version` is the provider version without `v` prefix. For example in Linux:
-
-```shell
-${HOME}/.local/share/terraform/plugins/registry.terraform.io/hewlettpackard/hpegl/0.1.0-alpha2/
-```
-
-
 ## Quick guide to create GreenLake Private Cloud Instance:
 
 1. Make sure you have the correct Terraform version installed; It must be v0.13 or later:
@@ -100,13 +24,13 @@ ${HOME}/.local/share/terraform/plugins/registry.terraform.io/hewlettpackard/hpeg
    > on linux_amd64
    ```
    
-1. Create a Terraform file in your working directory. For more information please consult the [documentation](docs/):
+1. Create a Terraform file in your working directory, and reference the desired provider version from the terraform [registry](https://registry.terraform.io/providers/HewlettPackard/hpegl/latest). For more information please consult the [documentation](docs/):
    ```terraform
       terraform {
          required_providers {
             hpegl = {
-               source  = "registry.terraform.io/hewlettpackard/hpegl"
-               version = "0.1.0-alpha2"
+               source  = "hewlettpackard/hpegl"
+               version = ">= 0.1.0-beta5"
             }
          }
       }
