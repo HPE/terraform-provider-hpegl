@@ -22,8 +22,8 @@ const providerStanza = `
 	provider hpegl {
 		vmaas {
 			allow_insecure = true
-			space_name = "` + constants.AccSpace + `"
-			location = "` + constants.AccLocation + `"
+			space_name = "` + constants.SPACENAME + `"
+			location = "` + constants.LOCATION + `"
 		}
 	}
 
@@ -74,11 +74,11 @@ func getAPIClient() (*api_client.APIClient, api_client.Configuration) {
 	headers["subject"] = os.Getenv("CMP_SUBJECT")
 
 	cfg := api_client.Configuration{
-		Host:          constants.AccServiceURL,
+		Host:          constants.ServiceURL,
 		DefaultHeader: headers,
 		DefaultQueryParams: map[string]string{
-			constants.SpaceKey:    constants.AccSpace,
-			constants.LocationKey: constants.AccLocation,
+			constants.SpaceKey:    constants.SPACENAME,
+			constants.LocationKey: constants.LOCATION,
 		},
 	}
 	apiClient := api_client.NewAPIClient(&cfg)

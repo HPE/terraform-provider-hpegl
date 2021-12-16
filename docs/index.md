@@ -12,7 +12,7 @@ This is the hpegl (HPE GreenLake) terraform provider for use in managing HPE Gre
 services.  The VMaaS service is currently supported.
 
 Note that a service-client must be used with this provider.  For information on how to
-create a service-client see [here]().
+create a service-client see [here](http://www.hpe.com/info/greenlakecentral-create-api-client).
 
 The following env-vars can be used to supply service-client creds and related information to
 the provider:
