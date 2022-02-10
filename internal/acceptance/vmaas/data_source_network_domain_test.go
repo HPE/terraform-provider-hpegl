@@ -9,21 +9,20 @@ import (
 	"github.com/HewlettPackard/hpegl-vmaas-terraform-resources/pkg/atf"
 )
 
-func TestAccDataSourceResourcePool(t *testing.T) {
+func TestAccDataSourceNetworkDomain(t *testing.T) {
 	acc := &atf.Acc{
 		PreCheck:     testAccPreCheck,
 		Providers:    testAccProviders,
-		ResourceName: "hpegl_vmaas_resource_pool",
+		ResourceName: "hpegl_vmaas_network_domain",
 		GetAPI: func(attr map[string]string) (interface{}, error) {
 			cl, cfg := getAPIClient()
-			iClient := api_client.CloudsAPIService{
+			iClient := api_client.DomainAPIService{
 				Client: cl,
 				Cfg:    cfg,
 			}
 			id := toInt(attr["id"])
-			cloudID := toInt(attr["cloud_id"])
 
-			return iClient.GetSpecificCloudResourcePool(getAccContext(), cloudID, id)
+			return iClient.GetSpecificDomain(getAccContext(), id)
 		},
 	}
 

@@ -1,0 +1,10 @@
+vars:
+  instance_name: tf_clone_%rand_int
+acc:
+- config: |
+    name = "$(instance_name)"
+    source_instance_id = 59300
+    network {
+      id           = 267
+      interface_id = 0
+    }

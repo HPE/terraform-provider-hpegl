@@ -2,17 +2,15 @@ name: GitHub Actions CI
 
 on: [push, pull_request]
 jobs:
-  ci:
+  lint:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        go: [ '1.17', '1.16', '1.15', '1.14', '1.13' ]
-    name: Go ${{ matrix.go }} CI test
+        go: [ '1.17' ]
+    name: Linting
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-go@v2
         with:
           go-version: ${{ matrix.go }}
-      - run: go version
-      - run: make build
-      - run: make test
+      - run: make lint

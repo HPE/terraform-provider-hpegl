@@ -3,35 +3,28 @@
 package acceptancetest
 
 import (
-	"fmt"
 	"testing"
 
-	"github.com/spf13/viper"
-
-	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
+	api_client "github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk/pkg/client"
+	"github.com/HewlettPackard/hpegl-vmaas-terraform-resources/pkg/atf"
 )
 
 func TestAccDataSourceGroup(t *testing.T) {
-	resource.ParallelTest(t, resource.TestCase{
-		IsUnitTest: false,
-		PreCheck:   func() { testAccPreCheck(t) },
-		Providers:  testAccProviders,
-		Steps: []resource.TestStep{
-			{
-				Config: testAccDataSourceGroupConfig(),
-				Check: resource.ComposeTestCheckFunc(
-					validateDataSourceID("data.hpegl_vmaas_group.group"),
-				),
-			},
-		},
-	})
-}
+	acc := &atf.Acc{
+		PreCheck:     testAccPreCheck,
+		Providers:    testAccProviders,
+		ResourceName: "hpegl_vmaas_group",
+		GetAPI: func(attr map[string]string) (interface{}, error) {
+			cl, cfg := getAPIClient()
+			iClient := api_client.GroupsAPIService{
+				Client: cl,
+				Cfg:    cfg,
+			}
+			id := toInt(attr["id"])
 
-func testAccDataSourceGroupConfig() string {
-	return fmt.Sprintf(`%s
-data "hpegl_vmaas_group" "group" {
-	name = "%s"
-}
-`, providerStanza,
-		viper.GetString("vmaas.datasource.group.name"))
+			return iClient.GetASpecificGroup(getAccContext(), id)
+		},
+	}
+
+	acc.RunDataSourceTests(t)
 }

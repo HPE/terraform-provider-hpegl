@@ -3,37 +3,39 @@
 package acceptancetest
 
 import (
-	"fmt"
 	"testing"
 
-	"github.com/spf13/viper"
-
-	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
+	api_client "github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk/pkg/client"
+	"github.com/HewlettPackard/hpegl-vmaas-terraform-resources/pkg/atf"
 )
 
 func TestAccDataSourceNetworkInterface(t *testing.T) {
-	resource.ParallelTest(t, resource.TestCase{
-		IsUnitTest: false,
-		PreCheck:   func() { testAccPreCheck(t) },
-		Providers:  testAccProviders,
-		Steps: []resource.TestStep{
-			{
-				Config: testAccDataSourceNetworkInterfaceConfig(),
-				Check: resource.ComposeTestCheckFunc(
-					validateDataSourceID("data.hpegl_vmaas_network_interface.primary"),
-				),
-			},
-		},
-	})
-}
+	acc := &atf.Acc{
+		PreCheck:     testAccPreCheck,
+		Providers:    testAccProviders,
+		ResourceName: "hpegl_vmaas_network_interface",
+		GetAPI: func(attr map[string]string) (interface{}, error) {
+			cl, cfg := getAPIClient()
+			iClient := api_client.CloudsAPIService{
+				Client: cl,
+				Cfg:    cfg,
+			}
 
-func testAccDataSourceNetworkInterfaceConfig() string {
-	return fmt.Sprintf(`%s
-data "hpegl_vmaas_network_interface" "primary"{
-	name = "%s"
-	cloud_id = %d
-  }
-`, providerStanza,
-		viper.GetString("vmaas.datasource.network_interface.name"),
-		viper.GetInt("vmaas.datasource.network_interface.cloud_id"))
+			cloudID := toInt(attr["cloud_id"])
+			pClient := api_client.ProvisioningAPIService{
+				Client: cl,
+				Cfg:    cfg,
+			}
+			provision, err := pClient.GetAllProvisioningTypes(getAccContext(), map[string]string{
+				"name": "vmware",
+			})
+			if err != nil {
+				return nil, err
+			}
+
+			return iClient.GetAllCloudNetworks(getAccContext(), cloudID, provision.ProvisionTypes[0].ID)
+		},
+	}
+
+	acc.RunDataSourceTests(t)
 }

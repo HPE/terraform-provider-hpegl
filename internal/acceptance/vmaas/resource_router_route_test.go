@@ -9,23 +9,32 @@ import (
 	"github.com/HewlettPackard/hpegl-vmaas-terraform-resources/pkg/atf"
 )
 
-func TestAccDataSourceResourcePool(t *testing.T) {
+func TestVmaasRouterRoutePlan(t *testing.T) {
 	acc := &atf.Acc{
 		PreCheck:     testAccPreCheck,
 		Providers:    testAccProviders,
-		ResourceName: "hpegl_vmaas_resource_pool",
+		ResourceName: "hpegl_vmaas_router_route",
+	}
+	acc.RunResourcePlanTest(t)
+}
+
+func TestAccResourceRouterRouteCreate(t *testing.T) {
+	acc := &atf.Acc{
+		ResourceName: "hpegl_vmaas_router_route",
+		PreCheck:     testAccPreCheck,
+		Providers:    testAccProviders,
 		GetAPI: func(attr map[string]string) (interface{}, error) {
 			cl, cfg := getAPIClient()
-			iClient := api_client.CloudsAPIService{
+			iClient := api_client.RouterAPIService{
 				Client: cl,
 				Cfg:    cfg,
 			}
 			id := toInt(attr["id"])
-			cloudID := toInt(attr["cloud_id"])
+			routerID := toInt(attr["router_id"])
 
-			return iClient.GetSpecificCloudResourcePool(getAccContext(), cloudID, id)
+			return iClient.GetSpecificRouterRoute(getAccContext(), routerID, id)
 		},
 	}
 
-	acc.RunDataSourceTests(t)
+	acc.RunResourceTests(t)
 }

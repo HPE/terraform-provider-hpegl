@@ -1,0 +1,4 @@
+acc:
+- config: |
+    name               = "Vmware VM"
+    instance_type_code = "vmware"

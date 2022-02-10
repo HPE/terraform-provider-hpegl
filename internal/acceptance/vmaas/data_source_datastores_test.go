@@ -3,38 +3,29 @@
 package acceptancetest
 
 import (
-	"fmt"
 	"testing"
 
-	"github.com/spf13/viper"
-
-	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
+	api_client "github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk/pkg/client"
+	"github.com/HewlettPackard/hpegl-vmaas-terraform-resources/pkg/atf"
 )
 
 func TestAccDataSourceDataStore(t *testing.T) {
-	resource.ParallelTest(t, resource.TestCase{
-		IsUnitTest: false,
-		PreCheck:   func() { testAccPreCheck(t) },
-		Providers:  testAccProviders,
-		Steps: []resource.TestStep{
-			{
-				Config: testAccDataSourceDataStoreConfig(),
-				Check: resource.ComposeTestCheckFunc(
-					validateDataSourceID("data.hpegl_vmaas_datastore.storage"),
-				),
-			},
-		},
-	})
-}
+	acc := &atf.Acc{
+		PreCheck:     testAccPreCheck,
+		Providers:    testAccProviders,
+		ResourceName: "hpegl_vmaas_datastore",
+		GetAPI: func(attr map[string]string) (interface{}, error) {
+			cl, cfg := getAPIClient()
+			iClient := api_client.CloudsAPIService{
+				Client: cl,
+				Cfg:    cfg,
+			}
+			id := toInt(attr["id"])
+			cloudID := toInt(attr["cloud_id"])
 
-func testAccDataSourceDataStoreConfig() string {
-	return fmt.Sprintf(`%s
-	data "hpegl_vmaas_datastore" "storage" {
-		cloud_id = %d
-		name = "%s"
+			return iClient.GetSpecificCloudDataStores(getAccContext(), cloudID, id)
+		},
 	}
-	`,
-		providerStanza,
-		viper.GetInt("vmaas.datasource.datastore.cloud_id"),
-		viper.GetString("vmaas.datasource.datastore.name"))
+
+	acc.RunDataSourceTests(t)
 }

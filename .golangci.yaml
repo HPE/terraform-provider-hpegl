@@ -37,6 +37,7 @@ linters:
     - forbidigo
     - testpackage
     - nolintlint
+    - varnamelen
     # Temporarily disabling paralleltest
     - paralleltest
     #Temporarily disabling wrapcheck

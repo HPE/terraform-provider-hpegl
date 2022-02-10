@@ -1,124 +1,82 @@
 // (C) Copyright 2021 Hewlett Packard Enterprise Development LP
 
-//nolint:gosec
 package acceptancetest
 
 import (
-	"fmt"
-	"math/rand"
+	"context"
+	"log"
 	"os"
 	"strconv"
-	"time"
-
-	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
-	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/spf13/viper"
 
 	api_client "github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk/pkg/client"
 	"github.com/HewlettPackard/hpegl-vmaas-terraform-resources/pkg/constants"
+	"github.com/HewlettPackard/hpegl-vmaas-terraform-resources/pkg/utils"
+	"github.com/hewlettpackard/hpegl-provider-lib/pkg/token/retrieve"
+	"github.com/hewlettpackard/hpegl-provider-lib/pkg/token/serviceclient"
 )
 
-const providerStanza = `
-	provider hpegl {
-		vmaas {
-			allow_insecure = true
-			space_name = "` + constants.SPACENAME + `"
-			location = "` + constants.LOCATION + `"
-		}
-	}
-
-`
-
-type validators func(*terraform.ResourceState) error
-
-func validateDataSourceID(name string) resource.TestCheckFunc {
-	return func(s *terraform.State) error {
-		rs, ok := s.RootModule().Resources[name]
-		if !ok {
-			return fmt.Errorf("data source %s not found", name)
-		}
-
-		id := rs.Primary.Attributes["id"]
-		if id == "" {
-			return fmt.Errorf("data source %s ID is not set", name)
-		}
-
-		return nil
-	}
-}
-
-func validateResource(name string, v ...validators) resource.TestCheckFunc {
-	return func(s *terraform.State) error {
-		rs, ok := s.RootModule().Resources[name]
-		if !ok {
-			return fmt.Errorf("resource %s not found", name)
-		}
-
-		id := rs.Primary.Attributes["id"]
-		if id == "" {
-			return fmt.Errorf("resource %s ID is not set", name)
-		}
-		for _, vs := range v {
-			if err := vs(rs); err != nil {
-				return fmt.Errorf("resource %s validation failed with error %w", name, err)
-			}
-		}
-
-		return nil
-	}
-}
-
 func getAPIClient() (*api_client.APIClient, api_client.Configuration) {
-	headers := make(map[string]string)
-	headers["Authorization"] = os.Getenv("HPEGL_IAM_TOKEN")
-	headers["subject"] = os.Getenv("CMP_SUBJECT")
+	var headers map[string]string
+	if utils.GetEnvBool("TF_ACC_MOCK_IAM") {
+		headers = make(map[string]string)
+		headers["Authorization"] = os.Getenv("HPEGL_IAM_TOKEN")
+		headers["subject"] = os.Getenv(constants.CmpSubjectKey)
+	}
 
 	cfg := api_client.Configuration{
-		Host:          constants.ServiceURL,
+		Host:          utils.GetServiceEndpoint(),
 		DefaultHeader: headers,
 		DefaultQueryParams: map[string]string{
-			constants.SpaceKey:    constants.SPACENAME,
-			constants.LocationKey: constants.LOCATION,
+			constants.LocationKey: os.Getenv("HPEGL_VMAAS_LOCATION"),
+			constants.SpaceKey:    os.Getenv("HPEGL_VMAAS_SPACE_NAME"),
 		},
 	}
+
 	apiClient := api_client.NewAPIClient(&cfg)
+	err := apiClient.SetMeta(nil, func(ctx *context.Context, meta interface{}) {
+		d := &utils.ResourceData{
+			Data: map[string]interface{}{
+				"iam_service_url":           os.Getenv("HPEGL_IAM_SERVICE_URL"),
+				"tenant_id":                 os.Getenv("HPEGL_TENANT_ID"),
+				"user_id":                   os.Getenv("HPEGL_USER_ID"),
+				"user_secret":               os.Getenv("HPEGL_USER_SECRET"),
+				"api_vended_service_client": true,
+				"iam_token":                 os.Getenv("HPEGL_IAM_TOKEN"),
+			},
+		}
+		if utils.GetEnvBool(constants.MockIAMKey) {
+			return
+		}
+
+		// Initialise token handler
+		h, err := serviceclient.NewHandler(d)
+		if err != nil {
+			log.Printf("[WARN] Unable to fetch token for SCM client: %s", err)
+		}
+
+		// Get token retrieve func and put in c
+		trf := retrieve.NewTokenRetrieveFunc(h)
+		token, err := trf(*ctx)
+		if err != nil {
+			log.Printf("[WARN] Unable to fetch token for SCM client: %s", err)
+		} else {
+			*ctx = context.WithValue(*ctx, api_client.ContextAccessToken, token)
+		}
+	})
+
+	if err != nil {
+		log.Printf("[WARN] Error: %s", err)
+	}
 
 	return apiClient, cfg
 }
 
-func getNetworkStanza() string {
-	networks := viper.Get("vmaas.resource.instance.network")
-	var networkStanza string
-	for i := range networks.([]interface{}) {
-		networkStanza = fmt.Sprintf(`%s
-		network {
-		  id = %d
-		  interface_id = %d
-		}`,
-			networkStanza,
-			viper.GetInt("vmaas.resource.instance.network."+strconv.Itoa(i)+".id"),
-			viper.GetInt("vmaas.resource.instance.network."+strconv.Itoa(i)+".interface_id"))
-	}
+func toInt(s string) int {
+	i, _ := strconv.Atoi(s)
 
-	return networkStanza
+	return i
 }
 
-func getVolumeStanza() string {
-	r := rand.New(rand.NewSource(time.Now().UnixNano()))
-	volumes := viper.Get("vmaas.resource.instance.volume")
-	var volumeStanza string
-	for i := range volumes.([]interface{}) {
-		volumeStanza = fmt.Sprintf(`%s
-		volume {
-			name         = "%s"
-			size         = %d
-			datastore_id = %s
-		}`,
-			volumeStanza,
-			viper.GetString("vmaas.resource.instance.volume."+strconv.Itoa(i)+".name"),
-			r.Intn(5)+5,
-			viper.GetString("vmaas.resource.instance.volume."+strconv.Itoa(i)+".datastore_id"))
-	}
-
-	return volumeStanza
+func getAccContext() context.Context {
+	return context.Background()
 }

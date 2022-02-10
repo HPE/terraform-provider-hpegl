@@ -9,50 +9,62 @@ import (
 	"github.com/HewlettPackard/hpegl-vmaas-terraform-resources/pkg/atf"
 )
 
-func TestVmaasInstancePlan(t *testing.T) {
+func TestVmaasRouterTier0Plan(t *testing.T) {
 	acc := &atf.Acc{
 		PreCheck:     testAccPreCheck,
 		Providers:    testAccProviders,
-		ResourceName: "hpegl_vmaas_instance",
+		Version:      "tier0",
+		ResourceName: "hpegl_vmaas_router",
 	}
 	acc.RunResourcePlanTest(t)
 }
 
-func TestAccResourceInstanceCreate(t *testing.T) {
+func TestAccResourceTier0RouterCreate(t *testing.T) {
 	acc := &atf.Acc{
-		ResourceName: "hpegl_vmaas_instance",
+		ResourceName: "hpegl_vmaas_router",
 		PreCheck:     testAccPreCheck,
 		Providers:    testAccProviders,
+		Version:      "tier0",
 		GetAPI: func(attr map[string]string) (interface{}, error) {
 			cl, cfg := getAPIClient()
-			iClient := api_client.InstancesAPIService{
+			iClient := api_client.RouterAPIService{
 				Client: cl,
 				Cfg:    cfg,
 			}
 			id := toInt(attr["id"])
 
-			return iClient.GetASpecificInstance(getAccContext(), id)
+			return iClient.GetSpecificRouter(getAccContext(), id)
 		},
 	}
 
 	acc.RunResourceTests(t)
 }
 
-func TestAccResourceInstanceCreate_templateErr(t *testing.T) {
+func TestVmaasRouterTier1Plan(t *testing.T) {
 	acc := &atf.Acc{
-		ResourceName: "hpegl_vmaas_instance",
 		PreCheck:     testAccPreCheck,
 		Providers:    testAccProviders,
-		Version:      "template_err",
+		Version:      "tier1",
+		ResourceName: "hpegl_vmaas_router",
+	}
+	acc.RunResourcePlanTest(t)
+}
+
+func TestAccResourceTier1RouterCreate(t *testing.T) {
+	acc := &atf.Acc{
+		ResourceName: "hpegl_vmaas_router",
+		PreCheck:     testAccPreCheck,
+		Providers:    testAccProviders,
+		Version:      "tier1",
 		GetAPI: func(attr map[string]string) (interface{}, error) {
 			cl, cfg := getAPIClient()
-			iClient := api_client.InstancesAPIService{
+			iClient := api_client.RouterAPIService{
 				Client: cl,
 				Cfg:    cfg,
 			}
 			id := toInt(attr["id"])
 
-			return iClient.GetASpecificInstance(getAccContext(), id)
+			return iClient.GetSpecificRouter(getAccContext(), id)
 		},
 	}
 

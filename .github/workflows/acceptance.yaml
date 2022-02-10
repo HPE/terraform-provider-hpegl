@@ -1,0 +1,25 @@
+name: GitHub Actions CI
+
+on: release
+env: 
+  HPEGL_IAM_SERVICE_URL: ${{ secrets.HPEGL_IAM_SERVICE_URL }}
+  HPEGL_TENANT_ID: ${{ secrets.HPEGL_TENANT_ID }}
+  HPEGL_USER_SECRET: ${{ secrets.HPEGL_USER_SECRET }}
+  HPEGL_USER_ID: ${{ secrets.HPEGL_USER_ID }}
+  HPEGL_VMAAS_LOCATION: ${{ secrets.HPEGL_VMAAS_LOCATION }}
+  HPEGL_VMAAS_SPACE_NAME: ${{ secrets.HPEGL_VMAAS_SPACE_NAME }}
+  HPEGL_API_VENDED_SERVICE_CLIENT: true
+jobs:
+  ci:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        go: [ '1.17' ]
+    name: Acceptance Tests
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: ${{ matrix.go }}
+      - run: go install github.com/nomad-software/vend@v1.0.3
+      - run: make acceptance

@@ -3,37 +3,28 @@
 package acceptancetest
 
 import (
-	"fmt"
 	"testing"
 
-	"github.com/spf13/viper"
-
-	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
+	api_client "github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk/pkg/client"
+	"github.com/HewlettPackard/hpegl-vmaas-terraform-resources/pkg/atf"
 )
 
 func TestAccDataSourceLayout(t *testing.T) {
-	resource.ParallelTest(t, resource.TestCase{
-		IsUnitTest: false,
-		PreCheck:   func() { testAccPreCheck(t) },
-		Providers:  testAccProviders,
-		Steps: []resource.TestStep{
-			{
-				Config: testAccDataSourceLayoutConfig(),
-				Check: resource.ComposeTestCheckFunc(
-					validateDataSourceID("data.hpegl_vmaas_layout.vmware"),
-				),
-			},
-		},
-	})
-}
+	acc := &atf.Acc{
+		PreCheck:     testAccPreCheck,
+		Providers:    testAccProviders,
+		ResourceName: "hpegl_vmaas_layout",
+		GetAPI: func(attr map[string]string) (interface{}, error) {
+			cl, cfg := getAPIClient()
+			iClient := api_client.LibraryAPIService{
+				Client: cl,
+				Cfg:    cfg,
+			}
+			id := toInt(attr["id"])
 
-func testAccDataSourceLayoutConfig() string {
-	return fmt.Sprintf(`%s
-data "hpegl_vmaas_layout" "vmware" {
-	name               = "%s"
-	instance_type_code = "%s"
-}
-`, providerStanza,
-		viper.GetString("vmaas.datasource.layout.name"),
-		viper.GetString("vmaas.datasource.layout.instance_type_code"))
+			return iClient.GetSpecificLayout(getAccContext(), id)
+		},
+	}
+
+	acc.RunDataSourceTests(t)
 }

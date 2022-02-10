@@ -3,12 +3,9 @@
 package acceptancetest
 
 import (
-	"os"
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-
-	libUtils "github.com/hewlettpackard/hpegl-provider-lib/pkg/utils"
 
 	"github.com/HewlettPackard/terraform-provider-hpegl/internal/hpegl"
 )
@@ -43,11 +40,4 @@ func TestProvider(t *testing.T) {
 
 func TestProviderInterface(t *testing.T) {
 	var _ *schema.Provider = hpegl.ProviderFunc()()
-}
-
-func TestMain(m *testing.M) {
-	// TF_ACC_CONFIG_PATH set in make acceptance
-	libUtils.ReadAccConfig(os.Getenv("TF_ACC_CONFIG_PATH"))
-	m.Run()
-	os.Exit(0)
 }

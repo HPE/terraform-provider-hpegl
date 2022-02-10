@@ -3,35 +3,28 @@
 package acceptancetest
 
 import (
-	"fmt"
 	"testing"
 
-	"github.com/spf13/viper"
-
-	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
+	api_client "github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk/pkg/client"
+	"github.com/HewlettPackard/hpegl-vmaas-terraform-resources/pkg/atf"
 )
 
 func TestAccDataSourcePlan(t *testing.T) {
-	resource.ParallelTest(t, resource.TestCase{
-		IsUnitTest: false,
-		PreCheck:   func() { testAccPreCheck(t) },
-		Providers:  testAccProviders,
-		Steps: []resource.TestStep{
-			{
-				Config: testAccDataSourcePlanConfig(),
-				Check: resource.ComposeTestCheckFunc(
-					validateDataSourceID("data.hpegl_vmaas_plan.plan"),
-				),
-			},
-		},
-	})
-}
+	acc := &atf.Acc{
+		PreCheck:     testAccPreCheck,
+		Providers:    testAccProviders,
+		ResourceName: "hpegl_vmaas_plan",
+		GetAPI: func(attr map[string]string) (interface{}, error) {
+			cl, cfg := getAPIClient()
+			iClient := api_client.PlansAPIService{
+				Client: cl,
+				Cfg:    cfg,
+			}
+			id := toInt(attr["id"])
 
-func testAccDataSourcePlanConfig() string {
-	return fmt.Sprintf(`%s
-data "hpegl_vmaas_plan" "plan" {
-	name = "%s"
-}
-`, providerStanza,
-		viper.GetString("vmaas.datasource.plan.name"))
+			return iClient.GetSpecificServicePlan(getAccContext(), id)
+		},
+	}
+
+	acc.RunDataSourceTests(t)
 }

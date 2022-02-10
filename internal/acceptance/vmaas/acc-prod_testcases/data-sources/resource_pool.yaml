@@ -1,0 +1,4 @@
+acc:
+- config: |
+    name = "ComputeResourcePool"
+    cloud_id = 3
