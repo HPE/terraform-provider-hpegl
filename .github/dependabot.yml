@@ -1,0 +1,115 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+  - package-ecosystem: gomod
+    directory: /
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/data-sources/hpegl_vmaas_cloud
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/data-sources/hpegl_vmaas_cloud_folder
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/data-sources/hpegl_vmaas_datastore
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/data-sources/hpegl_vmaas_environment
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/data-sources/hpegl_vmaas_group
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/data-sources/hpegl_vmaas_layout
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/data-sources/hpegl_vmaas_network
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/data-sources/hpegl_vmaas_network_interface
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/data-sources/hpegl_vmaas_network_pool
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/data-sources/hpegl_vmaas_network_type
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/data-sources/hpegl_vmaas_plan
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/data-sources/hpegl_vmaas_power_schedule
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/data-sources/hpegl_vmaas_resource_pool
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/data-sources/hpegl_vmaas_template
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/provider
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/resources/hpegl_vmaas_instance
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/resources/hpegl_vmaas_instance_clone
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/resources/hpegl_vmaas_network
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/resources/hpegl_vmaas_router
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/vmaas/data-sources/hpegl_vmaas_cloud
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/vmaas/data-sources/hpegl_vmaas_group
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/vmaas/data-sources/hpegl_vmaas_layout
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/vmaas/data-sources/hpegl_vmaas_network
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/vmaas/data-sources/hpegl_vmaas_plan
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/vmaas/data-sources/hpegl_vmaas_resourcePool
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /examples/vmaas/resources/hpegl_vmaas_instance
+    schedule:
+      interval: daily
+
