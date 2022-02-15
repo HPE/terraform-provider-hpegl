@@ -63,9 +63,8 @@ github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym
 github.com/DataDog/datadog-go v3.2.0+incompatible/go.mod h1:LButxg5PwREeZtORoXG3tL4fMGNddJ+vMq1mwgfaqoQ=
 github.com/Djarvur/go-err113 v0.0.0-20210108212216-aea10b59be24 h1:sHglBQTwgx+rWPdisA5ynNEsoARbiCBOyGcJM4/OzsM=
 github.com/Djarvur/go-err113 v0.0.0-20210108212216-aea10b59be24/go.mod h1:4UJr5HIiMZrwgkSPdsjy2uOQExX/WEILpIrO9UPGuXs=
+github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.0-beta7 h1:5gF08ypzUY3dBzwsEybwhGBlAtXRnssDsDnKsaznPvo=
 github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.0-beta7/go.mod h1:QqQ2OwCQ1qmsMPscU2Y5MeLJP3Q5BPeaTE13s6hu7I8=
-github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.1-0.20211210061100-0d6f0303264c h1:NerBcU4IIXERaTKkWFPmTl82ExfkaPr/gfJ70OLlWVg=
-github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.1-0.20211210061100-0d6f0303264c/go.mod h1:QqQ2OwCQ1qmsMPscU2Y5MeLJP3Q5BPeaTE13s6hu7I8=
 github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.0-beta7 h1:VQffwk7df3Wzp5zMFV1/lNVKUHBFFSU1L6LY7f+4Tuk=
 github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.0-beta7/go.mod h1:MM493amwYQih600RFnvrNWGJiGmmt5Iusvd6LwDDZJk=
 github.com/Masterminds/goutils v1.1.0/go.mod h1:8cTjp+g8YejhMuvIA5y2vz3BpJxksy863GQaJW2MFNU=
