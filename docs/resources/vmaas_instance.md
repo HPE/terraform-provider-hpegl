@@ -6,6 +6,8 @@ description: |-
           updating and deleting virtual machines. It is recommend to use the Vmware type for provisioning.
 ---
 
+-> Compatible version >= 5.2.4
+
 # Resource hpegl_vmaas_instance
 
 Instance resource facilitates creating,
@@ -52,6 +54,7 @@ resource "hpegl_vmaas_instance" "minimal_instance" {
 
   config {
     resource_pool_id = data.hpegl_vmaas_resource_pool.cl_resource_pool.id
+    folder_code      = data.hpegl_vmaas_cloud_folder.compute_folder.code
   }
   environment_code = data.hpegl_vmaas_environment.dev.code
 }
@@ -115,6 +118,7 @@ resource "hpegl_vmaas_instance" "tf_instance" {
     no_agent         = true
     asset_tag        = "vm_tag"
     folder_code      = data.hpegl_vmaas_cloud_folder.compute_folder.code
+    create_user      = true
   }
   hostname = "tf_host_1"
   scale    = 2
@@ -183,7 +187,6 @@ resource "hpegl_vmaas_instance" "tf_instance" {
 				 should be unique. Any change in those will results into creation of new snapshot,
 				 with preserving previous snapshot(s). (see [below for nested schema](#nestedblock--snapshot))
 - **tags** (Map of String) A list of key and value pairs used to tag instances of similar type.
-- **timeouts** (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only
 
@@ -197,12 +200,13 @@ resource "hpegl_vmaas_instance" "tf_instance" {
 
 Required:
 
+- **folder_code** (String) Folder in which all VMs to be spawned, use hpegl_vmaas_folder.code datasource
 - **resource_pool_id** (Number) Unique ID to identify a resource pool.
 
 Optional:
 
 - **asset_tag** (String) Asset tag
-- **folder_code** (String) Folder in which all VMs to be spawned, use hpegl_vmaas_folder.code datasource
+- **create_user** (Boolean) Create user
 - **no_agent** (Boolean) If true agent will not be installed on the instance.
 - **template_id** (Number) Unique ID for the template
 
@@ -222,7 +226,7 @@ Optional:
 Read-Only:
 
 - **internal_id** (Number) Unique ID to identify a network intternal ID.
-- **is_primary** (Boolean) Flag to identify given network is primary or not. Primary network cannot be updated or deleted.
+- **is_primary** (Boolean) Flag to identify given network is primary or not. Primary network cannot be deleted.
 
 
 <a id="nestedblock--volume"></a>
@@ -268,15 +272,6 @@ Optional:
 - **id** (Number) ID of the snapshot.
 - **is_snapshot_exists** (Boolean) Flag which will be set to be true if the snapshot with the name
 							exists.
-
-
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
-
-Optional:
-
-- **create** (String)
-- **delete** (String)
 
 
 <a id="nestedatt--containers"></a>

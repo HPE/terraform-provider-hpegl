@@ -34,17 +34,9 @@ data "hpegl_vmaas_environment" "staging" {
 ### Optional
 
 - **id** (String) The ID of this resource.
-- **timeouts** (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only
 
 - **code** (String) code of each environment
-
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
-
-Optional:
-
-- **read** (String)
 
 

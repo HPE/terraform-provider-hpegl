@@ -2,5 +2,5 @@
 
 data "hpegl_vmaas_cloud_folder" "compute_folder" {
   cloud_id = data.hpegl_vmaas_cloud.cloud.id
-  name     = "ComputeFolder "
+  name     = "ComputeFolder"
 }

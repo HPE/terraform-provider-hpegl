@@ -20,6 +20,7 @@ resource "hpegl_vmaas_instance" "minimal_instance" {
 
   config {
     resource_pool_id = data.hpegl_vmaas_resource_pool.cl_resource_pool.id
+    folder_code      = data.hpegl_vmaas_cloud_folder.compute_folder.code
   }
   environment_code = data.hpegl_vmaas_environment.dev.code
 }

@@ -1,0 +1,24 @@
+---
+layout: ""
+page_title: "hpegl_vmaas_network Resource - vmaas-terraform-resources"
+description: |-
+  {{ .Description | plainmarkdown | trimspace | prefixlines "  " }}
+---
+
+-> Compatible version >= 5.2.13
+
+# Resource hpegl_vmaas_network
+
+{{ .Description | trimspace }}
+`hpegl_vmaas_network` resource supports NSX-T network creation.
+
+For creating an NSX-T network please refer following examples.
+
+## Example usage for creating NSX-T Network with all possible attributes
+
+{{tffile "examples/resources/hpegl_vmaas_network/nsx_t_segment.tf"}}
+
+-> Transport Zone Data Source `hpegl_vmaas_transport_zone` which is used for the
+`scope_id` is supported from 5.2.13.
+
+{{ .SchemaMarkdown | trimspace }}

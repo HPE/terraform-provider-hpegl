@@ -21,7 +21,7 @@ The hpegl_vmaas_cloud_folder data source can be used to discover the ID for a fo
 
 data "hpegl_vmaas_cloud_folder" "compute_folder" {
   cloud_id = data.hpegl_vmaas_cloud.cloud.id
-  name     = "ComputeFolder "
+  name     = "ComputeFolder"
 }
 ```
 
@@ -36,17 +36,9 @@ data "hpegl_vmaas_cloud_folder" "compute_folder" {
 ### Optional
 
 - **id** (String) The ID of this resource.
-- **timeouts** (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only
 
 - **code** (String) External ID or code for the folder.
-
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
-
-Optional:
-
-- **read** (String)
 
 

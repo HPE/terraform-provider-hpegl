@@ -8,6 +8,8 @@ description: |-
       All optional parameters will be inherits from parent resource if not provided.
 ---
 
+-> Compatible version >= 5.2.4
+
 # Resource hpegl_vmaas_instance_clone
 
 Instance clone resource facilitates creating,
@@ -135,7 +137,6 @@ resource "hpegl_vmaas_instance_clone" "tf_instance_clone" {
 				 should be unique. Any change in those will results into creation of new snapshot,
 				 with preserving previous snapshot(s). (see [below for nested schema](#nestedblock--snapshot))
 - **tags** (Map of String) A list of key and value pairs used to tag instances of similar type.
-- **timeouts** (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 - **volume** (Block List) A list of volumes to be created inside a provisioned instance.
 				It can have a root volume and other secondary volumes. (see [below for nested schema](#nestedblock--volume))
 
@@ -161,16 +162,20 @@ Optional:
 Read-Only:
 
 - **internal_id** (Number) Unique ID to identify a network intternal ID.
-- **is_primary** (Boolean) Flag to identify given network is primary or not. Primary network cannot be updated or deleted.
+- **is_primary** (Boolean) Flag to identify given network is primary or not. Primary network cannot be deleted.
 
 
 <a id="nestedblock--config"></a>
 ### Nested Schema for `config`
 
+Required:
+
+- **folder_code** (String) Folder in which all VMs to be spawned, use hpegl_vmaas_folder.code datasource
+
 Optional:
 
 - **asset_tag** (String) Asset tag
-- **folder_code** (String) Folder in which all VMs to be spawned, use hpegl_vmaas_folder.code datasource
+- **create_user** (Boolean) Create user
 - **no_agent** (Boolean) If true agent will not be installed on the instance.
 - **resource_pool_id** (Number) Unique ID to identify a resource pool.
 - **template_id** (Number) Unique ID for the template
@@ -189,15 +194,6 @@ Optional:
 - **id** (Number) ID of the snapshot.
 - **is_snapshot_exists** (Boolean) Flag which will be set to be true if the snapshot with the name
 							exists.
-
-
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
-
-Optional:
-
-- **create** (String)
-- **delete** (String)
 
 
 <a id="nestedblock--volume"></a>

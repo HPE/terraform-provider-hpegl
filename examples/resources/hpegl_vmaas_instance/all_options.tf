@@ -40,6 +40,7 @@ resource "hpegl_vmaas_instance" "tf_instance" {
     no_agent         = true
     asset_tag        = "vm_tag"
     folder_code      = data.hpegl_vmaas_cloud_folder.compute_folder.code
+    create_user      = true
   }
   hostname = "tf_host_1"
   scale    = 2

@@ -1,0 +1,35 @@
+---
+layout: ""
+page_title: "hpegl_vmaas_router Resource - vmaas-terraform-resources"
+description: |-
+  {{ .Description | plainmarkdown | trimspace | prefixlines "  " }}
+---
+
+# Resource hpegl_vmaas_router
+
+-> Compatible version >= 5.2.10
+
+{{ .Description | trimspace }}
+`hpegl_vmaas_router` resource supports NSX-T Tier0/Tier1 network router creation.
+
+For creating an NSX-T Tier0/Tier1 network router please refer following examples.
+
+-> NSX-T Tier0 & Tier1 router are considered as different instances. So you can create either Tier0 or Tier1 at a given time.
+
+-> Edge Cluster Data Source `hpegl_vmaas_edge_cluster` is supported from 5.2.13.
+
+## Example usage for creating NSX-T Tier0 Network router with all possible attributes
+
+-> Incase of NSX-T Tier0 network router creation, `fail_over` attribute is applicable only if `ha_mode` attribute is
+set to `ACTIVE_STANDBY`.
+
+{{tffile "examples/resources/hpegl_vmaas_router/nsx_t_tier0.tf"}}
+
+## Example usage for creating NSX-T Tier1 Network router with all possible attributes
+
+-> Incase of NSX-T Tier1 network router creation, `fail_over` attribute is applicable only if `edge_cluster` attribute
+is set.
+
+{{tffile "examples/resources/hpegl_vmaas_router/nsx_t_tier1.tf"}}
+
+{{ .SchemaMarkdown | trimspace }}
