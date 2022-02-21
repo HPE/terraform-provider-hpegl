@@ -4,7 +4,7 @@ go 1.14
 
 require (
 	github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.0-beta7
-	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.0-beta7
+	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.7
 	github.com/ashanbrown/makezero v0.0.0-20210308000810-4155955488a0 // indirect
 	github.com/esimonov/ifshort v1.0.2 // indirect
 	github.com/go-critic/go-critic v0.5.5 // indirect
