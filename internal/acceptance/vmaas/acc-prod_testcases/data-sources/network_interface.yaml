@@ -1,4 +1,0 @@
-acc:
-- config: |
-    name     = "E1000"
-    cloud_id = 3

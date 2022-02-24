@@ -61,6 +61,7 @@ docs-generate: vendor
 .PHONY: docs-generate
 
 accframework: vendor
+	go install github.com/nomad-software/vend@v1.0.3 ; \
 	vend; \
 
 	# Download acceptance tests
@@ -71,18 +72,23 @@ accframework: vendor
 		fi ; \
 		if [ -d vendor/github.com/HewlettPackard/$(prefix)$${f}$(suffix)/internal/acceptance_test ] ; then \
 		cp -r vendor/github.com/HewlettPackard/$(prefix)$${f}$(suffix)/internal/acceptance_test ./internal/acceptance/$${f} ; \
-		cp -r vendor/github.com/HewlettPackard/$(prefix)$${f}$(suffix)/acc-prod_testcases ./internal/acceptance/$${f} ; \
+		cp -r vendor/github.com/HewlettPackard/$(prefix)$${f}$(suffix)/acc-testcases ./internal/acceptance/$${f} ; \
 		fi ; \
 		rm ./internal/acceptance/$${f}/provider_test.go ; \
 		cp ./internal/acceptance/acceptance-utils/provider_test.go ./internal/acceptance/$${f} ; \
+		go mod tidy ; \
+		go mod vendor ; \
 	done
 
 .PHONY: accframework
 
 acceptance: accframework
-	export TF_ACC_TEST_PATH=$(shell pwd)/internal/acceptance/vmaas/acc-prod_testcases ; \
-	for f in $(ACC_TEST_SERVICES); do \
-		TF_ACC=true go test -v -timeout=9000s -cover ./internal/acceptance/$$f ; \
+	-for f in $(ACC_TEST_SERVICES); do \
+		TF_ACC_TEST_PATH=$(shell pwd)/internal/acceptance/vmaas/acc-testcases TF_ACC=true go test -v -timeout=9000s -cover ./internal/acceptance/$$f ; \
+		# remove service tests ; \
+		rm -rf ./internal/acceptance/$$f ; \
+		go mod tidy ; \
+		go mod vendor ; \
 	done
 
 	# remove vend files
