@@ -11,17 +11,17 @@ description: |-
 This is the hpegl (HPE GreenLake) terraform provider for use in managing HPE GreenLake
 services.  The VMaaS service is currently supported.
 
-Note that a service-client must be used with this provider.  For information on how to
-create a service-client see [here](http://www.hpe.com/info/greenlakecentral-create-api-client).
+Note that an API client must be used with this provider.  For information on how to
+create an API client see [here](http://www.hpe.com/info/greenlakecentral-create-api-client).
 
-The following env-vars can be used to supply service-client creds and related information to
+The following env-vars can be used to supply API client creds and related information to
 the provider:
 
 ```bash
 export HPEGL_TENANT_ID=< tenant-id >
-export HPEGL_USER_ID=< service client id >
-export HPEGL_USER_SECRET=< service client secret >
-export HPEGL_IAM_SERVICE_URL=< the "issuer" URL for the service client  >
+export HPEGL_USER_ID=< API client id >
+export HPEGL_USER_SECRET=< API client secret >
+export HPEGL_IAM_SERVICE_URL=< the "issuer" URL for the API client  >
 ```
 
 
@@ -54,13 +54,13 @@ provider "hpegl" {
 
 ### Optional
 
-- **api_vended_service_client** (Boolean) Declare if the service-client being used is an API-vended one or not.  Defaults to "true"
+- **api_vended_service_client** (Boolean) Declare if the API client being used is an API-vended one or not.  Defaults to "true"
             i.e. the client is API-vended.  The value can be set using the HPEGL_API_VENDED_SERVICE_CLIENT env-var.
-- **iam_service_url** (String) The IAM service URL to be used to generate tokens.  In the case of API-vended service clients
+- **iam_service_url** (String) The IAM service URL to be used to generate tokens.  In the case of API-vended API clients
             (the default) then this should be set to the "issuer url" for the client.  In the case of non-API-vended
-            service clients use the appropriate GL "client" URL. Can be set by HPEGL_IAM_SERVICE_URL env-var
+            API clients use the appropriate GL "client" URL. Can be set by HPEGL_IAM_SERVICE_URL env-var
 - **iam_token** (String) The IAM token to be used with the client(s).  Note that in normal operation
-                a service client is used.  Passing-in a token means that tokens will not be generated or refreshed.
+                an API client is used.  Passing-in a token means that tokens will not be generated or refreshed.
 - **tenant_id** (String) The tenant-id to be used, can be set by HPEGL_TENANT_ID env-var
 - **user_id** (String) The user id to be used, can be set by HPEGL_USER_ID env-var
 - **user_secret** (String) The user secret to be used, can be set by HPEGL_USER_SECRET env-var

@@ -11,7 +11,7 @@ This is the main repo for the GreenLake terraform provider which provides terraf
 ## Prerequisites
 
 1. Terraform version >= v0.13 [install terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
-1. A Service Client to authenticate against GreenLake.
+1. An API client to authenticate against GreenLake.
 1. Terraform basics. [Terraform Introduction](https://www.terraform.io/intro/index.html)
 
 ## Quick guide to create GreenLake Private Cloud Instance:
@@ -120,11 +120,11 @@ This is the main repo for the GreenLake terraform provider which provides terraf
       }
    ```
 
-1. Export Service Client credentials as environment variables:
+1. Export API client credentials as environment variables:
    ```bash
    export HPEGL_TENANT_ID=< tenant-id >
-   export HPEGL_USER_ID=< service client id >
-   export HPEGL_USER_SECRET=< service client secret >
+   export HPEGL_USER_ID=< API client id >
+   export HPEGL_USER_SECRET=< API client secret >
    export HPEGL_IAM_SERVICE_URL=< GL iam service url, defaults to https://client.greenlake.hpe.com/api/iam >
    ```
 1. Initialize Terraform working directory:
