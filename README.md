@@ -24,12 +24,12 @@ This is the main repo for the GreenLake terraform provider which provides terraf
    > on linux_amd64
    ```
    
-1. Create a Terraform file in your working directory, and reference the desired provider version from the terraform [registry](https://registry.terraform.io/providers/HewlettPackard/hpegl/latest). For more information please consult the [documentation](docs/):
+1. Create a Terraform file in your working directory, and reference the desired provider version from the terraform [registry](https://registry.terraform.io/providers/HPE/hpegl/latest). For more information please consult the [documentation](docs/):
    ```terraform
       terraform {
          required_providers {
             hpegl = {
-               source  = "hewlettpackard/hpegl"
+               source  = "HPE/hpegl"
                version = ">= 0.1.0-beta5"
             }
          }

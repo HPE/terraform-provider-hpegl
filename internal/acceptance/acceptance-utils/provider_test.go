@@ -7,7 +7,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
-	"github.com/HewlettPackard/terraform-provider-hpegl/internal/hpegl"
+	"github.com/HPE/terraform-provider-hpegl/internal/hpegl"
 )
 
 var (

@@ -12,7 +12,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 
-	"github.com/HewlettPackard/terraform-provider-hpegl/internal/hpegl"
+	"github.com/HPE/terraform-provider-hpegl/internal/hpegl"
 )
 
 func main() {

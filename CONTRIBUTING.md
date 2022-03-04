@@ -4,7 +4,7 @@ We welcome and encourage community contributions to terraform-provider-hpegl.
 
 ## Contributing
 
-The best way to directly collaborate with the project contributors is through GitHub: <https://github.com/HewlettPackard/terraform-provider-hpegl>
+The best way to directly collaborate with the project contributors is through GitHub: <https://github.com/HPE/terraform-provider-hpegl>
 
 * If you want to contribute to our code by either fixing a problem or creating a new feature, please open a GitHub pull request.
 * If you want to raise an issue such as a defect, an enhancement request or a general issue, please open a GitHub issue.
