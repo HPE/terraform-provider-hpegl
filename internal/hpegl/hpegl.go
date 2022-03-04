@@ -11,8 +11,8 @@ import (
 
 	"github.com/hewlettpackard/hpegl-provider-lib/pkg/provider"
 
-	"github.com/HewlettPackard/terraform-provider-hpegl/internal/client"
-	"github.com/HewlettPackard/terraform-provider-hpegl/internal/services/resources"
+	"github.com/HPE/terraform-provider-hpegl/internal/client"
+	"github.com/HPE/terraform-provider-hpegl/internal/services/resources"
 )
 
 func ProviderFunc() plugin.ProviderFunc {

@@ -12,7 +12,7 @@ import (
 	"github.com/hewlettpackard/hpegl-provider-lib/pkg/token/retrieve"
 	"github.com/hewlettpackard/hpegl-provider-lib/pkg/token/serviceclient"
 
-	"github.com/HewlettPackard/terraform-provider-hpegl/internal/services/clients"
+	"github.com/HPE/terraform-provider-hpegl/internal/services/clients"
 )
 
 func NewClientMap(ctx context.Context, d *schema.ResourceData) (map[string]interface{}, diag.Diagnostics) { // nolint gocyclo

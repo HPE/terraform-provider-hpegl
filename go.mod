@@ -1,4 +1,4 @@
-module github.com/HewlettPackard/terraform-provider-hpegl
+module github.com/HPE/terraform-provider-hpegl
 
 go 1.14
 
