@@ -8,7 +8,7 @@ require (
 	github.com/esimonov/ifshort v1.0.2 // indirect
 	github.com/go-critic/go-critic v0.5.5 // indirect
 	github.com/golangci/golangci-lint v1.38.0
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.10.1
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.11.0
 	github.com/hewlettpackard/hpegl-provider-lib v0.0.11
 	github.com/jingyugao/rowserrcheck v0.0.0-20210315055705-d907ca737bb1 // indirect
 	github.com/julz/importas v0.0.0-20210228071311-d0bf5cb4e1db // indirect
