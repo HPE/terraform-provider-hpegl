@@ -11,21 +11,21 @@ description: |-
 
 {{ .Description | trimspace }}
 
-`hpegl_vmaas_instance` resource supports instance creation as well cloning an existing
+`hpegl_vmaas_instance` resource supports instance creation and cloning an existing
 instance.
 
 -> It is mandatory to choose the `template_id` while creating the instance of type 'vmware'
 (for this purpose `hpegl_vmaas_template` can be used). If not, an error will be returned. This mandation
 does not apply for other instance types (no error will be prompted in this case).
 
-For creating an instance please refer following examples.
+For creating an instance, use the following examples.
 
-~> Volume name should be unique. An error will be prompted if the volume name is repeated.
+~> Volume name should be unique. An error is displayed  if the volume name is repeated.
 
 Terraform will consider first volume as the primary volume. `root` attribute (computed field) will set to
 root volume.
 
--> Deletion of root volume is also is not supported.
+-> Deleting the root volume is not supported.
 
 ## Example usage for creating new instance with only required attributes
 
@@ -35,11 +35,11 @@ root volume.
     while creating.
 
 For creating snapshot use `snapshot` attribute. Any update in snapshot's `name` or `description`
-will cause to create a new snapshot with preserving existing one.
+will result in the creation of a new snapshot.
 
-~> Instance reconfigure will cause snapshot to be deleted.
+~> Reconfiguring an instance causes the snapshot to be deleted.
 
-`is_snapshot_exist` field in `snapshot` will be true if the snapshot exists under instance. Use
+`is_snapshot_exist` field in `snapshot` will be true if the snapshot exists under an instance. Use
 this field to identify whether snapshot got deleted (because of reconfigure or anything else).
 
 -> Snapshot update, apply and delete is not supported yet.
