@@ -42,6 +42,7 @@ linters:
     - paralleltest
     #Temporarily disabling wrapcheck
     - wrapcheck
+    - staticcheck
     # Disable the 'cyclop' cyclometric complexity linter. 'gocyclo' already
     # covers cyclometric complexity, and 'cyclop' has no documentation to 
     # help with resolving the flagged lints
