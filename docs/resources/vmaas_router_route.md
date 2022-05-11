@@ -38,25 +38,25 @@ resource "hpegl_vmaas_router_route" "tf_route" {
 
 ### Required
 
-- **name** (String) Name of the route.
-- **network** (String) Source Network CIDR Address
-- **next_hop** (String) Next Hop/Destination IPv4 Address
-- **router_id** (Number) Parent router ID, router_id can be obtained by using router datasource/resource.
+- `name` (String) Name of the route.
+- `network` (String) Source Network CIDR Address
+- `next_hop` (String) Next Hop/Destination IPv4 Address
+- `router_id` (Number) Parent router ID, router_id can be obtained by using router datasource/resource.
 
 ### Optional
 
-- **default_route** (Boolean) If `true` then route will consider as default route.
-- **description** (String) Description for the route.
-- **enabled** (Boolean) If `true` then route will be active/enabled.
-- **id** (String) The ID of this resource.
-- **mtu** (Number) Network MTU
-- **priority** (Number) Priority for the route
+- `default_route` (Boolean) If `true` then the route will considered as the default route.
+- `description` (String) Description for the route.
+- `enabled` (Boolean) If `true` then route will be active/enabled.
+- `mtu` (Number) Network MTU
+- `priority` (Number) Priority for the route
 
 ### Read-Only
 
-- **code** (String)
-- **external_id** (String)
-- **is_deprecated** (Boolean) If parent router not found, then is_deprecated will be true
-- **provider_id** (String)
-- **route_type** (String)
-- **source_type** (String)
+- `code` (String)
+- `external_id` (String)
+- `id` (String) The ID of this resource.
+- `is_deprecated` (Boolean) If parent router not found, then is_deprecated will be true
+- `provider_id` (String)
+- `route_type` (String)
+- `source_type` (String)

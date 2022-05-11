@@ -13,8 +13,9 @@ description: |-
 Network resource facilitates creating,
 		updating and deleting NSX-T Networks.
 `hpegl_vmaas_network` resource supports NSX-T network creation.
+For more information, see [Private cloud networking using VMware NSX-T](https://www.hpe.com/info/HPE-GreenLake-private-cloud-networking).
 
-For creating an NSX-T network please refer following examples.
+For creating an NSX-T network, see the following examples.
 
 ## Example usage for creating NSX-T Network with all possible attributes
 
@@ -49,50 +50,50 @@ resource "hpegl_vmaas_network" "test_net" {
 
 ### Required
 
-- **cidr** (String) Gateway CIDR of the network
-- **group_id** (String) Group ID of the Network. Please use hpegl_vmaas_group data source to retrieve ID or pass `shared`.
-- **name** (String) Name of the NSX-T Segment to be created.
-- **scope_id** (String) Transport Zone ID. Use hpegl_vmaas_transport_zone Data source's provided_id here.
+- `cidr` (String) Gateway Classless Inter-Domain Routing (CIDR) of the network
+- `group_id` (String) Group ID of the Network. Please use hpegl_vmaas_group data source to retrieve ID or pass `shared`.
+- `name` (String) Name of the NSX-T Segment to be created.
+- `scope_id` (String) Transport Zone ID. Use hpegl_vmaas_transport_zone Data source's `provider_id` here.
 
 ### Optional
 
-- **active** (Boolean) Activate (`true`) or disable (`false`) the network
-- **allow_static_override** (Boolean) If set to true, network will allow static override
-- **appliance_url_proxy_bypass** (Boolean) Bypass Proxy for Appliance URL
-- **config** (Block List, Max: 1) Network configuration (see [below for nested schema](#nestedblock--config))
-- **description** (String) Description of the network to be created.
-- **display_name** (String) Display name of the NSX-T network.
-- **domain_id** (Number) ID of the Network domain. Use hpegl_vmaas_network_domain datasource to obtain the id.
-- **gateway** (String) Gateway IP address of the network
-- **id** (String) The ID of this resource.
-- **no_proxy** (String) List of IP addresses or name servers to exclude proxy traversal for.
-- **pool_id** (Number) Pool ID can be obtained with hpegl_vmaas_network_pool data source. pool_id will not support with NSX-T segment
-- **primary_dns** (String) Primary DNS IP Address
-- **proxy_id** (Number) Network Proxy ID. Use hpegl_vmaas_network_proxy data source to obtain the id.
-- **resource_permissions** (Block List, Max: 1) (see [below for nested schema](#nestedblock--resource_permissions))
-- **scan_network** (Boolean) Scan Network
-- **search_domains** (String) Search Domains
-- **secondary_dns** (String) Secondary DNS IP Address
+- `active` (Boolean) Activate (`true`) or disable (`false`) the network
+- `allow_static_override` (Boolean) If set to true, network will allow static override
+- `appliance_url_proxy_bypass` (Boolean) Bypass Proxy for Appliance URL
+- `config` (Block List, Max: 1) Network configuration (see [below for nested schema](#nestedblock--config))
+- `description` (String) Description of the network to be created.
+- `display_name` (String) Display name of the NSX-T network.
+- `domain_id` (Number) ID of the Network domain. Use hpegl_vmaas_network_domain datasource to obtain the ID.
+- `gateway` (String) Gateway IP address of the network
+- `no_proxy` (String) List of IP addresses or name servers for which to exclude proxy traversal.
+- `pool_id` (Number) Pool ID can be obtained with hpegl_vmaas_network_pool data source.
+- `primary_dns` (String) Primary DNS IP Address
+- `proxy_id` (Number) Network Proxy ID. Use hpegl_vmaas_network_proxy data source to obtain the ID.
+- `resource_permissions` (Block List, Max: 1) (see [below for nested schema](#nestedblock--resource_permissions))
+- `scan_network` (Boolean) Scan Network
+- `search_domains` (String) Search Domains
+- `secondary_dns` (String) Secondary DNS IP Address
 
 ### Read-Only
 
-- **code** (String) Network Type code
-- **external_id** (String) External ID of the network
-- **internal_id** (String) Internal ID of the network
-- **status** (String) Status of the network
-- **type_id** (Number) Type ID for the NSX-T Network.
-- **unique_id** (String) Unique ID of the network
+- `code` (String) Network Type code
+- `external_id` (String) External ID of the network
+- `id` (String) The ID of this resource.
+- `internal_id` (String) Internal ID of the network
+- `status` (String) Status of the network
+- `type_id` (Number) Type ID for the NSX-T Network.
+- `unique_id` (String) Unique ID of the network
 
 <a id="nestedblock--config"></a>
 ### Nested Schema for `config`
 
 Required:
 
-- **connected_gateway** (String) Connected Gateway. Pass Provider ID of the Tier1 gateway. Use hpegl_vmaas_router.provider_id  here.
+- `connected_gateway` (String) Connected Gateway. Pass Provider ID of the Tier1 gateway. Use hpegl_vmaas_router.provider_id  here.
 
 Optional:
 
-- **vlan_id** (String) VLAN IDs eg. `0,3-5`. Use this field for VLAN based segments.
+- `vlan_id` (String) VLAN IDs eg. `0,3-5`. Use this field for VLAN based segments.
 
 
 <a id="nestedblock--resource_permissions"></a>
@@ -100,16 +101,16 @@ Optional:
 
 Optional:
 
-- **all** (Boolean) Pass `true` to allow access all groups.
-- **sites** (Block List) List of sites/groups (see [below for nested schema](#nestedblock--resource_permissions--sites))
+- `all` (Boolean) Pass `true` to allow access to all groups.
+- `sites` (Block List) List of sites/groups (see [below for nested schema](#nestedblock--resource_permissions--sites))
 
 <a id="nestedblock--resource_permissions--sites"></a>
 ### Nested Schema for `resource_permissions.sites`
 
 Required:
 
-- **id** (Number) ID of the site/group
+- `id` (Number) ID of the site/group
 
 Optional:
 
-- **default** (Boolean) Group Default Selection
+- `default` (Boolean) Group Default Selection

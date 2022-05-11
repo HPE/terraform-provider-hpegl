@@ -14,15 +14,15 @@ Router resource facilitates creating,
 		updating and deleting NSX-T Tier0/Tier1 Network Routers.
 `hpegl_vmaas_router` resource supports NSX-T Tier0/Tier1 network router creation.
 
-For creating an NSX-T Tier0/Tier1 network router please refer following examples.
+For creating an NSX-T Tier0/Tier1 network router, use the following examples.
 
--> NSX-T Tier0 & Tier1 router are considered as different instances. So you can create either Tier0 or Tier1 at a given time.
+-> NSX-T Tier0 & Tier1 router are considered as different instances. You can create either Tier0 or Tier1, but not both at the same time.
 
 -> Edge Cluster Data Source `hpegl_vmaas_edge_cluster` is supported from 5.2.13.
 
 ## Example usage for creating NSX-T Tier0 Network router with all possible attributes
 
--> Incase of NSX-T Tier0 network router creation, `fail_over` attribute is applicable only if `ha_mode` attribute is
+-> For NSX-T Tier0 network router creation, `fail_over` attribute is applicable only if `ha_mode` attribute is
 set to `ACTIVE_STANDBY`.
 
 ```terraform
@@ -73,7 +73,7 @@ resource "hpegl_vmaas_router" "tf_tier0" {
 
 ## Example usage for creating NSX-T Tier1 Network router with all possible attributes
 
--> Incase of NSX-T Tier1 network router creation, `fail_over` attribute is applicable only if `edge_cluster` attribute
+-> For NSX-T Tier1 network router creation, `fail_over` attribute is applicable only if `edge_cluster` attribute
 is set.
 
 ```terraform
@@ -106,54 +106,54 @@ resource "hpegl_vmaas_router" "tf_tier1" {
 
 ### Required
 
-- **group_id** (String) Group ID. Available values are either 'Shared' or ID fetched from hpegl_vmaas_group
-- **name** (String) Network router name
+- `group_id` (String) Group ID. Available values are either 'Shared' or ID fetched from hpegl_vmaas_group
+- `name` (String) Network router name
 
 ### Optional
 
-- **enable** (Boolean) Can be used to enable/disable the network router
-- **id** (String) The ID of this resource.
-- **tier0_config** (Block List, Max: 1) Tier0 Gateway configuration (see [below for nested schema](#nestedblock--tier0_config))
-- **tier1_config** (Block List, Max: 1) Tier1 Gateway configuration (see [below for nested schema](#nestedblock--tier1_config))
+- `enable` (Boolean) Enables or disables the network router
+- `tier0_config` (Block List, Max: 1) Tier0 Gateway configuration (see [below for nested schema](#nestedblock--tier0_config))
+- `tier1_config` (Block List, Max: 1) Tier1 Gateway configuration (see [below for nested schema](#nestedblock--tier1_config))
 
 ### Read-Only
 
-- **interfaces** (List of Object) Interface Configuration (see [below for nested schema](#nestedatt--interfaces))
-- **network_server_id** (Number) NSX-T Integration ID
-- **provider_id** (String) Provider ID of the Network Router
-- **type_id** (Number) Network router type ID.
+- `id` (String) The ID of this resource.
+- `interfaces` (List of Object) Interface Configuration (see [below for nested schema](#nestedatt--interfaces))
+- `network_server_id` (Number) NSX-T Integration ID
+- `provider_id` (String) Provider ID of the Network Router
+- `type_id` (Number) Network router type ID.
 
 <a id="nestedblock--tier0_config"></a>
 ### Nested Schema for `tier0_config`
 
 Required:
 
-- **bgp** (Block List, Min: 1, Max: 1) (see [below for nested schema](#nestedblock--tier0_config--bgp))
-- **ha_mode** (String) HA Mode. Available values are 'ACTIVE_ACTIVE' or 'ACTIVE_STANDBY'
+- `bgp` (Block List, Min: 1, Max: 1) (see [below for nested schema](#nestedblock--tier0_config--bgp))
+- `ha_mode` (String) HA Mode. Available values are 'ACTIVE_ACTIVE' or 'ACTIVE_STANDBY'
 
 Optional:
 
-- **edge_cluster** (String) Edge Cluster. Use EdgeCluster's provided_id here using EdgeCluster Data Source.
-- **fail_over** (String) Failover. Available values are 'PREEMPTIVE' or 'NON_PREEMPTIVE'
-- **route_redistribution_tier0** (Block List, Max: 1) (see [below for nested schema](#nestedblock--tier0_config--route_redistribution_tier0))
-- **route_redistribution_tier1** (Block List, Max: 1) (see [below for nested schema](#nestedblock--tier0_config--route_redistribution_tier1))
+- `edge_cluster` (String) Edge Cluster. Use EdgeCluster's provided_id here using EdgeCluster Data Source.
+- `fail_over` (String) Failover. Available values are 'PREEMPTIVE' or 'NON_PREEMPTIVE'
+- `route_redistribution_tier0` (Block List, Max: 1) (see [below for nested schema](#nestedblock--tier0_config--route_redistribution_tier0))
+- `route_redistribution_tier1` (Block List, Max: 1) (see [below for nested schema](#nestedblock--tier0_config--route_redistribution_tier1))
 
 <a id="nestedblock--tier0_config--bgp"></a>
 ### Nested Schema for `tier0_config.bgp`
 
 Required:
 
-- **local_as_num** (Number) Local AS Number
-- **restart_mode** (String) Graceful Restart
-- **restart_time** (Number) Graceful Restart Timer
-- **stale_route_time** (Number) Graceful Restart Stale Timer
+- `local_as_num` (Number) Local AS Number
+- `restart_mode` (String) Graceful Restart
+- `restart_time` (Number) Graceful Restart Timer
+- `stale_route_time` (Number) Graceful Restart Stale Timer
 
 Optional:
 
-- **ecmp** (Boolean) ECMP
-- **enable_bgp** (Boolean)
-- **inter_sr_ibgp** (Boolean) Inter SR iBGP
-- **multipath_relax** (Boolean) Multipath Relax
+- `ecmp` (Boolean) ECMP
+- `enable_bgp` (Boolean)
+- `inter_sr_ibgp` (Boolean) Inter SR iBGP
+- `multipath_relax` (Boolean) Multipath Relax
 
 
 <a id="nestedblock--tier0_config--route_redistribution_tier0"></a>
@@ -161,14 +161,14 @@ Optional:
 
 Optional:
 
-- **tier0_dns_forwarder_ip** (Boolean) DNS Forwarder IP
-- **tier0_external_interface** (Boolean) External Interface Subnet
-- **tier0_ipsec_local_ip** (Boolean) IP Sec Local IP
-- **tier0_loopback_interface** (Boolean) Loopback Interface Subnet
-- **tier0_nat** (Boolean) NAT IP
-- **tier0_segment** (Boolean) Connected Segment
-- **tier0_service_interface** (Boolean) Service Interface Subnet
-- **tier0_static** (Boolean) Static Routes
+- `tier0_dns_forwarder_ip` (Boolean) DNS Forwarder IP
+- `tier0_external_interface` (Boolean) External Interface Subnet
+- `tier0_ipsec_local_ip` (Boolean) IP Sec Local IP
+- `tier0_loopback_interface` (Boolean) Loopback Interface Subnet
+- `tier0_nat` (Boolean) NAT IP
+- `tier0_segment` (Boolean) Connected Segment
+- `tier0_service_interface` (Boolean) Service Interface Subnet
+- `tier0_static` (Boolean) Static Routes
 
 
 <a id="nestedblock--tier0_config--route_redistribution_tier1"></a>
@@ -176,14 +176,14 @@ Optional:
 
 Optional:
 
-- **tier1_dns_forwarder_ip** (Boolean) DNS Forwarder IP
-- **tier1_ipsec_local_endpoint** (Boolean) IPSec Local Endpoint
-- **tier1_lb_snat** (Boolean) LB SNAT IP
-- **tier1_lb_vip** (Boolean) LB VIP
-- **tier1_nat** (Boolean) NAT IP
-- **tier1_segment** (Boolean) Connected Segment
-- **tier1_service_interface** (Boolean) Service Interface Subnet
-- **tier1_static** (Boolean) Static Routes
+- `tier1_dns_forwarder_ip` (Boolean) DNS Forwarder IP
+- `tier1_ipsec_local_endpoint` (Boolean) IPSec Local Endpoint
+- `tier1_lb_snat` (Boolean) LB SNAT IP
+- `tier1_lb_vip` (Boolean) LB VIP
+- `tier1_nat` (Boolean) NAT IP
+- `tier1_segment` (Boolean) Connected Segment
+- `tier1_service_interface` (Boolean) Service Interface Subnet
+- `tier1_static` (Boolean) Static Routes
 
 
 
@@ -192,23 +192,23 @@ Optional:
 
 Optional:
 
-- **edge_cluster** (String) Edge Cluster. Use EdgeCluster's provided_id here using EdgeCluster Data Source.
-- **fail_over** (String) Failover. Available values are 'PREEMPTIVE' or 'NON_PREEMPTIVE'
-- **route_advertisement** (Block List, Max: 1) (see [below for nested schema](#nestedblock--tier1_config--route_advertisement))
-- **tier0_gateway** (String) Provider ID of the Tier0 Gateway. Use Tier0 Router's  .provider_id  here.
+- `edge_cluster` (String) Edge Cluster. Use EdgeCluster's provided_id here using EdgeCluster Data Source.
+- `fail_over` (String) Failover. Available values are 'PREEMPTIVE' or 'NON_PREEMPTIVE'
+- `route_advertisement` (Block List, Max: 1) (see [below for nested schema](#nestedblock--tier1_config--route_advertisement))
+- `tier0_gateway` (String) Provider ID of the Tier0 Gateway. Use Tier0 Router's  .provider_id  here.
 
 <a id="nestedblock--tier1_config--route_advertisement"></a>
 ### Nested Schema for `tier1_config.route_advertisement`
 
 Optional:
 
-- **tier1_connected** (Boolean) Connected Routes
-- **tier1_dns_forwarder_ip** (Boolean) DNS Forwarder IP Routes
-- **tier1_ipsec_local_endpoint** (Boolean) IPSec Local Endpoint
-- **tier1_lb_snat** (Boolean) LB SNAT IP Routes
-- **tier1_lb_vip** (Boolean) LB VIP Routes
-- **tier1_nat** (Boolean) NAT IPs
-- **tier1_static_routes** (Boolean) Static Routes
+- `tier1_connected` (Boolean) Connected Routes
+- `tier1_dns_forwarder_ip` (Boolean) DNS Forwarder IP Routes
+- `tier1_ipsec_local_endpoint` (Boolean) IPSec Local Endpoint
+- `tier1_lb_snat` (Boolean) LB SNAT IP Routes
+- `tier1_lb_vip` (Boolean) LB VIP Routes
+- `tier1_nat` (Boolean) NAT IPs
+- `tier1_static_routes` (Boolean) Static Routes
 
 
 
@@ -217,6 +217,6 @@ Optional:
 
 Read-Only:
 
-- **cidr** (String)
-- **id** (Number)
-- **source_addresses** (String)
+- `cidr` (String)
+- `id` (Number)
+- `source_addresses` (String)

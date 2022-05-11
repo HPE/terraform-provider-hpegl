@@ -34,12 +34,15 @@ resource "hpegl_vmaas_router_firewall_rule_group" "tf_router_firewall_rule_group
 
 ### Required
 
-- **group_layer** (String) Platform/vendor specific category
-- **name** (String) Name of the Firewall rule Group.
-- **router_id** (Number) Parent router ID, router_id can be obtained by using router datasource/resource.
+- `group_layer` (String) Platform/vendor specific category
+- `name` (String) Name of the Firewall rule Group.
+- `router_id` (Number) Parent router ID, router_id can be obtained by using router datasource/resource.
 
 ### Optional
 
-- **description** (String) Description for the Firewall rule Group.
-- **id** (String) The ID of this resource.
-- **priority** (Number) Firewall rule group priority
+- `description` (String) Description for the Firewall rule Group.
+- `priority` (Number) Firewall rule group priority
+
+### Read-Only
+
+- `id` (String) The ID of this resource.

@@ -54,22 +54,22 @@ provider "hpegl" {
 
 ### Optional
 
-- **api_vended_service_client** (Boolean) Declare if the API client being used is an API-vended one or not.  Defaults to "true"
+- `api_vended_service_client` (Boolean) Declare if the API client being used is an API-vended one or not.  Defaults to "true"
             i.e. the client is API-vended.  The value can be set using the HPEGL_API_VENDED_SERVICE_CLIENT env-var.
-- **iam_service_url** (String) The IAM service URL to be used to generate tokens.  In the case of API-vended API clients
+- `iam_service_url` (String) The IAM service URL to be used to generate tokens.  In the case of API-vended API clients
             (the default) then this should be set to the "issuer url" for the client.  In the case of non-API-vended
             API clients use the appropriate GL "client" URL. Can be set by HPEGL_IAM_SERVICE_URL env-var
-- **iam_token** (String) The IAM token to be used with the client(s).  Note that in normal operation
+- `iam_token` (String) The IAM token to be used with the client(s).  Note that in normal operation
                 an API client is used.  Passing-in a token means that tokens will not be generated or refreshed.
-- **tenant_id** (String) The tenant-id to be used, can be set by HPEGL_TENANT_ID env-var
-- **user_id** (String) The user id to be used, can be set by HPEGL_USER_ID env-var
-- **user_secret** (String) The user secret to be used, can be set by HPEGL_USER_SECRET env-var
-- **vmaas** (Block Set, Max: 1) (see [below for nested schema](#nestedblock--vmaas))
+- `tenant_id` (String) The tenant-id to be used, can be set by HPEGL_TENANT_ID env-var
+- `user_id` (String) The user id to be used, can be set by HPEGL_USER_ID env-var
+- `user_secret` (String) The user secret to be used, can be set by HPEGL_USER_SECRET env-var
+- `vmaas` (Block Set, Max: 1) (see [below for nested schema](#nestedblock--vmaas))
 
 <a id="nestedblock--vmaas"></a>
 ### Nested Schema for `vmaas`
 
 Optional:
 
-- **location** (String) Location of GL VMaaS Service, can also be set with the HPEGL_VMAAS_LOCATION env var.
-- **space_name** (String) IAM Space name of the GL VMaaS Service, can also be set with the HPEGL_VMAAS_SPACE_NAME env var.
+- `location` (String) Location of GL VMaaS Service, can also be set with the HPEGL_VMAAS_LOCATION env var.
+- `space_name` (String) IAM Space name of the GL VMaaS Service, can also be set with the HPEGL_VMAAS_SPACE_NAME env var.
