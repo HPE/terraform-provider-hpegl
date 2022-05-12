@@ -47,31 +47,34 @@ should be set when `action` is set to `SNAT`.
 
 ### Required
 
-- **config** (Block List, Min: 1, Max: 1) NAT configurations (see [below for nested schema](#nestedblock--config))
-- **name** (String) Name of the NAT rule.
-- **router_id** (Number) Parent router ID, router_id can be obtained by using router datasource/resource.
-- **translated_network** (String) Translated Network CIDR/IPv4 Address
+- `config` (Block List, Min: 1, Max: 1) NAT configurations (see [below for nested schema](#nestedblock--config))
+- `name` (String) Name of the NAT rule.
+- `router_id` (Number) Parent router ID, router_id can be obtained by using router datasource/resource.
+- `translated_network` (String) Translated Network CIDR/IPv4 Address
 
 ### Optional
 
-- **description** (String) Description for the NAT rule.
-- **destination_network** (String) Destination Network CIDR/IPv4 Address
-- **enabled** (Boolean) If `true` then NAT rule will be active/enabled.
-- **id** (String) The ID of this resource.
-- **priority** (Number) Priority for the rule
-- **source_network** (String) Source Network CIDR/IPv4 Address
-- **translated_ports** (Number) Translated Network Port
+- `description` (String) Description for the NAT rule.
+- `destination_network` (String) Destination Network CIDR/IPv4 Address
+- `enabled` (Boolean) If `true` then NAT rule will be active/enabled.
+- `priority` (Number) Priority for the rule
+- `source_network` (String) Source Network CIDR/IPv4 Address
+- `translated_ports` (Number) Translated Network Port
+
+### Read-Only
+
+- `id` (String) The ID of this resource.
 
 <a id="nestedblock--config"></a>
 ### Nested Schema for `config`
 
 Required:
 
-- **action** (String) NAT Rule Type. Supported values are `DNAT` and `SNAT`
+- `action` (String) NAT Rule Type. Supported values are `DNAT` and `SNAT`
 
 Optional:
 
-- **firewall** (String) Firewall Type. Supported values are : MATCH_EXTERNAL_ADDRESS,
+- `firewall` (String) Firewall Type. Supported values are : MATCH_EXTERNAL_ADDRESS,
 							MATCH_INTERNAL_ADDRESS, BYPASS
-- **logging** (Boolean) Enable/Disable Logging
-- **service** (String) Type of the service
+- `logging` (Boolean) Enable/Disable Logging
+- `service` (String) Type of the service

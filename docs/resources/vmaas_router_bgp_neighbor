@@ -44,35 +44,35 @@ resource "hpegl_vmaas_router_bgp_neighbor" "tf_router_bgp_neighbor" {
 
 ### Required
 
-- **bfd_enabled** (Boolean) BFD Enabled.
-- **bfd_interval** (Number) BFD Interval(ms).
-- **hop_limit** (Number) Max Hop Limit.
-- **ip_address** (String) IP Address.
-- **remote_as** (Number) Remote AS number.
-- **router_id** (Number) Parent router ID, router_id can be obtained by using router datasource/resource.
+- `bfd_enabled` (Boolean) BFD Enabled.
+- `bfd_interval` (Number) BFD Interval(ms).
+- `hop_limit` (Number) Max Hop Limit.
+- `ip_address` (String) IP Address.
+- `remote_as` (Number) Remote AS number.
+- `router_id` (Number) Parent router ID, router_id can be obtained by using router datasource/resource.
 
 ### Optional
 
-- **allow_as_in** (Boolean) Allow-as-in.
-- **bfd_multiple** (Number) BFD Multiplier.
-- **config** (Block List, Max: 1) Interface configurations (see [below for nested schema](#nestedblock--config))
-- **holddown** (Number) Hold Down Time.
-- **id** (String) The ID of this resource.
-- **keepalive** (Number) Keep Alive Time.
-- **restart_mode** (String) Graceful Restart. Supported Values are "HELPER_ONLY" "GR_AND_HELPER" "DISABLE".
-- **router_filtering_in** (String) In Filter. Supported Values are "DNS_FORWARDER_IP",
+- `allow_as_in` (Boolean) Allow-as-in.
+- `bfd_multiple` (Number) BFD Multiplier.
+- `config` (Block List, Max: 1) Interface configurations (see [below for nested schema](#nestedblock--config))
+- `holddown` (Number) Hold Down Time.
+- `id` (String) The ID of this resource.
+- `keepalive` (Number) Keep Alive Time.
+- `restart_mode` (String) Graceful Restart. Supported Values are "HELPER_ONLY" "GR_AND_HELPER" "DISABLE".
+- `router_filtering_in` (String) In Filter. Supported Values are "DNS_FORWARDER_IP",
 				"EVPN_TEP_IP", "EXTERNAL_INTERFACE", "INTERNAL_TRANSIT_SUBNET",
 				"IPSEC_LOCAL_IP", "LOOPBACK_INTERFACE", "prefixlist-out-default",
 				"ROUTER_LINK", "SEGMENT", "SERVICE_INTERFACE"
-- **router_filtering_out** (String) Out Filter. Supported Values are "DNS_FORWARDER_IP",
+- `router_filtering_out` (String) Out Filter. Supported Values are "DNS_FORWARDER_IP",
 				"EVPN_TEP_IP", "EXTERNAL_INTERFACE", "INTERNAL_TRANSIT_SUBNET",
 				"IPSEC_LOCAL_IP", "LOOPBACK_INTERFACE", "prefixlist-out-default",
 				"ROUTER_LINK", "SEGMENT", "SERVICE_INTERFACE"
-- **router_filtering_type** (String) IP Address Family. Supported Values are `IPV4`, `IPV6` and `L2VPN_EVPN`
+- `router_filtering_type` (String) IP Address Family. Supported Values are `IPV4`, `IPV6` and `L2VPN_EVPN`
 
 <a id="nestedblock--config"></a>
 ### Nested Schema for `config`
 
 Required:
 
-- **source_addresses** (List of String) Source Addresses. This can be retrieved using Network Router Data Source
+- `source_addresses` (List of String) Source Addresses. This can be retrieved using Network Router Data Source
