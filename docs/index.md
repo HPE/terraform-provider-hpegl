@@ -61,10 +61,24 @@ provider "hpegl" {
             API clients use the appropriate GL "client" URL. Can be set by HPEGL_IAM_SERVICE_URL env-var
 - `iam_token` (String) The IAM token to be used with the client(s).  Note that in normal operation
                 an API client is used.  Passing-in a token means that tokens will not be generated or refreshed.
+- `metal` (Block Set, Max: 1) (see [below for nested schema](#nestedblock--metal))
 - `tenant_id` (String) The tenant-id to be used, can be set by HPEGL_TENANT_ID env-var
 - `user_id` (String) The user id to be used, can be set by HPEGL_USER_ID env-var
 - `user_secret` (String) The user secret to be used, can be set by HPEGL_USER_SECRET env-var
 - `vmaas` (Block Set, Max: 1) (see [below for nested schema](#nestedblock--vmaas))
+
+<a id="nestedblock--metal"></a>
+### Nested Schema for `metal`
+
+Optional:
+
+- `gl_token` (Boolean) Field indicating whether the token is GreenLake IAM issued token or Metal Service issued one,
+				can also be set with the HPEGL_METAL_GL_TOKEN env-var
+- `project_id` (String) The Metal project-id to use, can also be set with the HPEGL_METAL_PROJECT_ID env-var
+- `rest_url` (String) The Metal portal rest-url to use, can also be set with the HPEGL_METAL_REST_URL env-var
+- `space_name` (String) The space-name to use with Metal, only required for project creation operations,
+				can also be set with the HPEGL_METAL_SPACE_NAME env-var
+
 
 <a id="nestedblock--vmaas"></a>
 ### Nested Schema for `vmaas`
