@@ -48,6 +48,22 @@ func NewClientMap(ctx context.Context, d *schema.ResourceData) (map[string]inter
 		c[cli.ServiceName()] = scli
 	}
 
+	// Metal. A special case at the moment.
+	// Metal requires that we both initialise the client and use it to "refresh resources" before
+	// we hand it off to the provider code.
+	// In addition the Metal provider code uses a .gltform file to read the GreenLake project-id and
+	// portal URL.
+	// There are two possibilities:
+	// - The information needed to populate the .gltform file is provided in a hpegl metal block
+	// - A .gltform file is provided outside of the terraform environment
+	// So we do the following:
+	// - First check for the existence of a hpegl metal block, if it is present we use it to populate a
+	//   .gltform file.  Thus the hpegl metal block contents "win"
+	// - Then we check for a .gltform file, if one is present (it will either have been written from the
+	//   contents of the hpegl metal block or will have been there previously) we initialise the client
+	//   etc.
+	// TODO we may want to add some utility functions to hpegl-provider-lib to hide some of these d.Get()s
+
 	// First check to see if there is a metal stanza in the provider input, if so use it to write out a .gltform file
 	if metalMap, err := client.GetServiceSettingsMap("metal", d); err == nil {
 		// Proceed to write-out .gltform file
