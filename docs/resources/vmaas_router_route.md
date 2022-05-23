@@ -1,6 +1,7 @@
 ---
 layout: ""
 page_title: "hpegl_vmaas_router_route Resource - vmaas-terraform-resources"
+subcategory: "vmaas"
 description: |-
     Router route resource facilitates creating,
           updating and deleting NSX-T Network Router routes.

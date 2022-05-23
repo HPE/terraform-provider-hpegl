@@ -1,6 +1,7 @@
 ---
 layout: ""
 page_title: "hpegl_vmaas_instance_clone Resource - vmaas-terraform-resources-clone"
+subcategory: "vmaas"
 description: |-
     Instance clone resource facilitates creating,
       updating and deleting cloned virtual machines.
