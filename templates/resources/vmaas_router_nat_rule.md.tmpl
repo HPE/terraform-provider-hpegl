@@ -1,6 +1,7 @@
 ---
 layout: ""
 page_title: "hpegl_vmaas_router_nat_rule Resource - vmaas-terraform-resources"
+subcategory: {{ $arr := split .Name "_" }}"{{ index $arr 1 }}"
 description: |-
   {{ .Description | plainmarkdown | trimspace | prefixlines "  " }}
 ---
