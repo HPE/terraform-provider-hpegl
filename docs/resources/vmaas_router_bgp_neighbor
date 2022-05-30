@@ -1,6 +1,7 @@
 ---
 layout: ""
 page_title: "hpegl_vmaas_router_bgp_neighbor Resource - vmaas-terraform-resources"
+subcategory: "vmaas"
 description: |-
     Router Bgp Neighbor resource facilitates creating,
           updating and deleting NSX-T Network Router BGP Neighbors.

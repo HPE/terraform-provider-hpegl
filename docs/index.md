@@ -85,5 +85,6 @@ Optional:
 
 Optional:
 
+- `api_url` (String) The URL to use for the VMaaS API, can also be set with the HPEGL_VMAAS_API_URL env var
 - `location` (String) Location of GL VMaaS Service, can also be set with the HPEGL_VMAAS_LOCATION env var.
 - `space_name` (String) IAM Space name of the GL VMaaS Service, can also be set with the HPEGL_VMAAS_SPACE_NAME env var.
