@@ -24,14 +24,14 @@ data "hpegl_caas_site" "blr" {
   space_id = ""
 }
 
-data "hpegl_caas_cluster_blueprint" "bp" {
-  name = "demo"
-  site_id = data.hpegl_caas_site.blr.id
-}
-
-resource hpegl_caas_cluster test {
-  name         = "tf-test"
-  blueprint_id = data.hpegl_caas_cluster_blueprint.bp.id
-  site_id = data.hpegl_caas_site.blr.id
-  space_id     = ""
+resource hpegl_caas_machine_blueprint test {
+ name = ""
+ site_id = data.hpegl_caas_site.blr.id
+ machine_roles = ["controlplane"]
+ machine_provider = "vmaas"
+ os_image = "sles-custom"
+ os_version = ""
+ compute_type = ""
+ size = ""
+ storage_type = ""
 }
