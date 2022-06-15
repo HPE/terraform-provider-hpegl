@@ -1,4 +1,4 @@
-// (C) Copyright 2020 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2020-2022 Hewlett Packard Enterprise Development LP
 
 package resources
 
@@ -7,10 +7,12 @@ import (
 
 	rescaas "github.com/HewlettPackard/hpegl-containers-terraform-resources/pkg/resources"
 	resvmaas "github.com/HewlettPackard/hpegl-vmaas-terraform-resources/pkg/resources"
+	resmetal "github.com/hewlettpackard/hpegl-metal-terraform-resources/pkg/registration"
 )
 
 func SupportedServices() []registration.ServiceRegistration {
 	return []registration.ServiceRegistration{
+		resmetal.Registration{},
 		resvmaas.Registration{},
 		rescaas.Registration{},
 	}
