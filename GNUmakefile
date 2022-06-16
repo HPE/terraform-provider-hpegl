@@ -4,7 +4,6 @@ DEPEND_REPO=HewlettPackard/hpegl-vmaas-terraform-resources hewlettpackard/hpegl-
 
 prefix=hpegl-
 suffix=-terraform-resources
-ACC_TEST_SERVICES=vmaas
 TESTCASE_DIRS=data-sources resources
 
 default: build
@@ -66,24 +65,24 @@ accframework: vendor
 
 	# Download acceptance tests
 	# build config files
-	for f in $(ACC_TEST_SERVICES); do \
-		if [ -d "internal/acceptance/$${f}" ] ; then \
-		rm -rf ./internal/acceptance/$${f} ; \
-		fi ; \
+	for f in containers vmaas ; do \
+  		if [ -d "internal/acceptance/$${f}" ] ; then \
+  			rm -rf ./internal/acceptance/$${f} ; \
+  		fi ; \
+		mkdir ./internal/acceptance/$${f} ; \
 		if [ -d vendor/github.com/HewlettPackard/$(prefix)$${f}$(suffix)/internal/acceptance_test ] ; then \
-		cp -r vendor/github.com/HewlettPackard/$(prefix)$${f}$(suffix)/internal/acceptance_test ./internal/acceptance/$${f} ; \
-		cp -r vendor/github.com/HewlettPackard/$(prefix)$${f}$(suffix)/acc-testcases ./internal/acceptance/$${f} ; \
+		  cp -r vendor/github.com/HewlettPackard/$(prefix)$${f}$(suffix)/internal/acceptance_test/* ./internal/acceptance/$${f} ; \
+		fi ; \
+		if [ $${f} = "vmaas" ]; then\
+	      cp -r vendor/github.com/HewlettPackard/$(prefix)$${f}$(suffix)/acc-testcases ./internal/acceptance/$${f} ; \
 		fi ; \
 		rm ./internal/acceptance/$${f}/provider_test.go ; \
-		cp ./internal/acceptance/acceptance-utils/provider_test.go ./internal/acceptance/$${f} ; \
-		go mod tidy ; \
-		go mod vendor ; \
+        cp ./internal/acceptance/acceptance-utils/provider_test.go ./internal/acceptance/$${f} ; \
 	done
-
 .PHONY: accframework
 
 acceptance: accframework
-	-for f in $(ACC_TEST_SERVICES); do \
+	-for f in vmaas containers ; do \
 		TF_ACC_TEST_PATH=$(shell pwd)/internal/acceptance/vmaas/acc-testcases TF_ACC=true go test -v -timeout=9000s -cover ./internal/acceptance/$$f ; \
 		# remove service tests ; \
 		rm -rf ./internal/acceptance/$$f ; \
