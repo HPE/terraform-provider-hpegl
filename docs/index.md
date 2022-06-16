@@ -56,6 +56,7 @@ provider "hpegl" {
 
 - `api_vended_service_client` (Boolean) Declare if the API client being used is an API-vended one or not.  Defaults to "true"
             i.e. the client is API-vended.  The value can be set using the HPEGL_API_VENDED_SERVICE_CLIENT env-var.
+- `caas` (Block Set, Max: 1) (see [below for nested schema](#nestedblock--caas))
 - `iam_service_url` (String) The IAM service URL to be used to generate tokens.  In the case of API-vended API clients
             (the default) then this should be set to the "issuer url" for the client.  In the case of non-API-vended
             API clients use the appropriate GL "client" URL. Can be set by HPEGL_IAM_SERVICE_URL env-var
@@ -66,6 +67,14 @@ provider "hpegl" {
 - `user_id` (String) The user id to be used, can be set by HPEGL_USER_ID env-var
 - `user_secret` (String) The user secret to be used, can be set by HPEGL_USER_SECRET env-var
 - `vmaas` (Block Set, Max: 1) (see [below for nested schema](#nestedblock--vmaas))
+
+<a id="nestedblock--caas"></a>
+### Nested Schema for `caas`
+
+Optional:
+
+- `api_url` (String) The URL to use for the CaaS API, can also be set with the HPEGL_CAAS_API_URL env var
+
 
 <a id="nestedblock--metal"></a>
 ### Nested Schema for `metal`
