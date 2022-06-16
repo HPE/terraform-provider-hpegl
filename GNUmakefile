@@ -4,7 +4,6 @@ DEPEND_REPO=HewlettPackard/hpegl-vmaas-terraform-resources hewlettpackard/hpegl-
 
 prefix=hpegl-
 suffix=-terraform-resources
-ACC_TEST_SERVICES=vmaas
 TESTCASE_DIRS=data-sources resources
 
 default: build
