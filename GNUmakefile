@@ -1,6 +1,6 @@
 #(C) Copyright 2021-2022 Hewlett Packard Enterprise Development LP
 GOFMT_FILES?=$$(find . -name '*.go' | grep -v vendor)
-DEPEND_REPO=HewlettPackard/hpegl-vmaas-terraform-resources hewlettpackard/hpegl-metal-terraform-resources
+DEPEND_REPO=HewlettPackard/hpegl-vmaas-terraform-resources hewlettpackard/hpegl-metal-terraform-resources HewlettPackard/hpegl-containers-terraform-resources
 
 prefix=hpegl-
 suffix=-terraform-resources

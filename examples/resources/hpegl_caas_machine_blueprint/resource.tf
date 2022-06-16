@@ -9,25 +9,25 @@ terraform {
   }
 }
 
-provider hpegl {
+provider "hpegl" {
   caas {
     api_url = "https://mcaas.intg.hpedevops.net/mcaas"
   }
 }
 
 data "hpegl_caas_site" "blr" {
-  name = "BLR"
+  name     = "BLR"
   space_id = ""
 }
 
-resource hpegl_caas_machine_blueprint test {
- name = ""
- site_id = data.hpegl_caas_site.blr.id
- machine_roles = ["controlplane"]
- machine_provider = "vmaas"
- os_image = "sles-custom"
- os_version = ""
- compute_type = ""
- size = ""
- storage_type = ""
+resource "hpegl_caas_machine_blueprint" "test" {
+  name             = ""
+  site_id          = data.hpegl_caas_site.blr.id
+  machine_roles    = ["controlplane"]
+  machine_provider = "vmaas"
+  os_image         = "sles-custom"
+  os_version       = ""
+  compute_type     = ""
+  size             = ""
+  storage_type     = ""
 }

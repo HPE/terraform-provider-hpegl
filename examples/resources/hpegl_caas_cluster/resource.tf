@@ -9,25 +9,25 @@ terraform {
   }
 }
 
-provider hpegl {
+provider "hpegl" {
   caas {
     api_url = "https://mcaas.intg.hpedevops.net/mcaas"
   }
 }
 
 data "hpegl_caas_site" "blr" {
-  name = "BLR"
+  name     = "BLR"
   space_id = ""
 }
 
 data "hpegl_caas_cluster_blueprint" "bp" {
-  name = "demo"
+  name    = "demo"
   site_id = data.hpegl_caas_site.blr.id
 }
 
-resource hpegl_caas_cluster test {
+resource "hpegl_caas_cluster" "test" {
   name         = "tf-test"
   blueprint_id = data.hpegl_caas_cluster_blueprint.bp.id
-  site_id = data.hpegl_caas_site.blr.id
+  site_id      = data.hpegl_caas_site.blr.id
   space_id     = ""
 }

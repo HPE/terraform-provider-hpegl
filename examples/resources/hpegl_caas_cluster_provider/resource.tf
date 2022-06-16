@@ -9,19 +9,19 @@ terraform {
   }
 }
 
-provider hpegl {
+provider "hpegl" {
   caas {
     api_url = "https://mcaas.intg.hpedevops.net/mcaas"
   }
 }
 
 data "hpegl_caas_site" "blr" {
-  name = "BLR"
+  name     = "BLR"
   space_id = ""
 }
 
 data "hpegl_caas_cluster_provider" "clusterprovider" {
-  name = "ecp"
+  name    = "ecp"
   site_id = data.hpegl_caas_site.blr.id
 }
 
