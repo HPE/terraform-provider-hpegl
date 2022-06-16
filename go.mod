@@ -3,7 +3,7 @@ module github.com/HPE/terraform-provider-hpegl
 go 1.14
 
 require (
-	github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.2
+	github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.3
 	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.10
 	github.com/golangci/golangci-lint v1.46.1
 	github.com/hashicorp/terraform-plugin-docs v0.10.0

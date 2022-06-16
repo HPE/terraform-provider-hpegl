@@ -22,12 +22,8 @@ The cluster blueprint resource facilitates the creation and
 terraform {
   required_providers {
     hpegl = {
-      # We are specifying a location that is specific to the service under development
-      # In this example it is caas (see "source" below).  The service-specific replacement
-      # to caas must be specified in "source" below and also in the Makefile as the
-      # value of DUMMY_PROVIDER.
-      source  = "terraform.example.com/caas/hpegl"
-      version = ">= 0.0.1"
+      source  = "HPE/hpegl"
+      version = ">= 0.1.0"
     }
   }
 }
