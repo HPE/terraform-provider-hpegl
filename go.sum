@@ -83,6 +83,8 @@ github.com/HewlettPackard/hpegl-containers-go-sdk v0.0.9 h1:n2lfLOciFRjFNy2Xxsmg
 github.com/HewlettPackard/hpegl-containers-go-sdk v0.0.9/go.mod h1:rHDxAIj4FrgUc6JksOM0llQhGUpV732wsi19vKwyXSc=
 github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.3 h1:1Y6H9ty8UYcDQJ6I17kP1LQ3qe7QomQBjhJ4vcf+LrA=
 github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.3/go.mod h1:6ElZV8V5tjGRH9KfO8L+Wrwa0LUVGOxBduifHZsbAhI=
+github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.4 h1:5iEf0B92xzzSoPmLLL025P0S69b9sSafDmjpiSZufuo=
+github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.4/go.mod h1:gs4NVHpLIdPod+LYhr7S9NUl9/5BQ/n30zUR6lfo4RU=
 github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.0-beta8 h1:OhKazzd5W2K4mFg4z8vRQoy2s15IFQhqacmAL7vqVZ4=
 github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.0-beta8/go.mod h1:CMLvJPDveei0wZhKATZJUPyOXCJIw+nYwePYpFpvxpU=
 github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.10 h1:zdIdEuHrYdBeAss52E5lL6+RvrBzDinDDBzRDsPI0+A=
@@ -591,6 +593,8 @@ github.com/hashicorp/terraform-json v0.14.0/go.mod h1:5A9HIWPkk4e5aeeXIBbkcOvaZb
 github.com/hashicorp/terraform-plugin-docs v0.8.0/go.mod h1:MjeyK5CEI/jZbTQXq1Ay0UwTGdqxEcQexqhHP1WcLZc=
 github.com/hashicorp/terraform-plugin-docs v0.10.0 h1:LwoFJ3RoKElDFhBRomsDkaEn59OUNXa92M21VCuL7Vk=
 github.com/hashicorp/terraform-plugin-docs v0.10.0/go.mod h1:47ZcsxMUJxAjGzHf+dZ9q78oYf4PeJxO1N+i5XDtXBc=
+github.com/hashicorp/terraform-plugin-docs v0.10.1 h1:jiVYfhJ/hVXDAQN2XjLK3WH1A/YHgFCrFXPpxibvmjc=
+github.com/hashicorp/terraform-plugin-docs v0.10.1/go.mod h1:47ZcsxMUJxAjGzHf+dZ9q78oYf4PeJxO1N+i5XDtXBc=
 github.com/hashicorp/terraform-plugin-go v0.4.0/go.mod h1:7u/6nt6vaiwcWE2GuJKbJwNlDFnf5n95xKw4hqIVr58=
 github.com/hashicorp/terraform-plugin-go v0.5.0/go.mod h1:PAVN26PNGpkkmsvva1qfriae5Arky3xl3NfzKa8XFVM=
 github.com/hashicorp/terraform-plugin-go v0.9.0/go.mod h1:EawBkgjBWNf7jiKnVoyDyF39OSV+u6KUX+Y73EPj3oM=
