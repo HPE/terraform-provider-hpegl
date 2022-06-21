@@ -15,9 +15,13 @@ provider "hpegl" {
   }
 }
 
+variable "HPEGL_SPACE" {
+  type = string
+}
+
 data "hpegl_caas_site" "blr" {
   name     = "BLR"
-  space_id = ""
+  space_id = var.HPEGL_SPACE
 }
 
 data "hpegl_caas_cluster_blueprint" "bp" {
@@ -29,5 +33,5 @@ resource "hpegl_caas_cluster" "test" {
   name         = "tf-test"
   blueprint_id = data.hpegl_caas_cluster_blueprint.bp.id
   site_id      = data.hpegl_caas_site.blr.id
-  space_id     = ""
+  space_id     = var.HPEGL_SPACE
 }

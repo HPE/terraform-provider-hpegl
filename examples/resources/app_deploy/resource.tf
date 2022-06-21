@@ -20,9 +20,13 @@ provider "hpegl" {
   }
 }
 
+variable "HPEGL_SPACE" {
+  type = string
+}
+
 data "hpegl_caas_cluster" "test" {
   name     = "test"
-  space_id = ""
+  space_id = var.HPEGL_SPACE
 }
 
 resource "local_file" "foo" {
