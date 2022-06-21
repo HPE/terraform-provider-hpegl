@@ -15,9 +15,13 @@ provider "hpegl" {
   }
 }
 
+variable "HPEGL_SPACE" {
+  type = string
+}
+
 data "hpegl_caas_site" "blr" {
   name     = "BLR"
-  space_id = ""
+  space_id = var.HPEGL_SPACE
 }
 
 resource "hpegl_caas_machine_blueprint" "test" {
