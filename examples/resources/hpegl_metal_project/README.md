@@ -1,5 +1,5 @@
 # Example of creating project
-**IMPORTANT NOTE**: Projects can be created only with an IAM token and a BMaaS Owner role associated with the token
+**IMPORTANT NOTE**: Projects can be created only with an IAM token and a Metal Owner role associated with the token
 
 To run the example:
 * Authenticate against a portal using steeld login
@@ -44,7 +44,7 @@ Do you want to perform these actions?
 
   Enter a value: yes
 
-quakeproject.project: Creating...
+metalproject.project: Creating...
 
 
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.

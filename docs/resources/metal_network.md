@@ -61,6 +61,7 @@ resource "hpegl_metal_network" "pnet" {
 - `description` (String)
 - `host_use` (String) Required, Optional or Default
 - `ip_pool` (Block Set, Max: 1) Create the specified IP Pool to be used for the network (see [below for nested schema](#nestedblock--ip_pool))
+- `purpose` (String) Purpose of the network. Allowed values: Backup, Storage, vmKernel, vmNSX-T, vMotion, vCHA, vmFT, iSCSI-A or iSCSI-B
 
 ### Read-Only
 

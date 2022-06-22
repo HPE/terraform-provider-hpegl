@@ -122,6 +122,7 @@ Read-Only:
 - `location` (String)
 - `location_id` (String)
 - `name` (String)
+- `purpose` (String)
 - `vlan` (Number)
 - `vni` (Number)
 
