@@ -48,11 +48,22 @@ data "hpegl_caas_cluster_blueprint" "bp" {
   site_id = data.hpegl_caas_site.blr.id
 }
 
+data "hpegl_caas_machine_blueprint" "mbworker" {
+  name    = "standard-worker"
+  site_id = data.hpegl_caas_site.blr.id
+}
+
 resource "hpegl_caas_cluster" "test" {
   name         = "tf-test"
   blueprint_id = data.hpegl_caas_cluster_blueprint.bp.id
   site_id      = data.hpegl_caas_site.blr.id
   space_id     = var.HPEGL_SPACE
+
+  worker_nodes {
+    name                 = "test-node-pool"
+    machine_blueprint_id = data.hpegl_caas_machine_blueprint.mbworker.id
+    count                = "1"
+  }
 }
 ```
 
@@ -69,6 +80,7 @@ resource "hpegl_caas_cluster" "test" {
 ### Optional
 
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
+- `worker_nodes` (Block List) (see [below for nested schema](#nestedblock--worker_nodes))
 
 ### Read-Only
 
@@ -76,6 +88,7 @@ resource "hpegl_caas_cluster" "test" {
 - `appliance_name` (String)
 - `cluster_provider` (String)
 - `created_date` (String)
+- `default_machine_sets` (List of Object) (see [below for nested schema](#nestedatt--default_machine_sets))
 - `default_storage_class` (String)
 - `default_storage_class_description` (String)
 - `health` (String)
@@ -95,6 +108,29 @@ Optional:
 
 - `create` (String)
 - `delete` (String)
+- `update` (String)
+
+
+<a id="nestedblock--worker_nodes"></a>
+### Nested Schema for `worker_nodes`
+
+Required:
+
+- `count` (Number)
+- `machine_blueprint_id` (String)
+- `name` (String)
+
+
+<a id="nestedatt--default_machine_sets"></a>
+### Nested Schema for `default_machine_sets`
+
+Read-Only:
+
+- `count` (Number)
+- `machine_blueprint_id` (String)
+- `name` (String)
+- `os_image` (String)
+- `os_version` (String)
 
 
 <a id="nestedatt--machine_sets"></a>
