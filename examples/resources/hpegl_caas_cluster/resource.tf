@@ -29,9 +29,20 @@ data "hpegl_caas_cluster_blueprint" "bp" {
   site_id = data.hpegl_caas_site.blr.id
 }
 
+data "hpegl_caas_machine_blueprint" "mbworker" {
+  name    = "standard-worker"
+  site_id = data.hpegl_caas_site.blr.id
+}
+
 resource "hpegl_caas_cluster" "test" {
   name         = "tf-test"
   blueprint_id = data.hpegl_caas_cluster_blueprint.bp.id
   site_id      = data.hpegl_caas_site.blr.id
   space_id     = var.HPEGL_SPACE
+
+  worker_nodes {
+    name                 = "test-node-pool"
+    machine_blueprint_id = data.hpegl_caas_machine_blueprint.mbworker.id
+    count                = "1"
+  }
 }
