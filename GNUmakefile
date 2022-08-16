@@ -59,30 +59,47 @@ docs-generate: vendor
 
 .PHONY: docs-generate
 
-accframework: vendor
+accframework-vmaas: vendor
 	go install github.com/nomad-software/vend@v1.0.3 ; \
 	vend; \
 
 	# Download acceptance tests
-	# build config files
-	for f in containers vmaas ; do \
-  		if [ -d "internal/acceptance/$${f}" ] ; then \
-  			rm -rf ./internal/acceptance/$${f} ; \
-  		fi ; \
-		mkdir ./internal/acceptance/$${f} ; \
-		if [ -d vendor/github.com/HewlettPackard/$(prefix)$${f}$(suffix)/internal/acceptance_test ] ; then \
-		  cp -r vendor/github.com/HewlettPackard/$(prefix)$${f}$(suffix)/internal/acceptance_test/* ./internal/acceptance/$${f} ; \
-		fi ; \
-		if [ $${f} = "vmaas" ]; then\
-	      cp -r vendor/github.com/HewlettPackard/$(prefix)$${f}$(suffix)/acc-testcases ./internal/acceptance/$${f} ; \
-		fi ; \
-		rm ./internal/acceptance/$${f}/provider_test.go ; \
-        cp ./internal/acceptance/acceptance-utils/provider_test.go ./internal/acceptance/$${f} ; \
-	done
-.PHONY: accframework
+	if [ -d "internal/acceptance/vmaas" ] ; then \
+		rm -rf ./internal/acceptance/vmaas ; \
+	fi ; \
+	mkdir ./internal/acceptance/vmaas ; \
+	if [ -d vendor/github.com/HewlettPackard/$(prefix)vmaas$(suffix)/internal/acceptance_test ] ; then \
+	  cp -r vendor/github.com/HewlettPackard/$(prefix)vmaas$(suffix)/internal/acceptance_test/* ./internal/acceptance/vmaas ; \
+	fi ; \
+	  cp -r vendor/github.com/HewlettPackard/$(prefix)vmaas$(suffix)/acc-testcases ./internal/acceptance/vmaas ; \
+	rm ./internal/acceptance/vmaas/provider_test.go ; \
+	cp ./internal/acceptance/acceptance-utils/provider_test.go ./internal/acceptance/vmaas ; \
+	go mod tidy ; \
+	go mod vendor
 
-acceptance: accframework
-	-for f in vmaas containers ; do \
+.PHONY: accframework-vmaas
+
+accframework-caas: vendor
+	go install github.com/nomad-software/vend@v1.0.3 ; \
+	vend; \
+
+	# Download acceptance tests
+	if [ -d "internal/acceptance/containers" ] ; then \
+		rm -rf ./internal/acceptance/containers ; \
+	fi ; \
+	mkdir ./internal/acceptance/containers ; \
+	if [ -d vendor/github.com/HewlettPackard/$(prefix)containers$(suffix)/internal/acceptance_test ] ; then \
+	  cp -r vendor/github.com/HewlettPackard/$(prefix)containers$(suffix)/internal/acceptance_test/* ./internal/acceptance/containers ; \
+	fi ; \
+	rm ./internal/acceptance/containers/provider_test.go ; \
+	cp ./internal/acceptance/acceptance-utils/provider_test.go ./internal/acceptance/containers ; \
+	go mod tidy ; \
+	go mod vendor
+
+.PHONY: accframework-caas
+
+acceptance-vmaas: accframework-vmaas
+	-for f in vmaas ; do \
 		TF_ACC_TEST_PATH=$(shell pwd)/internal/acceptance/vmaas/acc-testcases TF_ACC=true go test -v -timeout=9000s -cover ./internal/acceptance/$$f ; \
 		# remove service tests ; \
 		rm -rf ./internal/acceptance/$$f ; \
@@ -93,7 +110,21 @@ acceptance: accframework
 	# remove vend files
 	rm -rf vendor
 
-.PHONY: acceptance
+.PHONY: acceptance-vmaas
+
+acceptance-caas: accframework-caas
+	-for f in containers ; do \
+		TF_ACC=true go test -v -timeout=9000s -cover ./internal/acceptance/$$f ; \
+		# remove service tests ; \
+		rm -rf ./internal/acceptance/$$f ; \
+		go mod tidy ; \
+		go mod vendor ; \
+	done
+
+	# remove vend files
+	rm -rf vendor
+
+.PHONY: acceptance-caas
 
 docs: docs-generate
 .PHONY: docs
