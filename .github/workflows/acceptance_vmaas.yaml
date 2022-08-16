@@ -1,0 +1,51 @@
+name: acc
+
+on:
+  # Runs every 2 days once at 11PM
+  schedule:
+    - cron:  '0 23 */2 * *'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
+  release:
+    types: [published]
+env:
+  HPEGL_IAM_SERVICE_URL: ${{ secrets.HPEGL_IAM_SERVICE_URL }}
+  HPEGL_TENANT_ID: ${{ secrets.HPEGL_TENANT_ID }}
+  HPEGL_USER_SECRET: ${{ secrets.HPEGL_USER_SECRET }}
+  HPEGL_USER_ID: ${{ secrets.HPEGL_USER_ID }}
+  HPEGL_VMAAS_API_URL: ${{ secrets.HPEGL_VMAAS_API_URL }}
+  HPEGL_VMAAS_LOCATION: ${{ secrets.HPEGL_VMAAS_LOCATION }}
+  HPEGL_VMAAS_SPACE_NAME: ${{ secrets.HPEGL_VMAAS_SPACE_NAME}}
+  TF_ACC: ${{ secrets.TF_ACC }}
+jobs:
+  acc:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        go: [ '1.17' ]
+    name: Acceptance Tests
+    steps:
+      - name: Checkout workspace
+        uses: actions/checkout@v3
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.17
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y wget jq
+          wget https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_linux_amd64.zip
+          sudo unzip -fo terraform_1.0.0_linux_amd64.zip -d /usr/local/bin
+      - name: Install necessary tools
+        run: make tools
+
+      - name: Run Acceptance test
+        run: |
+          make acceptance-vmaas

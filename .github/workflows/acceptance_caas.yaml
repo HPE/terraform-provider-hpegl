@@ -19,4 +19,4 @@ jobs:
         with:
           go-version: ${{ matrix.go }}
       - run: go install github.com/nomad-software/vend@v1.0.3
-      - run: make acceptance
+      - run: make acceptance-caas
