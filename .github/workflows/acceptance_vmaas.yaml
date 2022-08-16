@@ -1,4 +1,4 @@
-name: acc
+name: Acceptance Test Vmaas
 
 on:
   # Runs every 2 days once at 11PM
