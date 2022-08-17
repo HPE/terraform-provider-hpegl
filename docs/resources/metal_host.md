@@ -38,7 +38,7 @@ resource "hpegl_metal_host" "terra_host" {
   image              = "ubuntu@18.04-20201102"
   machine_size       = "Medium System"
   ssh                = [hpegl_metal_ssh_key.newssh_1.id]
-  networks           = ["Public", "Storage"]
+  networks           = ["Public", "Storage-Client"]
   network_route      = "Public"
   location           = var.location
   description        = "Hello from Terraform"
@@ -83,6 +83,7 @@ resource "hpegl_metal_host" "terra_host_new_ssh" {
   network_route = "Public"
   location      = var.location
   description   = "Hello from Terraform"
+  labels        = { "ServiceType" = "BMaaS" }
 }
 ```
 
@@ -102,6 +103,8 @@ resource "hpegl_metal_host" "terra_host_new_ssh" {
 
 - `allocated_ips` (List of String) List of pre-allocated IP addresses in one-to-one correspondance wth Networks.
 - `description` (String) A wordy description of the machine and purpose.
+- `initiator_name` (String) The iSCSI initiator name for this host.
+- `labels` (Map of String) map of label name to label value for this host
 - `network_route` (String) Network selected for the default route
 - `user_data` (String) Any yaml compliant string that will be merged into cloud-init for this host.
 - `volume_attachments` (List of String) List of existing volume IDs
@@ -113,7 +116,6 @@ resource "hpegl_metal_host" "terra_host_new_ssh" {
 - `chap_user` (String) The iSCSI CHAP name for this host.
 - `connections` (Map of String) A map of network connections and assigned IP addreses, eg {'Private':'10.83.0.17'}.
 - `id` (String) The ID of this resource.
-- `initiator_name` (String) The iSCSI initiator name for this host.
 - `location_id` (String) UUID of the location
 - `machine_size_id` (String) Machine size ID
 - `network_ids` (List of String) List of network UUIDs.

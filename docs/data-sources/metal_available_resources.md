@@ -182,6 +182,7 @@ Read-Only:
 - `flavor` (String)
 - `flavor_id` (String)
 - `id` (String)
+- `labels` (Map of String)
 - `location` (String)
 - `location_id` (String)
 - `name` (String)
