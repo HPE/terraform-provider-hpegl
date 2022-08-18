@@ -41,6 +41,10 @@ resource "hpegl_metal_project" "project" {
 - `name` (String) A friendly name of the project.
 - `profile` (Block List, Min: 1, Max: 1) Team profile. (see [below for nested schema](#nestedblock--profile))
 
+### Optional
+
+- `sites` (Set of String) List of Permitted Site IDs
+
 ### Read-Only
 
 - `id` (String) The ID of this resource.
