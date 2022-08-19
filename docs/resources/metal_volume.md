@@ -37,6 +37,7 @@ resource "hpegl_metal_volume" "test_vols" {
 ### Optional
 
 - `description` (String) A wordy description of the volume and purpose.
+- `labels` (Map of String) volume labels as (name, value) pairs
 - `shareable` (Boolean) The volume can be shared by multiple hosts if set.
 
 ### Read-Only

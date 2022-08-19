@@ -15,6 +15,7 @@ import (
 	"github.com/HPE/terraform-provider-hpegl/internal/hpegl"
 )
 
+// nolint: exhaustruct
 func main() {
 	var debugMode bool
 
