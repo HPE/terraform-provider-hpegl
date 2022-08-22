@@ -1,0 +1,38 @@
+name: Acceptance Test Vmaas
+
+on:
+  # Runs every night at 1:30 am
+  schedule:
+    - cron:  "30 1 * * *"
+env:
+  HPEGL_IAM_SERVICE_URL: ${{ secrets.VMAAS_HPEGL_IAM_SERVICE_URL }}
+  HPEGL_TENANT_ID: ${{ secrets.VMAAS_HPEGL_TENANT_ID }}
+  HPEGL_USER_SECRET: ${{ secrets.VMAAS_HPEGL_USER_SECRET }}
+  HPEGL_USER_ID: ${{ secrets.VMAAS_HPEGL_USER_ID }}
+  HPEGL_VMAAS_API_URL: ${{ secrets.VMAAS_HPEGL_VMAAS_API_URL }}
+  HPEGL_VMAAS_LOCATION: ${{ secrets.VMAAS_HPEGL_VMAAS_LOCATION }}
+  HPEGL_VMAAS_SPACE_NAME: ${{ secrets.VMAAS_HPEGL_VMAAS_SPACE_NAME}}
+jobs:
+  acc:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        go: [ '1.19' ]
+    name: Acceptance Tests
+    steps:
+      - name: Checkout workspace
+        uses: actions/checkout@v3
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.17
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y wget jq
+          wget https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_linux_amd64.zip
+          sudo unzip -fo terraform_1.0.0_linux_amd64.zip -d /usr/local/bin
+      - name: Install necessary tools
+        run: make tools
+
+      - name: Run Acceptance test
+        run: make acceptance-vmaas
