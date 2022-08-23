@@ -3,13 +3,13 @@
 terraform {
   required_providers {
     hpegl = {
-      source  = "HPE/hpegl"
+      source = "HPE/hpegl"
       version = ">= 0.1.0"
     }
   }
 }
 
-provider "hpegl" {
+provider hpegl {
   caas {
     api_url = "https://mcaas.intg.hpedevops.net/mcaas"
   }
@@ -20,12 +20,12 @@ variable "HPEGL_SPACE" {
 }
 
 data "hpegl_caas_site" "blr" {
-  name     = "BLR"
+  name = "BLR"
   space_id = var.HPEGL_SPACE
 }
 
 data "hpegl_caas_cluster_provider" "clusterprovider" {
-  name    = "ecp"
+  name = "ecp"
   site_id = data.hpegl_caas_site.blr.id
 }
 
