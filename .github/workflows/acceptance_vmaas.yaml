@@ -1,9 +1,9 @@
 name: Acceptance Test Vmaas
 
 on:
-  # Runs every night at 1:30 am
+  # Runs every night at 1:30 am (UTC)
   schedule:
-    - cron:  "30 11 * * *"
+    - cron:  "40 10 * * *"
 env:
   HPEGL_IAM_SERVICE_URL: ${{ secrets.VMAAS_HPEGL_IAM_SERVICE_URL }}
   HPEGL_TENANT_ID: ${{ secrets.VMAAS_HPEGL_TENANT_ID }}
