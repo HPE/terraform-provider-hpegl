@@ -9,7 +9,7 @@ resource "hpegl_vmaas_network" "test_net" {
   gateway      = "168.72.10.1"
   primary_dns  = "8.8.8.8"
   scan_network = false
-  pool_id      = 7
+  pool_id = 7
   active       = true
   config {
     connected_gateway = data.hpegl_vmaas_router.tf_router.provider_id
