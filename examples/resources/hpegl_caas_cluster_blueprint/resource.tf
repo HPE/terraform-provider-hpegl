@@ -3,13 +3,13 @@
 terraform {
   required_providers {
     hpegl = {
-      source = "HPE/hpegl"
+      source  = "HPE/hpegl"
       version = ">= 0.1.0"
     }
   }
 }
 
-provider hpegl {
+provider "hpegl" {
   caas {
     api_url = "https://mcaas.intg.hpedevops.net/mcaas"
   }
@@ -20,43 +20,43 @@ variable "HPEGL_SPACE" {
 }
 
 data "hpegl_caas_site" "blr" {
-  name = "BLR"
+  name     = "BLR"
   space_id = var.HPEGL_SPACE
 }
 
 data "hpegl_caas_machine_blueprint" "mbcontrolplane" {
-  name = "standard-master"
+  name    = "standard-master"
   site_id = data.hpegl_caas_site.blr.id
 }
 
 data "hpegl_caas_machine_blueprint" "mbworker" {
-  name = "standard-worker"
+  name    = "standard-worker"
   site_id = data.hpegl_caas_site.blr.id
 }
 
 data "hpegl_caas_cluster_provider" "clusterprovider" {
-  name = "ecp"
+  name    = "ecp"
   site_id = data.hpegl_caas_site.blr.id
 }
 
-resource hpegl_caas_cluster_blueprint testbp {
-  name         = "tf-cluster-bp"
-  kubernetes_version  = data.hpegl_caas_cluster_provider.clusterprovider.kubernetes_versions[0]
+resource "hpegl_caas_cluster_blueprint" "testbp" {
+  name                  = "tf-cluster-bp"
+  kubernetes_version    = data.hpegl_caas_cluster_provider.clusterprovider.kubernetes_versions[0]
   default_storage_class = ""
-  site_id = data.hpegl_caas_site.blr.id
-  cluster_provider = ""
+  site_id               = data.hpegl_caas_site.blr.id
+  cluster_provider      = ""
   control_plane_nodes = {
     machine_blueprint_id = data.hpegl_caas_machine_blueprint.mbcontrolplane.id
-    count = ""
+    count                = ""
   }
   worker_nodes {
-      name = ""
-      machine_blueprint_id = data.hpegl_caas_machine_blueprint.mbworker.id
-      count = ""
-    }
+    name                 = ""
+    machine_blueprint_id = data.hpegl_caas_machine_blueprint.mbworker.id
+    count                = ""
+  }
   worker_nodes {
-        name = ""
-        machine_blueprint_id = data.hpegl_caas_machine_blueprint.mbworker.id
-        count = ""
-      }
+    name                 = ""
+    machine_blueprint_id = data.hpegl_caas_machine_blueprint.mbworker.id
+    count                = ""
+  }
 }
