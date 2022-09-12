@@ -24,6 +24,7 @@ Terraform will perform the following actions:
           + "volume_capacity"  = "300"
           + "volumes"          = "10"
           + "private_networks" = "20"
+          + "instance_types"   = { "944e7b2c-a181-4aa2-afcc-35480b07caa4": 1}
         }
       + name    = "blob"
       + profile {
@@ -62,8 +63,12 @@ The available_resources block takes the following arguments.
   - `company` - (Optional) Company name.
   - `email` - (Optional)  email address.
   - `project_description` - (Optional) Descriptive text for the project.
- - `limits` - Project quotas.
-
+- `limits` - Project quotas.
+  - `hosts` - Maximum number of hosts
+  - `volumes` - Maximum number of volumes
+  - `volume_capacity` - Maximum aggregated volume capacity in TiB
+  - `private_networks` - Maximum number of private networks
+  - `instance_types` - (Optional) Map of instance type ID to maximum number of hosts that can be created with that instance type
 
 ### Attribute Reference
 

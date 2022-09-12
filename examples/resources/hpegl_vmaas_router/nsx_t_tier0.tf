@@ -27,17 +27,17 @@ resource "hpegl_vmaas_router" "tf_tier0" {
       tier0_static             = true
     }
     route_redistribution_tier1 {
-       tier1_dns_forwarder_ip     = false
-       tier1_service_interface    = true
-       tier1_ipsec_local_endpoint = false
-       tier1_lb_snat              = false
-       tier1_lb_vip               = false
-       tier1_nat                  = false
-       tier1_segment              = true
-       tier1_static               = false
+      tier1_dns_forwarder_ip     = false
+      tier1_service_interface    = true
+      tier1_ipsec_local_endpoint = false
+      tier1_lb_snat              = false
+      tier1_lb_vip               = false
+      tier1_nat                  = false
+      tier1_segment              = true
+      tier1_static               = false
     }
-    fail_over = "NON_PREEMPTIVE"
-    ha_mode   = "ACTIVE_STANDBY"
+    fail_over    = "NON_PREEMPTIVE"
+    ha_mode      = "ACTIVE_STANDBY"
     edge_cluster = data.hpegl_vmaas_edge_cluster.tf_edge_cluster.provider_id
   }
 }
