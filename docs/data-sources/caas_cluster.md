@@ -31,8 +31,8 @@ Cluster data source allows reading cluster data
 - `default_storage_class_description` (String)
 - `health` (String)
 - `id` (String) The ID of this resource.
-- `k8s_version` (String)
 - `kubeconfig` (String)
+- `kubernetes_version` (String)
 - `last_update_date` (String)
 - `machine_sets` (List of Object) (see [below for nested schema](#nestedatt--machine_sets))
 - `machine_sets_detail` (List of Object) (see [below for nested schema](#nestedatt--machine_sets_detail))

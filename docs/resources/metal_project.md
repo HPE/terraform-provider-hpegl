@@ -55,6 +55,7 @@ resource "hpegl_metal_project" "project" {
 Optional:
 
 - `hosts` (Number) Maximum number of host allowed in the team.
+- `instance_types` (Map of Number) Map of instance type ID to maximum number of hosts that can be created with that instance type
 - `private_networks` (Number) Maximum number of private networks allowed in the team.
 - `volume_capacity` (Number) Total allowable volume capacity (GiB) allowed in the team.
 - `volumes` (Number) Maximum number of volumes allowed in the team.

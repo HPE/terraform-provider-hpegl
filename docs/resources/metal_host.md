@@ -74,16 +74,17 @@ resource "hpegl_metal_network" "newpnet_1" {
 }
 
 resource "hpegl_metal_host" "terra_host_new_ssh" {
-  count         = 2
-  name          = "tformed-newssh-${count.index}"
-  image         = "ubuntu@18.04-20201102"
-  machine_size  = "Medium System"
-  ssh           = [hpegl_metal_ssh_key.newssh_1.id]
-  networks      = ["Public", hpegl_metal_network.newpnet_1.name]
-  network_route = "Public"
-  location      = var.location
-  description   = "Hello from Terraform"
-  labels        = { "ServiceType" = "BMaaS" }
+  count            = 2
+  name             = "tformed-newssh-${count.index}"
+  image            = "ubuntu@18.04-20201102"
+  machine_size     = "Medium System"
+  ssh              = [hpegl_metal_ssh_key.newssh_1.id]
+  networks         = ["Public", hpegl_metal_network.newpnet_1.name]
+  network_route    = "Public"
+  network_untagged = hpegl_metal_network.newpnet_1.name
+  location         = var.location
+  description      = "Hello from Terraform"
+  labels           = { "ServiceType" = "BMaaS" }
 }
 ```
 
@@ -106,6 +107,7 @@ resource "hpegl_metal_host" "terra_host_new_ssh" {
 - `initiator_name` (String) The iSCSI initiator name for this host.
 - `labels` (Map of String) map of label name to label value for this host
 - `network_route` (String) Network selected for the default route
+- `network_untagged` (String) Untagged network
 - `user_data` (String) Any yaml compliant string that will be merged into cloud-init for this host.
 - `volume_attachments` (List of String) List of existing volume IDs
 - `volume_infos` (Block Set) Information about volumes attached to this host. (see [below for nested schema](#nestedblock--volume_infos))
@@ -120,6 +122,7 @@ resource "hpegl_metal_host" "terra_host_new_ssh" {
 - `machine_size_id` (String) Machine size ID
 - `network_ids` (List of String) List of network UUIDs.
 - `network_route_id` (String) Network ID of the default route
+- `network_untagged_id` (String) Untagged network ID
 - `portal_comm_okay` (Boolean) The current portal communication state of the host
 - `power_state` (String) The current power state of the host
 - `ssh_ids` (List of String)
