@@ -26,7 +26,7 @@ Cluster Blueprint data source allows reading cluster blueprint data
 - `created_date` (String)
 - `default_storage_class` (String)
 - `id` (String) The ID of this resource.
-- `k8s_version` (String)
+- `kubernetes_version` (String)
 - `last_update_date` (String)
 - `machine_sets` (List of Object) (see [below for nested schema](#nestedatt--machine_sets))
 

@@ -4,14 +4,14 @@ subcategory: "caas"
 description: |-
   The cluster blueprint resource facilitates the creation and
               deletion of a CaaS cluster blueprint.  Update is currently not supported. The
-              required inputs when creating a cluster blueprint are name, k8sversion,
+              required inputs when creating a cluster blueprint are name, kubernetesversion,
               site-id, clusterprovider, controlplane, workernodes and defaultstorageclass
 ---
 # hpegl_caas_cluster_blueprint (Resource)
 
 The cluster blueprint resource facilitates the creation and
 			deletion of a CaaS cluster blueprint.  Update is currently not supported. The
-			required inputs when creating a cluster blueprint are name, k8s_version,
+			required inputs when creating a cluster blueprint are name, kubernetes_version,
 			site-id, cluster_provider, control_plane, worker_nodes and default_storage_class
 
 ## Example Usage
@@ -60,7 +60,7 @@ data "hpegl_caas_cluster_provider" "clusterprovider" {
 
 resource "hpegl_caas_cluster_blueprint" "testbp" {
   name                  = "tf-cluster-bp"
-  k8s_version           = data.hpegl_caas_cluster_provider.clusterprovider.k8s_versions[0]
+  kubernetes_version    = data.hpegl_caas_cluster_provider.clusterprovider.kubernetes_versions[0]
   default_storage_class = ""
   site_id               = data.hpegl_caas_site.blr.id
   cluster_provider      = ""
@@ -89,7 +89,7 @@ resource "hpegl_caas_cluster_blueprint" "testbp" {
 - `cluster_provider` (String)
 - `control_plane_nodes` (Map of String)
 - `default_storage_class` (String)
-- `k8s_version` (String)
+- `kubernetes_version` (String)
 - `name` (String)
 - `site_id` (String)
 - `worker_nodes` (Block List, Min: 1) (see [below for nested schema](#nestedblock--worker_nodes))

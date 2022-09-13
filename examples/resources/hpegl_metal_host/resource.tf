@@ -61,14 +61,15 @@ resource "hpegl_metal_network" "newpnet_1" {
 }
 
 resource "hpegl_metal_host" "terra_host_new_ssh" {
-  count         = 2
-  name          = "tformed-newssh-${count.index}"
-  image         = "ubuntu@18.04-20201102"
-  machine_size  = "Medium System"
-  ssh           = [hpegl_metal_ssh_key.newssh_1.id]
-  networks      = ["Public", hpegl_metal_network.newpnet_1.name]
-  network_route = "Public"
-  location      = var.location
-  description   = "Hello from Terraform"
-  labels        = { "ServiceType" = "BMaaS" }
+  count            = 2
+  name             = "tformed-newssh-${count.index}"
+  image            = "ubuntu@18.04-20201102"
+  machine_size     = "Medium System"
+  ssh              = [hpegl_metal_ssh_key.newssh_1.id]
+  networks         = ["Public", hpegl_metal_network.newpnet_1.name]
+  network_route    = "Public"
+  network_untagged = hpegl_metal_network.newpnet_1.name
+  location         = var.location
+  description      = "Hello from Terraform"
+  labels           = { "ServiceType" = "BMaaS" }
 }

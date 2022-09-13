@@ -26,7 +26,7 @@ ClusterProvider data source allows reading Cluster Provider data
 - `created_date` (String)
 - `health` (String)
 - `id` (String) The ID of this resource.
-- `k8s_versions` (List of String)
+- `kubernetes_versions` (List of String)
 - `last_update_date` (String)
 - `license_info` (List of Object) (see [below for nested schema](#nestedatt--license_info))
 - `min_master_size` (List of Object) (see [below for nested schema](#nestedatt--min_master_size))
