@@ -592,8 +592,8 @@ github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d h1:kJCB4vdITiW1eC1
 github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d/go.mod h1:+NfK9FKeTrX5uv1uIXGdwYDTeHna2qgaIlx54MXqjAM=
 github.com/hewlettpackard/hpegl-metal-client v1.4.10 h1:W4GhcMfp1KN/sEUNf1Wwg3xNXIvvW2Qq3SlF5xuw/J4=
 github.com/hewlettpackard/hpegl-metal-client v1.4.10/go.mod h1:9u4mZX6tAcLZHMRVNaOJLZGSo+R9BdIR3PVcaXTUraY=
-github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.27 h1:pSos3iW6L06yrW+gcBKXvOTMALMr40QsCO56GbeYAAU=
-github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.27/go.mod h1:fQf7eY9T4HcCskiAFR2UDRIGsChaYTPRCc2Cg8K8VBo=
+github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.28 h1:Fw6GdQ+vL2W5DD/HYkD7N0ojnbZvirUsn+3sTI+mZbM=
+github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.28/go.mod h1:fQf7eY9T4HcCskiAFR2UDRIGsChaYTPRCc2Cg8K8VBo=
 github.com/hewlettpackard/hpegl-provider-lib v0.0.12 h1:0c9seGoq34yDiQHv/wdLYEjaR9VCxR775dGdAxHo59k=
 github.com/hewlettpackard/hpegl-provider-lib v0.0.12/go.mod h1:IKqB5hzOz1zrrQloNP8Ux3j/8Kcq0UUcTRtJmJw7YQE=
 github.com/hexops/gotextdiff v1.0.3 h1:gitA9+qJrrTCsiCl7+kh75nPqQt1cx4ZkudSTLoUqJM=
