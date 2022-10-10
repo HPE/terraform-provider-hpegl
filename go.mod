@@ -8,7 +8,7 @@ require (
 	github.com/golangci/golangci-lint v1.50.0
 	github.com/hashicorp/terraform-plugin-docs v0.13.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.23.0
-	github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.27
+	github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.28
 	github.com/hewlettpackard/hpegl-provider-lib v0.0.12
 )
 
