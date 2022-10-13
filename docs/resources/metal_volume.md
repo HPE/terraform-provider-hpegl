@@ -37,7 +37,7 @@ resource "hpegl_metal_volume" "test_vols" {
 ### Optional
 
 - `description` (String) A wordy description of the volume and purpose.
-- `labels` (Map of String) volume labels as (name, value) pairs
+- `labels` (Map of String) The volume labels as (name, value) pairs.
 - `shareable` (Boolean) The volume can be shared by multiple hosts if set.
 
 ### Read-Only
@@ -47,5 +47,6 @@ resource "hpegl_metal_volume" "test_vols" {
 - `location_id` (String) LocationID.
 - `state` (String) The volume provisioning state.
 - `status` (String) The volume provisioning status.
+- `wwn` (String) The volume serial number.
 
 

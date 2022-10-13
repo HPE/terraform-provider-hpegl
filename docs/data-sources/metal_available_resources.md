@@ -190,5 +190,6 @@ Read-Only:
 - `size` (Number)
 - `state` (String)
 - `status` (String)
+- `wwn` (String)
 
 

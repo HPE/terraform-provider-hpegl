@@ -116,7 +116,10 @@ resource "hpegl_metal_host" "terra_host_new_ssh" {
 
 - `chap_secret` (String) The iSCSI CHAP secret for this host.
 - `chap_user` (String) The iSCSI CHAP name for this host.
-- `connections` (Map of String) A map of network connections and assigned IP addreses, eg {'Private':'10.83.0.17'}.
+- `connections` (Map of String) A map of network connection name to assigned IP addrese, eg {'Private':'10.83.0.17'}.
+- `connections_gateway` (Map of String) A map of network connection name to gateway IP address.
+- `connections_subnet` (Map of String) A map of network connection name to subnet IP address.
+- `connections_vlan` (Map of Number) A map of network connection name to VLAN ID.
 - `id` (String) The ID of this resource.
 - `location_id` (String) UUID of the location
 - `machine_size_id` (String) Machine size ID

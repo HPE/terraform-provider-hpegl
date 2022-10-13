@@ -8,20 +8,41 @@ To run the example:
 * Update `variables.tf` OR provide overrides on the command line
 * Run with a command similar to
 ```
-terraform apply \
-    -var ="location=USA:Texas:AUSL2"
+terraform apply -var "location=USA:Central:V2DCC01"
 ``` 
 
 ## Example output
 
 ```
-ips = {
-  "tf-0" = {
-    "Private" = "10.30.30.3"
-    "Public" = "192.168.50.151"
-    "Storage" = "10.20.0.216"
-  }
+Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+gateways = {
+  "tformed-0" = tomap({
+    "Public" = "192.168.50.1"
+    "Storage-Client" = "10.20.0.1"
+  })
 }
+ips = {
+  "tformed-0" = tomap({
+    "Public" = "192.168.50.153"
+    "Storage-Client" = "10.20.0.2"
+  })
+}
+subnets = {
+  "tformed-0" = tomap({
+    "Public" = "192.168.50.0/24"
+    "Storage-Client" = "10.20.0.0/24"
+  })
+}
+vlans = {
+  "tformed-0" = tomap({
+    "Public" = 100
+    "Storage-Client" = 666
+  })
+}
+
 ```
 
 ### Argument Reference
@@ -56,6 +77,9 @@ In addition to the arguments listed above, the following attributes are exported
 - `network_route_id` - ID of the network selected for the default route.
 - `network_untagged_id` - ID of the untagged network.
 - `connections` - A map of {"network": "ipaddress"} for each connected network.
+- `connections_subnet` - A map of {"network": "subnet"} for each connected network.
+- `connections_gateway` - A map of {"network": "gateway"} for each connected network.
+- `connections_vlan` - A map of {"network": "vlan"} for each connected network.
 - `chap_user` - The iSCSI CHAP user name of the host.
 - `chap_secret` - The iSCSI CHAP secret of the host.
 - `initiator_name` - The iSCSI initator name of the host.
