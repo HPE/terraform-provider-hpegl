@@ -7,7 +7,7 @@ require (
 	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.10
 	github.com/golangci/golangci-lint v1.50.0
 	github.com/hashicorp/terraform-plugin-docs v0.13.0
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.23.0
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.24.0
 	github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.28
 	github.com/hewlettpackard/hpegl-provider-lib v0.0.12
 )
@@ -96,7 +96,7 @@ require (
 	github.com/hashicorp/go-version v1.6.0 // indirect
 	github.com/hashicorp/hc-install v0.4.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
-	github.com/hashicorp/hcl/v2 v2.14.0 // indirect
+	github.com/hashicorp/hcl/v2 v2.14.1 // indirect
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/hashicorp/terraform-exec v0.17.3 // indirect
 	github.com/hashicorp/terraform-json v0.14.0 // indirect
