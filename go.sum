@@ -83,8 +83,8 @@ github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.8 h1:0I83uHe
 github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.8/go.mod h1:59lY0eeKB3pP8wVoRv4gF0lY7W4isfV6QSXH8EdDQm0=
 github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.0-beta8 h1:OhKazzd5W2K4mFg4z8vRQoy2s15IFQhqacmAL7vqVZ4=
 github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.0-beta8/go.mod h1:CMLvJPDveei0wZhKATZJUPyOXCJIw+nYwePYpFpvxpU=
-github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.10 h1:zdIdEuHrYdBeAss52E5lL6+RvrBzDinDDBzRDsPI0+A=
-github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.10/go.mod h1:iNzmOCYDwBEUAHSIb3Fg1T90jKY1cPFRefbbbR42rss=
+github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.12 h1:BIDgCm/CxGpyvLHlTo1rLa+ouxcXI8OFSuPsZQL63AY=
+github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.12/go.mod h1:fe5/s2TzukNLhMziy1mmevCzvmPAkMMkD5bUZyj7vqM=
 github.com/Masterminds/goutils v1.1.0/go.mod h1:8cTjp+g8YejhMuvIA5y2vz3BpJxksy863GQaJW2MFNU=
 github.com/Masterminds/goutils v1.1.1 h1:5nUrii3FMTL5diU80unEVvNevw1nH4+ZV4DSLVJLSYI=
 github.com/Masterminds/goutils v1.1.1/go.mod h1:8cTjp+g8YejhMuvIA5y2vz3BpJxksy863GQaJW2MFNU=
@@ -1067,8 +1067,8 @@ github.com/tomasen/realip v0.0.0-20180522021738-f0c99a92ddce/go.mod h1:o8v6yHRoi
 github.com/tommy-muehle/go-mnd/v2 v2.4.0/go.mod h1:WsUAkMJMYww6l/ufffCD3m+P7LEvr8TnZn9lwVDlgzw=
 github.com/tommy-muehle/go-mnd/v2 v2.5.1 h1:NowYhSdyE/1zwK9QCLeRb6USWdoif80Ie+v+yU8u1Zw=
 github.com/tommy-muehle/go-mnd/v2 v2.5.1/go.mod h1:WsUAkMJMYww6l/ufffCD3m+P7LEvr8TnZn9lwVDlgzw=
-github.com/tshihad/tftags v0.0.9 h1:Sw/BShiyCB397IprqqyNZnofgSvq5LSmbN8LKeA5ABA=
-github.com/tshihad/tftags v0.0.9/go.mod h1:pPEZhbh/7AaswUjTaXNV+h2KIVHKhf4CZ0XghAB+hLg=
+github.com/tshihad/tftags v0.0.10 h1:AZUkGPVjVsBZutj2bfN21Khl8/Hr0iRbt8VqurShaU8=
+github.com/tshihad/tftags v0.0.10/go.mod h1:GDxDFdyAj8Oj2hq50bphrbDR791TMxjBrxw+/OD8iQA=
 github.com/tv42/httpunix v0.0.0-20150427012821-b75d8614f926/go.mod h1:9ESjWnEqriFuLhtthL60Sar/7RFoluCcXsuvEwTV5KM=
 github.com/ugorji/go/codec v0.0.0-20181204163529-d75b2dcb6bc8/go.mod h1:VFNgLljTbGfSG7qAOspJ7OScBnGdDN/yBr0sguwnwf0=
 github.com/ulikunitz/xz v0.5.8/go.mod h1:nbz6k7qbPmH4IRqmfOplQw/tblSgqTqBwxkY0oWt/14=
