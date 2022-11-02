@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.8
-	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.10
+	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.12
 	github.com/golangci/golangci-lint v1.50.1
 	github.com/hashicorp/terraform-plugin-docs v0.13.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.24.0
@@ -21,7 +21,7 @@ require (
 	github.com/Djarvur/go-err113 v0.0.0-20210108212216-aea10b59be24 // indirect
 	github.com/GaijinEntertainment/go-exhaustruct/v2 v2.3.0 // indirect
 	github.com/HewlettPackard/hpegl-containers-go-sdk v0.0.11 // indirect
-	github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.0-beta8 // indirect
+	github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.1 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/semver/v3 v3.1.1 // indirect
@@ -195,7 +195,7 @@ require (
 	github.com/timonwong/loggercheck v0.9.3 // indirect
 	github.com/tomarrell/wrapcheck/v2 v2.7.0 // indirect
 	github.com/tommy-muehle/go-mnd/v2 v2.5.1 // indirect
-	github.com/tshihad/tftags v0.0.9 // indirect
+	github.com/tshihad/tftags v0.0.10 // indirect
 	github.com/ultraware/funlen v0.0.3 // indirect
 	github.com/ultraware/whitespace v0.0.5 // indirect
 	github.com/uudashr/gocognit v1.0.6 // indirect
