@@ -1,0 +1,52 @@
+---
+layout: ""
+page_title: "hpegl_vmaas_load_balancer_profile Resource - vmaas-terraform-resources"
+subcategory: {{ $arr := split .Name "_" }}"{{ index $arr 1 }}"
+description: |-
+  {{ .Description | plainmarkdown | trimspace | prefixlines "  " }}
+---
+
+# Resource hpegl_vmaas_load_balancer_profile
+
+-> Compatible version >= 5.4.6
+
+{{ .Description | trimspace }}
+`hpegl_vmaas_load_balancer_profile` resource supports NSX-T Load balancer Profile creation.
+
+For creating an NSX-T Load balancer Profile, use the following examples.
+
+-> NSX-T Profile having HTTP, HTTPS, UDP, TCP, COOKIE, SOURCEIP, GENERIC, SERVER and CLIENT considered as different Profile types. You can create any one of them at a given time
+
+## Example usage for creating NSX-T Load balancer Profile for HTTP with all possible attributes
+
+{{tffile "examples/resources/hpegl_vmaas_load_balancer_profile/nsx_t_lb_application_http_profile.tf"}}
+
+## Example usage for creating NSX-T Load balancer Profile for TCP with all possible attributes
+
+{{tffile "examples/resources/hpegl_vmaas_load_balancer_profile/nsx_t_lb_application_tcp_profile.tf"}}
+
+## Example usage for creating NSX-T Load balancer Profile for UDP with all possible attributes
+
+{{tffile "examples/resources/hpegl_vmaas_load_balancer_profile/nsx_t_lb_application_udp_profile.tf"}}
+
+## Example usage for creating NSX-T Load balancer Profile for COOKIE with all possible attributes
+
+{{tffile "examples/resources/hpegl_vmaas_load_balancer_profile/nsx_t_lb_persistence_cookie_profile.tf"}}
+
+## Example usage for creating NSX-T Load balancer Profile for GENERIC with all possible attributes
+
+{{tffile "examples/resources/hpegl_vmaas_load_balancer_profile/nsx_t_lb_persistence_generic_profile.tf"}}
+
+## Example usage for creating NSX-T Load balancer Profile for SOURCEIP with all possible attributes
+
+{{tffile "examples/resources/hpegl_vmaas_load_balancer_profile/nsx_t_lb_persistence_sourceip_profile.tf"}}
+
+## Example usage for creating NSX-T Load balancer Profile for SERVER with all possible attributes
+
+{{tffile "examples/resources/hpegl_vmaas_load_balancer_profile/nsx_t_lb_ssl_server_profile.tf"}}
+
+## Example usage for creating NSX-T Load balancer Profile for CLIENT with all possible attributes
+
+{{tffile "examples/resources/hpegl_vmaas_load_balancer_profile/nsx_t_lb_ssl_client_profile.tf"}}
+
+{{ .SchemaMarkdown | trimspace }}

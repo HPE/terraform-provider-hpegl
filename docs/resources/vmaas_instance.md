@@ -79,7 +79,7 @@ this field to identify whether snapshot got deleted (because of reconfigure or a
 ```terraform
 # (C) Copyright 2021 Hewlett Packard Enterprise Development LP
 
-# create instance will all possible options
+# create instance with all possible options
 resource "hpegl_vmaas_instance" "tf_instance" {
   name               = "tf_advanced"
   cloud_id           = data.hpegl_vmaas_cloud.cloud.id
@@ -201,7 +201,7 @@ resource "hpegl_vmaas_instance" "tf_instance" {
 
 Required:
 
-- `folder_code` (String) Folder in which all VMs to be spawned, use hpegl_vmaas_folder.code datasource
+- `folder_code` (String) Folder in which all VMs to be spawned, use hpegl_vmaas_cloud_folder.code datasource
 - `resource_pool_id` (Number) Unique ID to identify a resource pool.
 
 Optional:

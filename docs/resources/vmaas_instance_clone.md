@@ -169,14 +169,11 @@ Read-Only:
 <a id="nestedblock--config"></a>
 ### Nested Schema for `config`
 
-Required:
-
-- `folder_code` (String) Folder in which all VMs to be spawned, use hpegl_vmaas_folder.code datasource
-
 Optional:
 
 - `asset_tag` (String) Asset tag
 - `create_user` (Boolean) Create user
+- `folder_code` (String) Folder in which all VMs to be spawned, use hpegl_vmaas_cloud_folder.code datasource
 - `no_agent` (Boolean) If true agent will not be installed on the instance.
 - `resource_pool_id` (Number) Unique ID to identify a resource pool.
 - `template_id` (Number) Unique ID for the template

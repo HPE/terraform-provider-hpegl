@@ -1,0 +1,20 @@
+---
+layout: ""
+page_title: "hpegl_vmaas_load_balancer_virtual_server Resource - vmaas-terraform-resources"
+subcategory: {{ $arr := split .Name "_" }}"{{ index $arr 1 }}"
+description: |-
+  {{ .Description | plainmarkdown | trimspace | prefixlines "  " }}
+---
+
+# Resource hpegl_vmaas_load_balancer_virtual_server
+
+-> Compatible version >= 5.4.6
+
+{{ .Description | trimspace }}
+`hpegl_vmaas_load_balancer_virtual_server` resource supports NSX-T Load Balancer Virtual Server creation.
+
+## Example usage for creating NSX-T Load Balancer Virtual Server with all possible attributes
+
+{{tffile "examples/resources/hpegl_vmaas_load_balancer_virtual_server/nsx_t_lb_virtual_server.tf"}}
+
+{{ .SchemaMarkdown | trimspace }}
