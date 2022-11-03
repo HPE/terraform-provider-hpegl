@@ -1,6 +1,6 @@
 # (C) Copyright 2021 Hewlett Packard Enterprise Development LP
 
-# create instance will all possible options
+# create instance with all possible options
 resource "hpegl_vmaas_instance" "tf_instance" {
   name               = "tf_advanced"
   cloud_id           = data.hpegl_vmaas_cloud.cloud.id

@@ -16,17 +16,19 @@ For more information, see [Private cloud networking using VMware NSX-T](https://
 
 For creating an NSX-T network, see the following examples.
 
-## Example usage for creating NSX-T Network with all possible attributes
+## Example usage for creating Static NSX-T Network with all possible attributes
 
-{{tffile "examples/resources/hpegl_vmaas_network/nsx_t_segment.tf"}}
+{{tffile "examples/resources/hpegl_vmaas_network/nsx_t_static_network.tf"}}
+
+## Example usage for creating DHCP NSX-T Network with all possible attributes
+
+{{tffile "examples/resources/hpegl_vmaas_network/nsx_t_dhcp_network.tf"}}
 
 -> Transport Zone Data Source `hpegl_vmaas_transport_zone` which is used for the
 `scope_id` is supported from 5.2.13.
 
--> Currently there is a support for Static NSX-T Network. DHCP based NSX-T Network is not supported yet.
-
 ~> There is an open issue with the Network Resource in 5.4.4 where it does not attach the provided IP pools.
 This issue is already fixed in the later versions and will be released soon. For time being we are recommending manually
-updating the IP pool from UI.
+updating the IP pool from UI. This issue is fixed in 5.4.9 versions.
 
 {{ .SchemaMarkdown | trimspace }}
