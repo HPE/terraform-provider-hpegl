@@ -33,6 +33,7 @@ Machine Blueprint data source allows reading machine blueprint data
 - `size` (String)
 - `size_detail` (List of Object) (see [below for nested schema](#nestedatt--size_detail))
 - `storage_type` (String)
+- `worker_type` (String)
 
 <a id="nestedatt--size_detail"></a>
 ### Nested Schema for `size_detail`

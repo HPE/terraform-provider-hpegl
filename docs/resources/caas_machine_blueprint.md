@@ -70,6 +70,7 @@ resource "hpegl_caas_machine_blueprint" "test" {
 - `site_id` (String)
 - `size` (String)
 - `storage_type` (String)
+- `worker_type` (String)
 
 ### Read-Only
 
