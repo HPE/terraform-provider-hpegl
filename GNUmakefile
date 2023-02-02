@@ -128,3 +128,56 @@ acceptance-caas: accframework-caas
 
 docs: docs-generate
 .PHONY: docs
+
+
+
+
+###NEW FRAMEWORK###
+vmaas-acceptance-tests: vendor
+	
+	# Installing vend
+	go get -d github.com/nomad-software/vend
+
+	# Generate vendor
+	vend
+
+	mkdir vmaas_acceptance
+
+	echo copying test files
+	cp -r vendor/github.com/HewlettPackard/hpegl-vmaas-terraform-resources/internal/acceptance_test/ ./vmaas_acceptance
+
+	echo copying test cases
+	cp -r vendor/github.com/HewlettPackard/hpegl-vmaas-terraform-resources/acc-testcases/ ./vmaas_acceptance
+
+	rm ./vmaas_acceptance/acceptance_test/provider_test.go
+
+	cp ./internal/acceptance/acceptance-utils/provider_test.go ./vmaas_acceptance/acceptance_test/
+
+# TF_ACC_TEST_PATH=./vmaas_acceptance/acc-testcases TF_ACC=true go test -v -cover ./vmaas_acceptance/acceptance_test
+
+	rm -rf vendor
+	rm -rf vmaas_acceptance
+
+
+###NEW FRAMEWORK###
+caas-acceptance-tests: vendor
+	
+	# Installing vend
+	go get -d github.com/nomad-software/vend
+
+	# Generate vendor
+	vend
+
+	mkdir caas_acceptance
+
+	echo copying test files
+	cp -r vendor/github.com/HewlettPackard/hpegl-containers-terraform-resources/internal/acceptance_test/ ./caas_acceptance
+
+	rm ./caas_acceptance/acceptance_test/provider_test.go
+
+	cp ./internal/acceptance/acceptance-utils/provider_test.go ./caas_acceptance/acceptance_test/
+
+# TF_ACC=true go test -v -cover ./caas_acceptance/acceptance_test
+
+	rm -rf vendor
+	rm -rf caas_acceptance
