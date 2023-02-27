@@ -384,10 +384,10 @@ github.com/hashicorp/terraform-svchost v0.0.0-20200729002733-f050f53b9734 h1:HKL
 github.com/hashicorp/terraform-svchost v0.0.0-20200729002733-f050f53b9734/go.mod h1:kNDNcF7sN4DocDLBkQYz73HGKwN1ANB1blq4lIYLYvg=
 github.com/hashicorp/yamux v0.1.1 h1:yrQxtgseBDrq9Y652vSRDvsKCJKOUD+GzTS4Y0Y8pvE=
 github.com/hashicorp/yamux v0.1.1/go.mod h1:CtWFDAQgb7dxtzFs4tWbplKIe2jSi3+5vKbgIO0SLnQ=
-github.com/hewlettpackard/hpegl-metal-client v1.4.13 h1:Ao4z1Udtc+vEPzJPeSrFGMV5CaOY4DrpSPdhtULPhnY=
-github.com/hewlettpackard/hpegl-metal-client v1.4.13/go.mod h1:z8JEXcrqvD22jOofmU/3ZZOHBXk2yljfahDmquMRxas=
-github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.31 h1:r8zHPa9yYeXYrnDaIIMqXKecON4zKaTpbBQFG6HKYCo=
-github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.31/go.mod h1:yaEfqTdMr3y/X0duJSdUryNrNQO8NIBxqeviYCviCXg=
+github.com/hewlettpackard/hpegl-metal-client v1.4.14 h1:N77Vs6/iREfXj+UEiO75b6Hqm3ich8+Of2LZa77roBI=
+github.com/hewlettpackard/hpegl-metal-client v1.4.14/go.mod h1:z8JEXcrqvD22jOofmU/3ZZOHBXk2yljfahDmquMRxas=
+github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.32 h1:kQ2NgI/7P9z6ECIooakehCi3Op+tsFoEhGGiRC7tLv4=
+github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.32/go.mod h1:FoHwPesq95um5/KdaZq6bn9k5jBtQSv6lUVtMgqpDoA=
 github.com/hewlettpackard/hpegl-provider-lib v0.0.14 h1:fwIXQsdEdeYYvaJQr1vwfPgCGYKgZaP7kL0p8xbBQJ4=
 github.com/hewlettpackard/hpegl-provider-lib v0.0.14/go.mod h1:7StTTobQIl8pZCLcJnZm0/+N4lNE2MO6H/U0LhTfXog=
 github.com/hexops/gotextdiff v1.0.3 h1:gitA9+qJrrTCsiCl7+kh75nPqQt1cx4ZkudSTLoUqJM=
