@@ -383,10 +383,10 @@ github.com/hashicorp/terraform-svchost v0.0.0-20200729002733-f050f53b9734 h1:HKL
 github.com/hashicorp/terraform-svchost v0.0.0-20200729002733-f050f53b9734/go.mod h1:kNDNcF7sN4DocDLBkQYz73HGKwN1ANB1blq4lIYLYvg=
 github.com/hashicorp/yamux v0.1.1 h1:yrQxtgseBDrq9Y652vSRDvsKCJKOUD+GzTS4Y0Y8pvE=
 github.com/hashicorp/yamux v0.1.1/go.mod h1:CtWFDAQgb7dxtzFs4tWbplKIe2jSi3+5vKbgIO0SLnQ=
-github.com/hewlettpackard/hpegl-metal-client v1.4.13 h1:Ao4z1Udtc+vEPzJPeSrFGMV5CaOY4DrpSPdhtULPhnY=
-github.com/hewlettpackard/hpegl-metal-client v1.4.13/go.mod h1:z8JEXcrqvD22jOofmU/3ZZOHBXk2yljfahDmquMRxas=
-github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.31 h1:r8zHPa9yYeXYrnDaIIMqXKecON4zKaTpbBQFG6HKYCo=
-github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.31/go.mod h1:yaEfqTdMr3y/X0duJSdUryNrNQO8NIBxqeviYCviCXg=
+github.com/hewlettpackard/hpegl-metal-client v1.4.15 h1:0NEnlLJ0EoX+6plF5Xbkx5ttCcgqhPa3p8honAmKM+M=
+github.com/hewlettpackard/hpegl-metal-client v1.4.15/go.mod h1:z8JEXcrqvD22jOofmU/3ZZOHBXk2yljfahDmquMRxas=
+github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.34 h1:L1eiJVw1ETEK7P0lGvmt/dC+/wLjQy0/737OPQk5FSE=
+github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.34/go.mod h1:9qqGOex14ZbeaI9HfHmSC//D0xAN65SqPjVvcll69nM=
 github.com/hewlettpackard/hpegl-provider-lib v0.0.14 h1:fwIXQsdEdeYYvaJQr1vwfPgCGYKgZaP7kL0p8xbBQJ4=
 github.com/hewlettpackard/hpegl-provider-lib v0.0.14/go.mod h1:7StTTobQIl8pZCLcJnZm0/+N4lNE2MO6H/U0LhTfXog=
 github.com/hexops/gotextdiff v1.0.3 h1:gitA9+qJrrTCsiCl7+kh75nPqQt1cx4ZkudSTLoUqJM=
@@ -657,8 +657,9 @@ github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/
 github.com/stretchr/testify v1.7.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/stretchr/testify v1.7.2/go.mod h1:R6va5+xMeoiuVRoj+gSkQ7d3FALtqAAGI1FQKckRals=
 github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO+kdMU+MU=
-github.com/stretchr/testify v1.8.1 h1:w7B6lhMri9wdJUVmEZPGGhZzrYTPvgJArz7wNPgYKsk=
 github.com/stretchr/testify v1.8.1/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
+github.com/stretchr/testify v1.8.2 h1:+h33VjcLVPDHtOdpUCuF+7gSuG3yGIftsP1YvFihtJ8=
+github.com/stretchr/testify v1.8.2/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
 github.com/subosito/gotenv v1.4.2 h1:X1TuBLAMDFbaTAChgCBLu3DU3UPyELpnF2jjJ2cz/S8=
 github.com/subosito/gotenv v1.4.2/go.mod h1:ayKnFf/c6rvx/2iiLrJUk1e6plDbT3edrFNGqEflhK0=
 github.com/t-yuki/gocover-cobertura v0.0.0-20180217150009-aaee18c8195c h1:+aPplBwWcHBo6q9xrfWdMrT9o4kltkmmvpemgIjep/8=
