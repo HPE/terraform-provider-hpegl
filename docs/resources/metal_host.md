@@ -131,6 +131,7 @@ resource "hpegl_metal_host" "terra_host_new_ssh" {
 - `ssh_ids` (List of String)
 - `state` (String) The current state of the host
 - `sub_state` (String) The current state of the deployment
+- `summary_status` (String) The current health status of the host
 
 <a id="nestedblock--volume_infos"></a>
 ### Nested Schema for `volume_infos`
