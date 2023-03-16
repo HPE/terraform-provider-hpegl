@@ -1,4 +1,4 @@
-# (C) Copyright 2020-2022 Hewlett Packard Enterprise Development LP
+# (C) Copyright 2020-2023 Hewlett Packard Enterprise Development LP
 
 provider "hpegl" {
   metal {
@@ -7,7 +7,11 @@ provider "hpegl" {
 }
 
 variable "location" {
-  default = "USA:Central:V2DCC01"
+  default = "USA:Central:AFCDCC1"
+}
+
+variable "host_action_async" {
+  default = true
 }
 
 resource "hpegl_metal_volume" "iscsi_volume" {
@@ -23,13 +27,21 @@ resource "hpegl_metal_host" "terra_host" {
   count              = 1
   name               = "tformed-${count.index}"
   image              = "ubuntu@18.04-20201102"
-  machine_size       = "Medium System"
+  machine_size       = "A2atpq"
   ssh                = [hpegl_metal_ssh_key.newssh_1.id]
-  networks           = ["Public", "Storage-Client"]
+  networks           = ["Public", "Storage"]
   network_route      = "Public"
   location           = var.location
   description        = "Hello from Terraform"
   volume_attachments = [hpegl_metal_volume.iscsi_volume.id]
+  host_action_async  = var.host_action_async
+  ## uncomment below to override the 60m timeouts
+  ## see https://developer.hashicorp.com/terraform/plugin/sdkv2/resources/retries-and-customizable-timeouts
+  # timeouts {
+  #   create = "90m"
+  #   update = "5m"
+  #   delete = "5m"
+  # }
 }
 
 # Example of Host creation with implicit dependencies
@@ -61,15 +73,16 @@ resource "hpegl_metal_network" "newpnet_1" {
 }
 
 resource "hpegl_metal_host" "terra_host_new_ssh" {
-  count            = 2
-  name             = "tformed-newssh-${count.index}"
-  image            = "ubuntu@18.04-20201102"
-  machine_size     = "Medium System"
-  ssh              = [hpegl_metal_ssh_key.newssh_1.id]
-  networks         = ["Public", hpegl_metal_network.newpnet_1.name]
-  network_route    = "Public"
-  network_untagged = hpegl_metal_network.newpnet_1.name
-  location         = var.location
-  description      = "Hello from Terraform"
-  labels           = { "ServiceType" = "BMaaS" }
+  count             = 1
+  name              = "tformed-newssh-${count.index}"
+  image             = "ubuntu@18.04-20201102"
+  machine_size      = "A2atpq"
+  ssh               = [hpegl_metal_ssh_key.newssh_1.id]
+  networks          = ["Public", hpegl_metal_network.newpnet_1.name]
+  network_route     = "Public"
+  network_untagged  = hpegl_metal_network.newpnet_1.name
+  location          = var.location
+  description       = "Hello from Terraform"
+  labels            = { "ServiceType" = "BMaaS" }
+  host_action_async = var.host_action_async
 }
