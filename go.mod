@@ -4,6 +4,7 @@ go 1.19
 
 require (
 	github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.9
+	github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.1
 	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.14
 	github.com/golangci/golangci-lint v1.51.2
 	github.com/hashicorp/terraform-plugin-docs v0.14.1
@@ -22,7 +23,6 @@ require (
 	github.com/Djarvur/go-err113 v0.0.0-20210108212216-aea10b59be24 // indirect
 	github.com/GaijinEntertainment/go-exhaustruct/v2 v2.3.0 // indirect
 	github.com/HewlettPackard/hpegl-containers-go-sdk v0.0.13 // indirect
-	github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.1 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/semver/v3 v3.1.1 // indirect
@@ -193,6 +193,9 @@ require (
 	github.com/t-yuki/gocover-cobertura v0.0.0-20180217150009-aaee18c8195c // indirect
 	github.com/tdakkota/asciicheck v0.1.1 // indirect
 	github.com/tetafro/godot v1.4.11 // indirect
+	github.com/tidwall/gjson v1.14.1 // indirect
+	github.com/tidwall/match v1.1.1 // indirect
+	github.com/tidwall/pretty v1.2.0 // indirect
 	github.com/timakin/bodyclose v0.0.0-20221125081123-e39cf3fc478e // indirect
 	github.com/timonwong/loggercheck v0.9.3 // indirect
 	github.com/tomarrell/wrapcheck/v2 v2.8.0 // indirect

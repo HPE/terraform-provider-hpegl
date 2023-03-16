@@ -11,7 +11,7 @@ Provides Host resource. This allows Metal Host creation, deletion and update.
 ## Example Usage
 
 ```terraform
-# (C) Copyright 2020-2022 Hewlett Packard Enterprise Development LP
+# (C) Copyright 2020-2023 Hewlett Packard Enterprise Development LP
 
 provider "hpegl" {
   metal {
@@ -20,7 +20,11 @@ provider "hpegl" {
 }
 
 variable "location" {
-  default = "USA:Central:V2DCC01"
+  default = "USA:Central:AFCDCC1"
+}
+
+variable "host_action_async" {
+  default = true
 }
 
 resource "hpegl_metal_volume" "iscsi_volume" {
@@ -36,13 +40,21 @@ resource "hpegl_metal_host" "terra_host" {
   count              = 1
   name               = "tformed-${count.index}"
   image              = "ubuntu@18.04-20201102"
-  machine_size       = "Medium System"
+  machine_size       = "A2atpq"
   ssh                = [hpegl_metal_ssh_key.newssh_1.id]
-  networks           = ["Public", "Storage-Client"]
+  networks           = ["Public", "Storage"]
   network_route      = "Public"
   location           = var.location
   description        = "Hello from Terraform"
   volume_attachments = [hpegl_metal_volume.iscsi_volume.id]
+  host_action_async  = var.host_action_async
+  ## uncomment below to override the 60m timeouts
+  ## see https://developer.hashicorp.com/terraform/plugin/sdkv2/resources/retries-and-customizable-timeouts
+  # timeouts {
+  #   create = "90m"
+  #   update = "5m"
+  #   delete = "5m"
+  # }
 }
 
 # Example of Host creation with implicit dependencies
@@ -74,17 +86,18 @@ resource "hpegl_metal_network" "newpnet_1" {
 }
 
 resource "hpegl_metal_host" "terra_host_new_ssh" {
-  count            = 2
-  name             = "tformed-newssh-${count.index}"
-  image            = "ubuntu@18.04-20201102"
-  machine_size     = "Medium System"
-  ssh              = [hpegl_metal_ssh_key.newssh_1.id]
-  networks         = ["Public", hpegl_metal_network.newpnet_1.name]
-  network_route    = "Public"
-  network_untagged = hpegl_metal_network.newpnet_1.name
-  location         = var.location
-  description      = "Hello from Terraform"
-  labels           = { "ServiceType" = "BMaaS" }
+  count             = 1
+  name              = "tformed-newssh-${count.index}"
+  image             = "ubuntu@18.04-20201102"
+  machine_size      = "A2atpq"
+  ssh               = [hpegl_metal_ssh_key.newssh_1.id]
+  networks          = ["Public", hpegl_metal_network.newpnet_1.name]
+  network_route     = "Public"
+  network_untagged  = hpegl_metal_network.newpnet_1.name
+  location          = var.location
+  description       = "Hello from Terraform"
+  labels            = { "ServiceType" = "BMaaS" }
+  host_action_async = var.host_action_async
 }
 ```
 
@@ -104,10 +117,12 @@ resource "hpegl_metal_host" "terra_host_new_ssh" {
 
 - `allocated_ips` (List of String) List of pre-allocated IP addresses in one-to-one correspondance wth Networks.
 - `description` (String) A wordy description of the machine and purpose.
+- `host_action_async` (Boolean) set true to do host create, update, and delete asynchronously.  The default is true.
 - `initiator_name` (String) The iSCSI initiator name for this host.
 - `labels` (Map of String) map of label name to label value for this host
 - `network_route` (String) Network selected for the default route
 - `network_untagged` (String) Untagged network
+- `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 - `user_data` (String) Any yaml compliant string that will be merged into cloud-init for this host.
 - `volume_attachments` (List of String) List of existing volume IDs
 - `volume_infos` (Block Set) Information about volumes attached to this host. (see [below for nested schema](#nestedblock--volume_infos))
@@ -132,6 +147,16 @@ resource "hpegl_metal_host" "terra_host_new_ssh" {
 - `state` (String) The current state of the host
 - `sub_state` (String) The current state of the deployment
 - `summary_status` (String) The current health status of the host
+
+<a id="nestedblock--timeouts"></a>
+### Nested Schema for `timeouts`
+
+Optional:
+
+- `create` (String)
+- `delete` (String)
+- `update` (String)
+
 
 <a id="nestedblock--volume_infos"></a>
 ### Nested Schema for `volume_infos`
