@@ -1,4 +1,4 @@
-# Copyright 2020-2022 Hewlett Packard Enterprise Development LP
+# Copyright 2020-2023 Hewlett Packard Enterprise Development LP
 
 terraform {
   required_providers {
@@ -11,7 +11,6 @@ terraform {
 
 provider "hpegl" {
   caas {
-    api_url = "https://mcaas.intg.hpedevops.net/mcaas"
   }
 }
 
@@ -35,14 +34,16 @@ data "hpegl_caas_machine_blueprint" "mbworker" {
 }
 
 resource "hpegl_caas_cluster" "test" {
-  name         = "tf-test"
-  blueprint_id = data.hpegl_caas_cluster_blueprint.bp.id
-  site_id      = data.hpegl_caas_site.blr.id
-  space_id     = var.HPEGL_SPACE
-
+  name               = "tf-test"
+  blueprint_id       = data.hpegl_caas_cluster_blueprint.bp.id
+  site_id            = data.hpegl_caas_site.blr.id
+  space_id           = var.HPEGL_SPACE
+  kubernetes_version = ""
   worker_nodes {
-    name                 = "test-node-pool"
+    name                 = "worker"
     machine_blueprint_id = data.hpegl_caas_machine_blueprint.mbworker.id
     count                = "1"
+    osImage              = "sles-custom"
+    osVersion            = "15.3"
   }
 }

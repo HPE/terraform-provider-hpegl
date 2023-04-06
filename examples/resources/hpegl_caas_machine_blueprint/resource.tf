@@ -1,4 +1,4 @@
-# Copyright 2020-2022 Hewlett Packard Enterprise Development LP
+# Copyright 2020-2023 Hewlett Packard Enterprise Development LP
 
 terraform {
   required_providers {
@@ -11,7 +11,6 @@ terraform {
 
 provider "hpegl" {
   caas {
-    api_url = "https://mcaas.intg.hpedevops.net/mcaas"
   }
 }
 
@@ -29,6 +28,7 @@ resource "hpegl_caas_machine_blueprint" "test" {
   site_id          = data.hpegl_caas_site.blr.id
   machine_roles    = ["controlplane"]
   machine_provider = "vmaas"
+  worker_type      = ""
   os_image         = "sles-custom"
   os_version       = ""
   compute_type     = ""

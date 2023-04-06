@@ -6,6 +6,7 @@ description: |-
               deletion of a CaaS cluster. There are four required inputs when
               creating a cluster - name, blueprintid, siteid and spaceid.
               workernodes is an optional input to scale nodes on cluster.
+              OS Image update & Kubernetes version upgrade are also supported while updating the cluster.
 ---
 # hpegl_caas_cluster (Resource)
 
@@ -13,11 +14,12 @@ The cluster resource facilitates the creation, updation and
 			deletion of a CaaS cluster. There are four required inputs when 
 			creating a cluster - name, blueprint_id, site_id and space_id. 
 			worker_nodes is an optional input to scale nodes on cluster.
+            OS Image update & Kubernetes version upgrade are also supported while updating the cluster.
 
 ## Example Usage
 
 ```terraform
-# Copyright 2020-2022 Hewlett Packard Enterprise Development LP
+# Copyright 2020-2023 Hewlett Packard Enterprise Development LP
 
 terraform {
   required_providers {
@@ -30,7 +32,6 @@ terraform {
 
 provider "hpegl" {
   caas {
-    api_url = "https://mcaas.intg.hpedevops.net/mcaas"
   }
 }
 
@@ -54,15 +55,17 @@ data "hpegl_caas_machine_blueprint" "mbworker" {
 }
 
 resource "hpegl_caas_cluster" "test" {
-  name         = "tf-test"
-  blueprint_id = data.hpegl_caas_cluster_blueprint.bp.id
-  site_id      = data.hpegl_caas_site.blr.id
-  space_id     = var.HPEGL_SPACE
-
+  name               = "tf-test"
+  blueprint_id       = data.hpegl_caas_cluster_blueprint.bp.id
+  site_id            = data.hpegl_caas_site.blr.id
+  space_id           = var.HPEGL_SPACE
+  kubernetes_version = ""
   worker_nodes {
-    name                 = "test-node-pool"
+    name                 = "worker"
     machine_blueprint_id = data.hpegl_caas_machine_blueprint.mbworker.id
     count                = "1"
+    osImage              = "sles-custom"
+    osVersion            = "15.3"
   }
 }
 ```
@@ -79,6 +82,7 @@ resource "hpegl_caas_cluster" "test" {
 
 ### Optional
 
+- `kubernetes_version` (String)
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 - `worker_nodes` (Block List) (see [below for nested schema](#nestedblock--worker_nodes))
 
@@ -89,12 +93,12 @@ resource "hpegl_caas_cluster" "test" {
 - `cluster_provider` (String)
 - `created_date` (String)
 - `default_machine_sets` (List of Object) (see [below for nested schema](#nestedatt--default_machine_sets))
+- `default_machine_sets_detail` (List of Object) (see [below for nested schema](#nestedatt--default_machine_sets_detail))
 - `default_storage_class` (String)
 - `default_storage_class_description` (String)
 - `health` (String)
 - `id` (String) The ID of this resource.
 - `kubeconfig` (String)
-- `kubernetes_version` (String)
 - `last_update_date` (String)
 - `machine_sets` (List of Object) (see [below for nested schema](#nestedatt--machine_sets))
 - `machine_sets_detail` (List of Object) (see [below for nested schema](#nestedatt--machine_sets_detail))
@@ -120,6 +124,11 @@ Required:
 - `machine_blueprint_id` (String)
 - `name` (String)
 
+Optional:
+
+- `os_image` (String)
+- `os_version` (String)
+
 
 <a id="nestedatt--default_machine_sets"></a>
 ### Nested Schema for `default_machine_sets`
@@ -131,6 +140,54 @@ Read-Only:
 - `name` (String)
 - `os_image` (String)
 - `os_version` (String)
+
+
+<a id="nestedatt--default_machine_sets_detail"></a>
+### Nested Schema for `default_machine_sets_detail`
+
+Read-Only:
+
+- `compute_type` (String)
+- `count` (Number)
+- `machine_blueprint_id` (String)
+- `machine_provider` (String)
+- `machine_roles` (List of String)
+- `machines` (List of Object) (see [below for nested schema](#nestedobjatt--default_machine_sets_detail--machines))
+- `name` (String)
+- `networks` (List of String)
+- `os_image` (String)
+- `os_version` (String)
+- `proxy` (String)
+- `size` (String)
+- `size_detail` (List of Object) (see [below for nested schema](#nestedobjatt--default_machine_sets_detail--size_detail))
+- `storage_type` (String)
+
+<a id="nestedobjatt--default_machine_sets_detail--machines"></a>
+### Nested Schema for `default_machine_sets_detail.machines`
+
+Read-Only:
+
+- `created_date` (String)
+- `health` (String)
+- `hostname` (String)
+- `id` (String)
+- `last_update_date` (String)
+- `name` (String)
+- `state` (String)
+
+
+<a id="nestedobjatt--default_machine_sets_detail--size_detail"></a>
+### Nested Schema for `default_machine_sets_detail.size_detail`
+
+Read-Only:
+
+- `cpu` (Number)
+- `ephemeral_disk` (Number)
+- `memory` (Number)
+- `name` (String)
+- `persistent_disk` (Number)
+- `root_disk` (Number)
+
 
 
 <a id="nestedatt--machine_sets"></a>

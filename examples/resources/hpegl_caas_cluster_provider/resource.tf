@@ -1,4 +1,4 @@
-# Copyright 2022 Hewlett Packard Enterprise Development LP
+# Copyright 2022-2023 Hewlett Packard Enterprise Development LP
 
 terraform {
   required_providers {
@@ -11,7 +11,6 @@ terraform {
 
 provider "hpegl" {
   caas {
-    api_url = "https://mcaas.intg.hpedevops.net/mcaas"
   }
 }
 
