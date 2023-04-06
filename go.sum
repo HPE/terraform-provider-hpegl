@@ -56,8 +56,8 @@ github.com/GaijinEntertainment/go-exhaustruct/v2 v2.3.0 h1:+r1rSv4gvYn0wmRjC8X7I
 github.com/GaijinEntertainment/go-exhaustruct/v2 v2.3.0/go.mod h1:b3g59n2Y+T5xmcxJL+UEG2f8cQploZm1mR/v6BW0mU0=
 github.com/HewlettPackard/hpegl-containers-go-sdk v0.0.13 h1:qNCB3OPBv1gftB/dfhKjFk6ghuvJSHcLB0hSLv0/gEU=
 github.com/HewlettPackard/hpegl-containers-go-sdk v0.0.13/go.mod h1:rHDxAIj4FrgUc6JksOM0llQhGUpV732wsi19vKwyXSc=
-github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.9 h1:hRAchcFHFGeWEDg1XqWGq0V7qOQUAwTVz7/6yYYV7fw=
-github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.9/go.mod h1:8RSaFdBX9wqRfsSGPCL1gIKGJBcPZWVRO4XE7B25o0E=
+github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.10 h1:o6UXXM+wMmx38f2+tSyFf2mEPoTq5dBKArv1YuWUI3U=
+github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.10/go.mod h1:afiYgch4a804+bYD/NXqhI/Uq4FQQlcBqn0EzPE+g+g=
 github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.1 h1:OG6FsXwEn3Vt9QeJ0T73jzhF+7iXCucDp1jJjOt+kZI=
 github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.1/go.mod h1:gPk3WuH1P3kF3ROxyHERgKMMFHR+W0Fsspg5vsA0+O0=
 github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.14 h1:u8svB+BaqoBsan+gppF2b51DZwqUb2C617ereYINwZU=
@@ -672,12 +672,6 @@ github.com/tenntenn/text/transform v0.0.0-20200319021203-7eef512accb3 h1:f+jULpR
 github.com/tenntenn/text/transform v0.0.0-20200319021203-7eef512accb3/go.mod h1:ON8b8w4BN/kE1EOhwT0o+d62W65a6aPw1nouo9LMgyY=
 github.com/tetafro/godot v1.4.11 h1:BVoBIqAf/2QdbFmSwAWnaIqDivZdOV0ZRwEm6jivLKw=
 github.com/tetafro/godot v1.4.11/go.mod h1:LR3CJpxDVGlYOWn3ZZg1PgNZdTUvzsZWu8xaEohUpn8=
-github.com/tidwall/gjson v1.14.1 h1:iymTbGkQBhveq21bEvAQ81I0LEBork8BFe1CUZXdyuo=
-github.com/tidwall/gjson v1.14.1/go.mod h1:/wbyibRr2FHMks5tjHJ5F8dMZh3AcwJEMf5vlfC0lxk=
-github.com/tidwall/match v1.1.1 h1:+Ho715JplO36QYgwN9PGYNhgZvoUSc9X2c80KVTi+GA=
-github.com/tidwall/match v1.1.1/go.mod h1:eRSPERbgtNPcGhD8UCthc6PmLEQXEWd3PRB5JTxsfmM=
-github.com/tidwall/pretty v1.2.0 h1:RWIZEg2iJ8/g6fDDYzMpobmaoGh5OLl4AXtGUGPcqCs=
-github.com/tidwall/pretty v1.2.0/go.mod h1:ITEVvHYasfjBbM0u2Pg8T2nJnzm8xPwvNhhsoaGGjNU=
 github.com/timakin/bodyclose v0.0.0-20221125081123-e39cf3fc478e h1:MV6KaVu/hzByHP0UvJ4HcMGE/8a6A4Rggc/0wx2AvJo=
 github.com/timakin/bodyclose v0.0.0-20221125081123-e39cf3fc478e/go.mod h1:27bSVNWSBOHm+qRp1T9qzaIpsWEP6TbUnei/43HK+PQ=
 github.com/timonwong/loggercheck v0.9.3 h1:ecACo9fNiHxX4/Bc02rW2+kaJIAMAes7qJ7JKxt0EZI=
