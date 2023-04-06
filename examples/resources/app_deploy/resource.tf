@@ -16,7 +16,6 @@ terraform {
 
 provider "hpegl" {
   caas {
-    api_url = "https://mcaas.intg.hpedevops.net/mcaas"
   }
 }
 
