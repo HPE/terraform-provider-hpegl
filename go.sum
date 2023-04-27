@@ -379,10 +379,10 @@ github.com/hashicorp/terraform-svchost v0.0.0-20200729002733-f050f53b9734 h1:HKL
 github.com/hashicorp/terraform-svchost v0.0.0-20200729002733-f050f53b9734/go.mod h1:kNDNcF7sN4DocDLBkQYz73HGKwN1ANB1blq4lIYLYvg=
 github.com/hashicorp/yamux v0.1.1 h1:yrQxtgseBDrq9Y652vSRDvsKCJKOUD+GzTS4Y0Y8pvE=
 github.com/hashicorp/yamux v0.1.1/go.mod h1:CtWFDAQgb7dxtzFs4tWbplKIe2jSi3+5vKbgIO0SLnQ=
-github.com/hewlettpackard/hpegl-metal-client v1.4.16 h1:PM4C8PdRXtJrz2lnxFPEUi73qHIUaKEjAo6IMEAJ0hg=
-github.com/hewlettpackard/hpegl-metal-client v1.4.16/go.mod h1:z8JEXcrqvD22jOofmU/3ZZOHBXk2yljfahDmquMRxas=
-github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.38 h1:s15kU8kXU5mmAc7NcbNvyUYURzC2Pwdx15SGl/DhbdQ=
-github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.38/go.mod h1:PmKGmsLr5UJmtNV7VAUi2y/n1fjkr6KQl+G8M0/UoTo=
+github.com/hewlettpackard/hpegl-metal-client v1.5.0 h1:FY8tVbxZDLhwMFTQhdR4olkRGeiOXk00w24K0St/WH4=
+github.com/hewlettpackard/hpegl-metal-client v1.5.0/go.mod h1:z8JEXcrqvD22jOofmU/3ZZOHBXk2yljfahDmquMRxas=
+github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.39 h1:Adm0K76zHrbw4kKqtyDQExxwPiipez69ztUPOhGrZHA=
+github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.39/go.mod h1:JLRl+dXnweZLPRbmBbcsAFr2Tfz+aQcWG0x0J/Mk10Q=
 github.com/hewlettpackard/hpegl-provider-lib v0.0.14 h1:fwIXQsdEdeYYvaJQr1vwfPgCGYKgZaP7kL0p8xbBQJ4=
 github.com/hewlettpackard/hpegl-provider-lib v0.0.14/go.mod h1:7StTTobQIl8pZCLcJnZm0/+N4lNE2MO6H/U0LhTfXog=
 github.com/hexops/gotextdiff v1.0.3 h1:gitA9+qJrrTCsiCl7+kh75nPqQt1cx4ZkudSTLoUqJM=
@@ -667,12 +667,6 @@ github.com/tenntenn/text/transform v0.0.0-20200319021203-7eef512accb3 h1:f+jULpR
 github.com/tenntenn/text/transform v0.0.0-20200319021203-7eef512accb3/go.mod h1:ON8b8w4BN/kE1EOhwT0o+d62W65a6aPw1nouo9LMgyY=
 github.com/tetafro/godot v1.4.11 h1:BVoBIqAf/2QdbFmSwAWnaIqDivZdOV0ZRwEm6jivLKw=
 github.com/tetafro/godot v1.4.11/go.mod h1:LR3CJpxDVGlYOWn3ZZg1PgNZdTUvzsZWu8xaEohUpn8=
-github.com/tidwall/gjson v1.14.1 h1:iymTbGkQBhveq21bEvAQ81I0LEBork8BFe1CUZXdyuo=
-github.com/tidwall/gjson v1.14.1/go.mod h1:/wbyibRr2FHMks5tjHJ5F8dMZh3AcwJEMf5vlfC0lxk=
-github.com/tidwall/match v1.1.1 h1:+Ho715JplO36QYgwN9PGYNhgZvoUSc9X2c80KVTi+GA=
-github.com/tidwall/match v1.1.1/go.mod h1:eRSPERbgtNPcGhD8UCthc6PmLEQXEWd3PRB5JTxsfmM=
-github.com/tidwall/pretty v1.2.0 h1:RWIZEg2iJ8/g6fDDYzMpobmaoGh5OLl4AXtGUGPcqCs=
-github.com/tidwall/pretty v1.2.0/go.mod h1:ITEVvHYasfjBbM0u2Pg8T2nJnzm8xPwvNhhsoaGGjNU=
 github.com/timakin/bodyclose v0.0.0-20221125081123-e39cf3fc478e h1:MV6KaVu/hzByHP0UvJ4HcMGE/8a6A4Rggc/0wx2AvJo=
 github.com/timakin/bodyclose v0.0.0-20221125081123-e39cf3fc478e/go.mod h1:27bSVNWSBOHm+qRp1T9qzaIpsWEP6TbUnei/43HK+PQ=
 github.com/timonwong/loggercheck v0.9.4 h1:HKKhqrjcVj8sxL7K77beXh0adEm6DLjV/QOGeMXEVi4=

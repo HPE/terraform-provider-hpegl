@@ -4,12 +4,11 @@ go 1.19
 
 require (
 	github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.10
-	github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.1
 	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.14
 	github.com/golangci/golangci-lint v1.52.2
 	github.com/hashicorp/terraform-plugin-docs v0.14.1
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.26.1
-	github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.38
+	github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.39
 	github.com/hewlettpackard/hpegl-provider-lib v0.0.14
 )
 
@@ -23,6 +22,7 @@ require (
 	github.com/Djarvur/go-err113 v0.0.0-20210108212216-aea10b59be24 // indirect
 	github.com/GaijinEntertainment/go-exhaustruct/v2 v2.3.0 // indirect
 	github.com/HewlettPackard/hpegl-containers-go-sdk v0.0.13 // indirect
+	github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.1 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/semver/v3 v3.1.1 // indirect
@@ -106,7 +106,7 @@ require (
 	github.com/hashicorp/terraform-registry-address v0.1.0 // indirect
 	github.com/hashicorp/terraform-svchost v0.0.0-20200729002733-f050f53b9734 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
-	github.com/hewlettpackard/hpegl-metal-client v1.4.16 // indirect
+	github.com/hewlettpackard/hpegl-metal-client v1.5.0 // indirect
 	github.com/hexops/gotextdiff v1.0.3 // indirect
 	github.com/huandu/xstrings v1.3.2 // indirect
 	github.com/imdario/mergo v0.3.13 // indirect
@@ -192,9 +192,6 @@ require (
 	github.com/t-yuki/gocover-cobertura v0.0.0-20180217150009-aaee18c8195c // indirect
 	github.com/tdakkota/asciicheck v0.2.0 // indirect
 	github.com/tetafro/godot v1.4.11 // indirect
-	github.com/tidwall/gjson v1.14.1 // indirect
-	github.com/tidwall/match v1.1.1 // indirect
-	github.com/tidwall/pretty v1.2.0 // indirect
 	github.com/timakin/bodyclose v0.0.0-20221125081123-e39cf3fc478e // indirect
 	github.com/timonwong/loggercheck v0.9.4 // indirect
 	github.com/tomarrell/wrapcheck/v2 v2.8.1 // indirect
