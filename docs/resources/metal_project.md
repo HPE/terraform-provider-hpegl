@@ -43,6 +43,7 @@ resource "hpegl_metal_project" "project" {
 
 ### Optional
 
+- `permitted_images` (Set of String) List of permitted OS service images
 - `sites` (Set of String) List of Permitted Site IDs
 
 ### Read-Only

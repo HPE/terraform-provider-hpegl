@@ -69,6 +69,7 @@ The available_resources block takes the following arguments.
   - `volume_capacity` - Maximum aggregated volume capacity in TiB
   - `private_networks` - Maximum number of private networks
   - `instance_types` - (Optional) Map of instance type ID to maximum number of hosts that can be created with that instance type
+- `permitted_images` - (Optional) List of OS service image IDs allowed to be used by compute instances of this compute group
 
 ### Attribute Reference
 
