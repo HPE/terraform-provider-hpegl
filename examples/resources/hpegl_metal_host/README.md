@@ -69,7 +69,7 @@ The following arguments are supported:
 
 ### Attribute Reference
 
-In addition to the arguments listed above, the following attributes are exported:
+In addition to the arguments listed above, the following computed attributes are returned to the user:
 
 - `ssh_ids` - List of SSH key IDs.
 - `location_id` - Unique ID of the location.

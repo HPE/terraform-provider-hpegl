@@ -67,7 +67,7 @@ The following arguments are supported:
 
 ### Attribute Reference
 
-In addition to the arguments listed above, the following attributes are exported:
+In addition to the arguments listed above, the following computed attributes are returned to the user:
 
 - `location_id` - Unique ID of the location.
 - `flavor_id` - unique ID of the chosen flavor.

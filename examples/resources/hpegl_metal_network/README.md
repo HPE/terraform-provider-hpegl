@@ -96,15 +96,20 @@ The following arguments are supported:
 - `name` - The name of the network.
 - `description` - (Optional) Some descriptive text that helps describe the network and purpose.
 - `location` - Where the network is to be created in country:region:data-center style.
+- `host_use` - (Optional) Host network use policy. Allowed values are Required, Oprional and Default.
+- `purpose` - (Optional) Purpose of the network. Allowed values are Backup, Storage, vmKernel, vmNSX-T, vMotion, vCHA, vmFT, iSCSI-A, iSCSI-B, Telemetry and External
 - `ip_pool` - (Optional) IP pool used by the network. If not defined an IP allocated from the hoster IP pool factory will be used.
+- `vlan` - (Optional) VLAN ID of the network. If not specified, it is allocated from the reserved pool.
+- `vni` - (Optional) VNI ID of the network. If not specified, it is allocated from the reserved pool if required.
 
 ### Attribute Reference
 
-In addition to the arguments listed above, the following attributes are exported:
+In addition to the arguments listed above, the following computed attributes are returned to the user:
 
 - `location_id` - Unique ID of the location.
-- `kind` - The kind of network, e.g. "Custom".
-- `host_use` - The requirement of a host to use this network, e.g. "Required" or "Optional"
+- `ip_pool_id` - Unique ID of the network IP pool.
+- `vlan` - VLAN ID of the network when it is allocated from the reserved pool.
+- `vni` - VNI ID of the network when it is allocated from the reserved pool if required.
 
 
 

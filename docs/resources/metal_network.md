@@ -62,14 +62,14 @@ resource "hpegl_metal_network" "pnet" {
 - `host_use` (String) Required, Optional or Default
 - `ip_pool` (Block Set, Max: 1) Create the specified IP Pool to be used for the network (see [below for nested schema](#nestedblock--ip_pool))
 - `purpose` (String) Purpose of the network. Allowed values: Backup, Storage, vmKernel, vmNSX-T, vMotion, vCHA, vmFT, iSCSI-A, iSCSI-B, Telemetry or External
+- `vlan` (Number) Optional VLAN ID of the network. If not specified, it is allocated from reserved pool
+- `vni` (Number) Optional VNI ID of the network. If not specified, it is allocated from reserved pool if required
 
 ### Read-Only
 
 - `id` (String) The ID of this resource.
 - `ip_pool_id` (String) IP pool ID associated with the network
 - `location_id` (String) The PodID of the network
-- `vlan` (Number) The VLAN ID of the network
-- `vni` (Number) The VNI ID of the network
 
 <a id="nestedblock--ip_pool"></a>
 ### Nested Schema for `ip_pool`
