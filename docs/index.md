@@ -16,6 +16,8 @@ Current supported services:
 - [Containers](https://github.com/HewlettPackard/hpegl-containers-terraform-resources)
 - [Metal](https://github.com/HewlettPackard/hpegl-metal-terraform-resources)
 
+This provider requires 64-bit versions of the terraform binary to work properly.
+
 Note that an API client must be used with this provider.  For information on how to
 create an API client see [here](http://www.hpe.com/info/greenlakecentral-create-api-client).
 

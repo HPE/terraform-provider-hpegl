@@ -10,7 +10,7 @@ This is the main repo for the GreenLake terraform provider which provides terraf
 
 ## Prerequisites
 
-1. Terraform version >= v0.13 [install terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+1. Terraform version >= v0.13 and 64-bit [install terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 1. An API client to authenticate against GreenLake.
 1. Terraform basics. [Terraform Introduction](https://www.terraform.io/intro/index.html)
 
