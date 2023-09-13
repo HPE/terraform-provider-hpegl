@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.10
-	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.14
+	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.15
 	github.com/golangci/golangci-lint v1.54.2
 	github.com/hashicorp/terraform-plugin-docs v0.16.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.29.0
@@ -23,7 +23,7 @@ require (
 	github.com/Djarvur/go-err113 v0.0.0-20210108212216-aea10b59be24 // indirect
 	github.com/GaijinEntertainment/go-exhaustruct/v3 v3.1.0 // indirect
 	github.com/HewlettPackard/hpegl-containers-go-sdk v0.0.13 // indirect
-	github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.1 // indirect
+	github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.3 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/semver/v3 v3.1.1 // indirect
