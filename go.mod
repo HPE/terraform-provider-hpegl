@@ -8,7 +8,7 @@ require (
 	github.com/golangci/golangci-lint v1.54.2
 	github.com/hashicorp/terraform-plugin-docs v0.16.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.29.0
-	github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.41
+	github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.43
 	github.com/hewlettpackard/hpegl-provider-lib v0.0.14
 )
 
@@ -112,7 +112,7 @@ require (
 	github.com/hashicorp/terraform-registry-address v0.2.2 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
-	github.com/hewlettpackard/hpegl-metal-client v1.5.2 // indirect
+	github.com/hewlettpackard/hpegl-metal-client v1.5.3 // indirect
 	github.com/hexops/gotextdiff v1.0.3 // indirect
 	github.com/huandu/xstrings v1.3.2 // indirect
 	github.com/imdario/mergo v0.3.15 // indirect
