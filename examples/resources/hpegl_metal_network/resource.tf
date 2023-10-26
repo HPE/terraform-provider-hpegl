@@ -32,4 +32,6 @@ resource "hpegl_metal_network" "pnet" {
     no_proxy = "10.0.0.5"
     ntp      = ["10.0.0.80"]
   }
+  vlan = 4000
+  vni  = 10400
 }

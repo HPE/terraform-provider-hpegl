@@ -48,11 +48,13 @@ resource "hpegl_caas_cluster_blueprint" "testbp" {
   worker_nodes {
     name                 = ""
     machine_blueprint_id = data.hpegl_caas_machine_blueprint.mbworker.id
-    count                = ""
+    min_size             = ""
+    max_size             = ""
   }
   worker_nodes {
     name                 = ""
     machine_blueprint_id = data.hpegl_caas_machine_blueprint.mbworker.id
-    count                = ""
+    min_size             = ""
+    max_size             = ""
   }
 }

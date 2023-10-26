@@ -35,10 +35,9 @@ Cluster Blueprint data source allows reading cluster blueprint data
 
 Read-Only:
 
-- `count` (Number)
 - `machine_blueprint_id` (String)
+- `max_size` (Number)
+- `min_size` (Number)
 - `name` (String)
-- `os_image` (String)
-- `os_version` (String)
 
 

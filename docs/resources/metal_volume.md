@@ -11,16 +11,28 @@ Provides Volume resource. This allows creation, deletion and update of Metal vol
 ## Example Usage
 
 ```terraform
-# (C) Copyright 2020-2022 Hewlett Packard Enterprise Development LP
+# (C) Copyright 2020-2023 Hewlett Packard Enterprise Development LP
+
+provider "hpegl" {
+  metal {
+    gl_token = false
+  }
+}
+
+variable "location" {
+  default = "USA:Central:AFCDCC1"
+}
 
 resource "hpegl_metal_volume" "test_vols" {
-  count       = 1
-  name        = "vol-${count.index}"
-  size        = 20
-  shareable   = true
-  flavor      = "Fast"
-  location    = var.location
-  description = "Terraformed volume"
+  count             = 1
+  name              = "vol-${count.index}"
+  size              = 20
+  shareable         = true
+  flavor            = "Fast"
+  storage_pool      = "Storage_Pool_NVMe"
+  location          = var.location
+  volume_collection = "AustinCollection"
+  description       = "Terraformed volume"
 }
 ```
 
@@ -39,6 +51,9 @@ resource "hpegl_metal_volume" "test_vols" {
 - `description` (String) A wordy description of the volume and purpose.
 - `labels` (Map of String) The volume labels as (name, value) pairs.
 - `shareable` (Boolean) The volume can be shared by multiple hosts if set.
+- `storage_pool` (String) The storage pool of the volume to be created.
+- `volume_collection` (String) The volume collection of the volume to be created.
+- `volume_collection_id` (String) The volume collection ID of the volume to be created.
 
 ### Read-Only
 
@@ -47,6 +62,7 @@ resource "hpegl_metal_volume" "test_vols" {
 - `location_id` (String) LocationID.
 - `state` (String) The volume provisioning state.
 - `status` (String) The volume provisioning status.
+- `storage_pool_id` (String) The storage pool of the volume to be created.
 - `wwn` (String) The volume serial number.
 
 

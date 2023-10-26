@@ -42,8 +42,7 @@ resource "hpegl_caas_cluster" "test" {
   worker_nodes {
     name                 = "worker"
     machine_blueprint_id = data.hpegl_caas_machine_blueprint.mbworker.id
-    count                = "1"
-    osImage              = "sles-custom"
-    osVersion            = "15.3"
+    min_size             = ""
+    max_size             = ""
   }
 }

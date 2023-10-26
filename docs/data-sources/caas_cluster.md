@@ -45,11 +45,10 @@ Cluster data source allows reading cluster data
 
 Read-Only:
 
-- `count` (Number)
 - `machine_blueprint_id` (String)
+- `max_size` (Number)
+- `min_size` (Number)
 - `name` (String)
-- `os_image` (String)
-- `os_version` (String)
 
 
 <a id="nestedatt--machine_sets_detail"></a>
@@ -58,15 +57,13 @@ Read-Only:
 Read-Only:
 
 - `compute_type` (String)
-- `count` (Number)
-- `machine_blueprint_id` (String)
 - `machine_provider` (String)
 - `machine_roles` (List of String)
 - `machines` (List of Object) (see [below for nested schema](#nestedobjatt--machine_sets_detail--machines))
+- `max_size` (Number)
+- `min_size` (Number)
 - `name` (String)
 - `networks` (List of String)
-- `os_image` (String)
-- `os_version` (String)
 - `proxy` (String)
 - `size` (String)
 - `size_detail` (List of Object) (see [below for nested schema](#nestedobjatt--machine_sets_detail--size_detail))
