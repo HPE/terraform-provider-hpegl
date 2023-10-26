@@ -59,10 +59,10 @@ github.com/Djarvur/go-err113 v0.0.0-20210108212216-aea10b59be24 h1:sHglBQTwgx+rW
 github.com/Djarvur/go-err113 v0.0.0-20210108212216-aea10b59be24/go.mod h1:4UJr5HIiMZrwgkSPdsjy2uOQExX/WEILpIrO9UPGuXs=
 github.com/GaijinEntertainment/go-exhaustruct/v3 v3.1.0 h1:3ZBs7LAezy8gh0uECsA6CGU43FF3zsx5f4eah5FxTMA=
 github.com/GaijinEntertainment/go-exhaustruct/v3 v3.1.0/go.mod h1:rZLTje5A9kFBe0pzhpe2TdhRniBF++PRHQuRpR8esVc=
-github.com/HewlettPackard/hpegl-containers-go-sdk v0.0.13 h1:qNCB3OPBv1gftB/dfhKjFk6ghuvJSHcLB0hSLv0/gEU=
-github.com/HewlettPackard/hpegl-containers-go-sdk v0.0.13/go.mod h1:rHDxAIj4FrgUc6JksOM0llQhGUpV732wsi19vKwyXSc=
-github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.10 h1:o6UXXM+wMmx38f2+tSyFf2mEPoTq5dBKArv1YuWUI3U=
-github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.10/go.mod h1:afiYgch4a804+bYD/NXqhI/Uq4FQQlcBqn0EzPE+g+g=
+github.com/HewlettPackard/hpegl-containers-go-sdk v0.0.16 h1:5YXtw8RlGY9vwp/jwAATOepY6WnpJrBjCsJNIBMCTvc=
+github.com/HewlettPackard/hpegl-containers-go-sdk v0.0.16/go.mod h1:rHDxAIj4FrgUc6JksOM0llQhGUpV732wsi19vKwyXSc=
+github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.11 h1:Nqh4jg8Ac3lvMqVwVQ2/kmZ2RtXJkJgmb38aebDY2LI=
+github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.11/go.mod h1:VaBTjqKXpfwdcYU5iT91cTY+bNYq8VbraSQS+qxKNGY=
 github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.3 h1:UFovE1vu0cj6paebMNZCDZ4v7F654E7OmSOezO7nAog=
 github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.3/go.mod h1:gPk3WuH1P3kF3ROxyHERgKMMFHR+W0Fsspg5vsA0+O0=
 github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.15 h1:c3UQn7gl5doAPj8WGZBEsAJ4MjYFujwlcrrGeXHc6Dc=
