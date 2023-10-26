@@ -1,4 +1,10 @@
-# (C) Copyright 2020-2022 Hewlett Packard Enterprise Development LP
+# (C) Copyright 2020-2023 Hewlett Packard Enterprise Development LP
+
+provider "hpegl" {
+  metal {
+    gl_token = false
+  }
+}
 
 data "hpegl_metal_available_resources" "physical" {
 
@@ -30,4 +36,12 @@ output "volume-flavors" {
 
 output "machine-sizes" {
   value = data.hpegl_metal_available_resources.physical.machine_sizes
+}
+
+output "storage-pools" {
+  value = data.hpegl_metal_available_resources.physical.storage_pools
+}
+
+output "volume-collections" {
+  value = data.hpegl_metal_available_resources.physical.volume_collections
 }

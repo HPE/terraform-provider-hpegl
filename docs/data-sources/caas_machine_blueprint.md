@@ -28,8 +28,6 @@ Machine Blueprint data source allows reading machine blueprint data
 - `last_update_date` (String)
 - `machine_provider` (String)
 - `machine_roles` (List of String)
-- `os_image` (String)
-- `os_version` (String)
 - `size` (String)
 - `size_detail` (List of Object) (see [below for nested schema](#nestedatt--size_detail))
 - `storage_type` (String)

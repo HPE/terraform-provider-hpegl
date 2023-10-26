@@ -5,14 +5,14 @@ description: |-
   The machine blueprint resource facilitates the creation and
               deletion of a CaaS machine blueprint.  Update is currently not supported. The
               required inputs when creating a cluster blueprint are name,
-              site-id, machineprovider, machineroles, osimage, osversion, computetype, size and storagetype
+              site-id, machineprovider, machineroles, computetype, size and storagetype
 ---
 # hpegl_caas_machine_blueprint (Resource)
 
 The machine blueprint resource facilitates the creation and
 			deletion of a CaaS machine blueprint.  Update is currently not supported. The
 			required inputs when creating a cluster blueprint are name,
-			site-id, machine_provider, machine_roles, os_image, os_version, compute_type, size and storage_type
+			site-id, machine_provider, machine_roles, compute_type, size and storage_type
 
 ## Example Usage
 
@@ -48,8 +48,6 @@ resource "hpegl_caas_machine_blueprint" "test" {
   machine_roles    = ["controlplane"]
   machine_provider = "vmaas"
   worker_type      = ""
-  os_image         = "sles-custom"
-  os_version       = ""
   compute_type     = ""
   size             = ""
   storage_type     = ""
@@ -65,8 +63,6 @@ resource "hpegl_caas_machine_blueprint" "test" {
 - `machine_provider` (String)
 - `machine_roles` (List of String)
 - `name` (String)
-- `os_image` (String)
-- `os_version` (String)
 - `site_id` (String)
 - `size` (String)
 - `storage_type` (String)

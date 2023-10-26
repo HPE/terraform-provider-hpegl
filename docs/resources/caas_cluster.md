@@ -6,7 +6,8 @@ description: |-
               deletion of a CaaS cluster. There are four required inputs when
               creating a cluster - name, blueprintid, siteid and spaceid.
               workernodes is an optional input to scale nodes on cluster.
-              OS Image update & Kubernetes version upgrade are also supported while updating the cluster.
+              Provide the minsize & maxsize parameters to trigger Autoscaler.
+              Kubernetes version upgrade is also supported while updating the cluster.
 ---
 # hpegl_caas_cluster (Resource)
 
@@ -14,7 +15,8 @@ The cluster resource facilitates the creation, updation and
 			deletion of a CaaS cluster. There are four required inputs when 
 			creating a cluster - name, blueprint_id, site_id and space_id. 
 			worker_nodes is an optional input to scale nodes on cluster.
-            OS Image update & Kubernetes version upgrade are also supported while updating the cluster.
+            Provide the min_size & max_size parameters to trigger Autoscaler.
+            Kubernetes version upgrade is also supported while updating the cluster.
 
 ## Example Usage
 
@@ -63,9 +65,8 @@ resource "hpegl_caas_cluster" "test" {
   worker_nodes {
     name                 = "worker"
     machine_blueprint_id = data.hpegl_caas_machine_blueprint.mbworker.id
-    count                = "1"
-    osImage              = "sles-custom"
-    osVersion            = "15.3"
+    min_size             = ""
+    max_size             = ""
   }
 }
 ```
@@ -120,14 +121,10 @@ Optional:
 
 Required:
 
-- `count` (Number)
 - `machine_blueprint_id` (String)
+- `max_size` (Number)
+- `min_size` (Number)
 - `name` (String)
-
-Optional:
-
-- `os_image` (String)
-- `os_version` (String)
 
 
 <a id="nestedatt--default_machine_sets"></a>
@@ -135,11 +132,10 @@ Optional:
 
 Read-Only:
 
-- `count` (Number)
 - `machine_blueprint_id` (String)
+- `max_size` (Number)
+- `min_size` (Number)
 - `name` (String)
-- `os_image` (String)
-- `os_version` (String)
 
 
 <a id="nestedatt--default_machine_sets_detail"></a>
@@ -148,15 +144,13 @@ Read-Only:
 Read-Only:
 
 - `compute_type` (String)
-- `count` (Number)
-- `machine_blueprint_id` (String)
 - `machine_provider` (String)
 - `machine_roles` (List of String)
 - `machines` (List of Object) (see [below for nested schema](#nestedobjatt--default_machine_sets_detail--machines))
+- `max_size` (Number)
+- `min_size` (Number)
 - `name` (String)
 - `networks` (List of String)
-- `os_image` (String)
-- `os_version` (String)
 - `proxy` (String)
 - `size` (String)
 - `size_detail` (List of Object) (see [below for nested schema](#nestedobjatt--default_machine_sets_detail--size_detail))
@@ -195,11 +189,10 @@ Read-Only:
 
 Read-Only:
 
-- `count` (Number)
 - `machine_blueprint_id` (String)
+- `max_size` (Number)
+- `min_size` (Number)
 - `name` (String)
-- `os_image` (String)
-- `os_version` (String)
 
 
 <a id="nestedatt--machine_sets_detail"></a>
@@ -208,15 +201,13 @@ Read-Only:
 Read-Only:
 
 - `compute_type` (String)
-- `count` (Number)
-- `machine_blueprint_id` (String)
 - `machine_provider` (String)
 - `machine_roles` (List of String)
 - `machines` (List of Object) (see [below for nested schema](#nestedobjatt--machine_sets_detail--machines))
+- `max_size` (Number)
+- `min_size` (Number)
 - `name` (String)
 - `networks` (List of String)
-- `os_image` (String)
-- `os_version` (String)
 - `proxy` (String)
 - `size` (String)
 - `size_detail` (List of Object) (see [below for nested schema](#nestedobjatt--machine_sets_detail--size_detail))
