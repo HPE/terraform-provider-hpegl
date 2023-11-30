@@ -1,12 +1,12 @@
 name: GitHub Actions CI
 
-on: [push, pull_request]
+on: push
 jobs:
   ci:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        go: [ '1.19' ]
+        go: [ '1.20' ]
     name: Go ${{ matrix.go }} CI test
     steps:
       - uses: actions/checkout@v4
