@@ -65,8 +65,8 @@ github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.11 h1:Nqh4jg
 github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.11/go.mod h1:VaBTjqKXpfwdcYU5iT91cTY+bNYq8VbraSQS+qxKNGY=
 github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.3 h1:UFovE1vu0cj6paebMNZCDZ4v7F654E7OmSOezO7nAog=
 github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.3/go.mod h1:gPk3WuH1P3kF3ROxyHERgKMMFHR+W0Fsspg5vsA0+O0=
-github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.16 h1:2fBbanV45Q8SxsrplcXZM867WrzXtWsp+kgBttRMygE=
-github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.16/go.mod h1:e7q0ZrQMmjRyvuJlAHihQJaWDOTzN2c1Ig3m4Y/McHM=
+github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.17 h1:YJZfkIq74gaujg8scOu9hZFB0IheC4evZqTqWOUIYKA=
+github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.17/go.mod h1:e7q0ZrQMmjRyvuJlAHihQJaWDOTzN2c1Ig3m4Y/McHM=
 github.com/Masterminds/goutils v1.1.1 h1:5nUrii3FMTL5diU80unEVvNevw1nH4+ZV4DSLVJLSYI=
 github.com/Masterminds/goutils v1.1.1/go.mod h1:8cTjp+g8YejhMuvIA5y2vz3BpJxksy863GQaJW2MFNU=
 github.com/Masterminds/semver v1.5.0 h1:H65muMkzWKEuNDnfl9d70GUjFniHKHRbFPGBuZ3QEww=
