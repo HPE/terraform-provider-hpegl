@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.11
-	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.18
+	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.19
 	github.com/golangci/golangci-lint v1.55.2
 	github.com/hashicorp/terraform-plugin-docs v0.16.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.31.0
