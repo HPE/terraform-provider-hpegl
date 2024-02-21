@@ -1,4 +1,4 @@
-// (C) Copyright 2020-2022 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2020-2024 Hewlett Packard Enterprise Development LP
 
 package client
 
@@ -49,10 +49,10 @@ func NewClientMap(ctx context.Context, d *schema.ResourceData) (map[string]inter
 	}
 
 	// Metal. A special case at the moment.
-	// Metal requires that we both initialise the client and use it to "refresh resources" before
-	// we hand it off to the provider code.
-	// In addition the Metal provider code uses a .gltform file to read the GreenLake project-id and
-	// portal URL.
+	// If a project ID is required, metal requires that we both initialise the client and use it to
+	// "refresh resources" before we hand it off to the provider code.
+	// In addition the Metal provider code uses a .gltform file to read the GreenLake project ID, space
+	// and portal URL.
 	// There are two possibilities:
 	// - The information needed to populate the .gltform file is provided in a hpegl metal block
 	// - A .gltform file is provided outside of the terraform environment
@@ -73,14 +73,16 @@ func NewClientMap(ctx context.Context, d *schema.ResourceData) (map[string]inter
 	}
 
 	// Now check if there is a .gltform file, if so proceed with Metal initialisation.
-	if _, err := gltform.GetGLConfig(); err == nil {
+	if cfg, err := gltform.GetGLConfig(); err == nil {
 		// Initialise the metal client
 		metalConfig, err := metal.NewConfig("", metal.WithTRF(trf))
 		if err != nil {
 			return nil, diag.Errorf("error in creating metal client: %s", err)
 		}
-		if err := metalConfig.RefreshAvailableResources(); err != nil {
-			return nil, diag.Errorf("error in refreshing available resources for metal: %s", err)
+		if cfg.ProjectID != "" {
+			if err := metalConfig.RefreshAvailableResources(); err != nil {
+				return nil, diag.Errorf("error in refreshing available resources for metal: %s", err)
+			}
 		}
 		c[metal.KeyForGLClientMap()] = metalConfig
 	}
