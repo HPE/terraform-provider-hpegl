@@ -5,7 +5,7 @@ terraform {
   required_providers {
     hpegl = {
       source  = "HPE/hpegl"
-      version = "0.3.24"
+      version = "0.3.25"
     }
   }
 }
