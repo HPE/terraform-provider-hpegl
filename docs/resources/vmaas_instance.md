@@ -4,7 +4,7 @@ page_title: "hpegl_vmaas_instance Resource - vmaas-terraform-resources"
 subcategory: "vmaas"
 description: |-
     This Instance resource facilitates creating,
-          updating and deleting virtual machines. HPE recommends that you use the VMware as type for provisioning.
+  updating and deleting virtual machines. HPE recommends that you use the VMware as type for provisioning.
 ---
 
 -> Compatible version >= 5.2.4

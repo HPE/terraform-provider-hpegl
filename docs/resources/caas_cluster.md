@@ -3,11 +3,11 @@ page_title: "hpegl_caas_cluster Resource - terraform-provider-hpegl"
 subcategory: "caas"
 description: |-
   The cluster resource facilitates the creation, updation and
-              deletion of a CaaS cluster. There are four required inputs when
-              creating a cluster - name, blueprintid, siteid and spaceid.
-              workernodes is an optional input to scale nodes on cluster.
-              Provide the minsize & maxsize parameters to trigger Autoscaler.
-              Kubernetes version upgrade is also supported while updating the cluster.
+  deletion of a CaaS cluster. There are four required inputs when
+  creating a cluster - name, blueprint_id, site_id and space_id.
+  worker_nodes is an optional input to scale nodes on cluster.
+  Provide the min_size & max_size parameters to trigger Autoscaler.
+  Kubernetes version upgrade is also supported while updating the cluster.
 ---
 # hpegl_caas_cluster (Resource)
 

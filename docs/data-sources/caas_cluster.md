@@ -3,7 +3,7 @@ page_title: "hpegl_caas_cluster Data Source - terraform-provider-hpegl"
 subcategory: "caas"
 description: |-
   Cluster data source allows reading cluster data
-              based on name and space ID. Required inputs are name and space_id
+  based on name and space ID. Required inputs are name and space_id
 ---
 # hpegl_caas_cluster (Data Source)
 

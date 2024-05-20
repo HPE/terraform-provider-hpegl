@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_plan Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaasplan data source can be used to discover the ID of a hpegl vmaas plan.
-          This can then be used with resources or data sources that require a hpeglvmaasplan,
-          such as the hpeglvmaasinstance resource.
+  The hpegl_vmaas_plan data source can be used to discover the ID of a hpegl vmaas plan.
+  This can then be used with resources or data sources that require a hpegl_vmaas_plan,
+  such as the hpegl_vmaas_instance resource.
 ---
 # hpegl_vmaas_plan (Data Source)
 

@@ -4,7 +4,7 @@ page_title: "hpegl_vmaas_router_nat_rule Resource - vmaas-terraform-resources"
 subcategory: "vmaas"
 description: |-
     Router NAT rule resource facilitates creating,
-          updating and deleting NSX-T Network Router NAT rules.
+  updating and deleting NSX-T Network Router NAT rules.
 ---
 
 -> Compatible version >= 5.2.10

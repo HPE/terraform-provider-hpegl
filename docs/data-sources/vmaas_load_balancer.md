@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_load_balancer Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaasloadbalancer data source can be used to discover the ID of a hpegl vmaas network load balancer.
-          This can then be used with resources or data sources that require a hpeglvmaasloadbalancer,
-          such as the hpeglvmaasload_balancer resource.
+  The hpegl_vmaas_load_balancer data source can be used to discover the ID of a hpegl vmaas network load balancer.
+  This can then be used with resources or data sources that require a hpegl_vmaas_load_balancer,
+  such as the hpegl_vmaas_load_balancer resource.
 ---
 # hpegl_vmaas_load_balancer (Data Source)
 

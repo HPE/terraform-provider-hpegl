@@ -147,6 +147,7 @@ resource "hpegl_metal_host" "terra_host_new_ssh" {
 - `state` (String) The current state of the host
 - `sub_state` (String) The current state of the deployment
 - `summary_status` (String) The current health status of the host
+- `wwpns` (List of String) FC HBA world wide port names.
 
 <a id="nestedblock--timeouts"></a>
 ### Nested Schema for `timeouts`

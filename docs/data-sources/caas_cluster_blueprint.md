@@ -3,7 +3,7 @@ page_title: "hpegl_caas_cluster_blueprint Data Source - terraform-provider-hpegl
 subcategory: "caas"
 description: |-
   Cluster Blueprint data source allows reading cluster blueprint data
-              based on blueprint name and space ID. Required inputs are name and space_id
+  based on blueprint name and space ID. Required inputs are name and space_id
 ---
 # hpegl_caas_cluster_blueprint (Data Source)
 

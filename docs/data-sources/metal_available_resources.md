@@ -201,6 +201,7 @@ Read-Only:
 - `location` (String)
 - `location_id` (String)
 - `name` (String)
+- `storage_pool_ids` (List of String)
 
 
 <a id="nestedatt--volume_flavors"></a>

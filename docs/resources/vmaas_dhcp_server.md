@@ -4,7 +4,7 @@ page_title: "hpegl_vmaas_dhcp_server Resource - vmaas-terraform-resources"
 subcategory: "vmaas"
 description: |-
     Server resource facilitates creating, updating
-          and deleting Dhcp Server.
+  and deleting Dhcp Server.
 ---
 
 -> Compatible version >= 5.2.13
@@ -50,6 +50,7 @@ resource "hpegl_vmaas_dhcp_server" "tf_dhcp_server" {
 
 - `id` (String) The ID of this resource.
 - `network_server_id` (Number) NSX-T Integration ID
+- `provider_id` (String) ProviderId of the DHCP Server. Use the provider_id  while creating DHCP NSX-T Segment Network
 
 <a id="nestedblock--config"></a>
 ### Nested Schema for `config`

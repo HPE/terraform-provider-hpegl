@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_router Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaasrouter data source can be used to discover the ID of a hpegl vmaas router.
-          This can then be used with resources or data sources that require a hpeglvmaasrouter,
-          such as the hpeglvmaasrouter resource.
+  The hpegl_vmaas_router data source can be used to discover the ID of a hpegl vmaas router.
+  This can then be used with resources or data sources that require a hpegl_vmaas_router,
+  such as the hpegl_vmaas_router resource.
 ---
 # hpegl_vmaas_router (Data Source)
 

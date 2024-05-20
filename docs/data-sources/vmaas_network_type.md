@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_network_type Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaasnetworktype data source can be used to discover the ID of an hpegl vmaas network types.
-          This can then be used with resources or data sources that require an hpeglvmaasnetworktype,
-          such as the hpeglvmaasnetwork resource.
+  The hpegl_vmaas_network_type data source can be used to discover the ID of an hpegl vmaas network types.
+  This can then be used with resources or data sources that require an hpegl_vmaas_network_type,
+  such as the hpegl_vmaas_network resource.
 ---
 # hpegl_vmaas_network_type (Data Source)
 
@@ -15,10 +15,10 @@ The hpegl_vmaas_network_type data source can be used to discover the ID of an hp
 ## Example Usage
 
 ```terraform
-# (C) Copyright 2021 Hewlett Packard Enterprise Development LP
+# (C) Copyright 2021-2024 Hewlett Packard Enterprise Development LP
 
 data "hpegl_vmaas_network_type" "nsxt_net_type" {
-  name = "NSX-T Segment"
+  name = "NSX Segment"
 }
 ```
 
@@ -27,7 +27,7 @@ data "hpegl_vmaas_network_type" "nsxt_net_type" {
 
 ### Required
 
-- `name` (String) Name of the network type. Example 'NSX-T Segment' or 'Custom Network'
+- `name` (String) Name of the network type. Example 'NSX Segment' or 'Custom Network'
 
 ### Read-Only
 

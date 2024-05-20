@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_layout Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaaslayout data source can be used to discover the ID of a hpegl vmaas layout.
-          This can then be used with resources or data sources that require a hpeglvmaaslayout,
-          such as the hpeglvmaasinstance resource.
+  The hpegl_vmaas_layout data source can be used to discover the ID of a hpegl vmaas layout.
+  This can then be used with resources or data sources that require a hpegl_vmaas_layout,
+  such as the hpegl_vmaas_instance resource.
 ---
 # hpegl_vmaas_layout (Data Source)
 

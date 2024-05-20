@@ -3,7 +3,7 @@ page_title: "hpegl_caas_cluster_provider Data Source - terraform-provider-hpegl"
 subcategory: "caas"
 description: |-
   ClusterProvider data source allows reading Cluster Provider data
-              based on name and site ID. Required inputs are name and site ID
+  based on name and site ID. Required inputs are name and site ID
 ---
 # hpegl_caas_cluster_provider (Data Source)
 

@@ -2,8 +2,8 @@
 page_title: "hpegl_vmaas_edge_cluster Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaasedgecluster data source can be used to discover the Provider ID of a hpegl vmaas Edge cluster.
-          This can then be used with resources or data sources that require a hpeglvmaasedgecluster
+  The hpegl_vmaas_edge_cluster data source can be used to discover the Provider ID of a hpegl vmaas Edge cluster.
+  This can then be used with resources or data sources that require a hpegl_vmaas_edge_cluster
 ---
 # hpegl_vmaas_edge_cluster (Data Source)
 

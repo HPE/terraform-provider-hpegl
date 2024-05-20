@@ -4,7 +4,7 @@ page_title: "hpegl_vmaas_load_balancer_virtual_server Resource - vmaas-terraform
 subcategory: "vmaas"
 description: |-
     loadbalancer Virtual Server resource facilitates creating, updating
-          and deleting NSX-T Network Load Balancer Virtual Servers.
+  and deleting NSX-T Network Load Balancer Virtual Servers.
 ---
 
 # Resource hpegl_vmaas_load_balancer_virtual_server

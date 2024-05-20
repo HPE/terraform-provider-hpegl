@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_cloud_folder Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaascloudfolder data source can be used to discover the ID for a folder.
-          hpeglvmaascloudfolder can be used along with hpeglvmaasinstance, If it is used, all instances/VMs
-          spawned will be stored in the specified folder.
+  The hpegl_vmaas_cloud_folder data source can be used to discover the ID for a folder.
+  hpegl_vmaas_cloud_folder can be used along with hpegl_vmaas_instance, If it is used, all instances/VMs
+  spawned will be stored in the specified folder.
 ---
 # hpegl_vmaas_cloud_folder (Data Source)
 

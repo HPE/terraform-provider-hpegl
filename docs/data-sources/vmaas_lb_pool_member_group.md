@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_lb_pool_member_group Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaaslbpoolmember_group data source can be used to discover the
-          ID of a hpegl vmaas network load balancer.
-          This can then be used for the  data sources
+  The hpegl_vmaas_lb_pool_member_group data source can be used to discover the
+  ID of a hpegl vmaas network load balancer.
+  This can then be used for the  data sources
 ---
 # hpegl_vmaas_lb_pool_member_group (Data Source)
 

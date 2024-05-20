@@ -4,7 +4,7 @@ page_title: "hpegl_vmaas_load_balancer_pool Resource - vmaas-terraform-resources
 subcategory: "vmaas"
 description: |-
     loadbalancer Pool resource facilitates creating, updating
-          and deleting NSX-T Network Load Balancer Pools.
+  and deleting NSX-T Network Load Balancer Pools.
 ---
 
 # Resource hpegl_vmaas_load_balancer_pool

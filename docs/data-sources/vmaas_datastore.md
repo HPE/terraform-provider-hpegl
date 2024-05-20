@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_datastore Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaasdatastore data source can be used to discover the ID of a hpegl vmaas datastore.
-          This can then be used with resources or data sources that require a hpeglvmaasdatastore,
-          such as the hpeglvmaasinstance resource.
+  The hpegl_vmaas_datastore data source can be used to discover the ID of a hpegl vmaas datastore.
+  This can then be used with resources or data sources that require a hpegl_vmaas_datastore,
+  such as the hpegl_vmaas_instance resource.
 ---
 # hpegl_vmaas_datastore (Data Source)
 
