@@ -1,0 +1,19 @@
+name: Generate Docs
+
+on:
+  pull_request:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.1.1
+      - name: Generate Docs
+        run: |
+          make docs-generate
+      - name: Push changes
+        run: |
+          git add .
+          git commit -m "[dependabot skip] Update terraform docs"
+          git push
