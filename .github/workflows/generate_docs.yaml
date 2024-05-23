@@ -9,6 +9,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4.1.1
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.21.10'
       - name: Generate Docs
         run: |
           make docs-generate
