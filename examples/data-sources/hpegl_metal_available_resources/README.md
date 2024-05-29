@@ -139,12 +139,18 @@ storage-pools = [
     "Name": "abtest",
     "LocationID": "c8b3c5a7-f81d-453a-af3a-1e6d78291bd5",
     "Description": ""
+    "StoragePoolIDs": [
+      "bdbbb385-2ee3-4e71-a60a-ba712cdda37e"
+    ]
   },
   {
     "ID": "dd253c2a-defb-41c7-b23d-f9a937c37da0",
     "Name": "abose-tf-test",
     "LocationID": "c8b3c5a7-f81d-453a-af3a-1e6d78291bd5",
     "Description": ""
+    "StoragePoolIDs": [
+      "bdbbb385-2ee3-4e71-a60a-ba712cdda37e"
+    ]
   }
 ]
 ```

@@ -3,9 +3,9 @@ page_title: "hpegl_caas_machine_blueprint Resource - terraform-provider-hpegl"
 subcategory: "caas"
 description: |-
   The machine blueprint resource facilitates the creation and
-              deletion of a CaaS machine blueprint.  Update is currently not supported. The
-              required inputs when creating a cluster blueprint are name,
-              site-id, machineprovider, machineroles, computetype, size and storagetype
+  deletion of a CaaS machine blueprint.  Update is currently not supported. The
+  required inputs when creating a cluster blueprint are name,
+  site-id, machine_provider, machine_roles, compute_type, size and storage_type
 ---
 # hpegl_caas_machine_blueprint (Resource)
 

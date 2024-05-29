@@ -3,7 +3,7 @@ page_title: "hpegl_caas_site Data Source - terraform-provider-hpegl"
 subcategory: "caas"
 description: |-
   Appliance data source allows reading appliance data
-              based on name and space ID. Required inputs are name and space_id
+  based on name and space ID. Required inputs are name and space_id
 ---
 # hpegl_caas_site (Data Source)
 

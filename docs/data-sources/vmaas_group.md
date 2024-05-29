@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_group Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaasgroup data source can be used to discover the ID of a hpegl vmaas group.
-          This can then be used with resources or data sources that require a hpeglvmaasgroup,
-          such as the hpeglvmaasinstance resource.
+  The hpegl_vmaas_group data source can be used to discover the ID of a hpegl vmaas group.
+  This can then be used with resources or data sources that require a hpegl_vmaas_group,
+  such as the hpegl_vmaas_instance resource.
 ---
 # hpegl_vmaas_group (Data Source)
 

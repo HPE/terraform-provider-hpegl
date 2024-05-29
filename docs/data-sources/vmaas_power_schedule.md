@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_power_schedule Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaaspowerschedule data source can be used to discover the ID of a hpegl vmaas powerSchedule.
-          This can then be used with resources or data sources that require a hpeglvmaaspowerschedule,
-          such as the hpeglvmaasinstance resource.
+  The hpegl_vmaas_power_schedule data source can be used to discover the ID of a hpegl vmaas powerSchedule.
+  This can then be used with resources or data sources that require a hpegl_vmaas_power_schedule,
+  such as the hpegl_vmaas_instance resource.
 ---
 # hpegl_vmaas_power_schedule (Data Source)
 

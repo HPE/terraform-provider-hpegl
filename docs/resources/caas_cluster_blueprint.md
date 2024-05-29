@@ -3,9 +3,9 @@ page_title: "hpegl_caas_cluster_blueprint Resource - terraform-provider-hpegl"
 subcategory: "caas"
 description: |-
   The cluster blueprint resource facilitates the creation and
-              deletion of a CaaS cluster blueprint.  Update is currently not supported. The
-              required inputs when creating a cluster blueprint are name, kubernetesversion,
-              site-id, clusterprovider, controlplane, workernodes and defaultstorageclass
+  deletion of a CaaS cluster blueprint.  Update is currently not supported. The
+  required inputs when creating a cluster blueprint are name, kubernetes_version,
+  site-id, cluster_provider, control_plane, worker_nodes and default_storage_class
 ---
 # hpegl_caas_cluster_blueprint (Resource)
 

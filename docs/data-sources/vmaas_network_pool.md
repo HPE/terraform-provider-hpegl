@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_network_pool Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaasnetworkpool data source can be used to discover the ID of a hpegl vmaas network pool.
-          This can then be used with resources or data sources that require a hpeglvmaasnetworkpool,
-          such as the hpeglvmaasnetwork resource (for creating non NSX-T segments).
+  The hpegl_vmaas_network_pool data source can be used to discover the ID of a hpegl vmaas network pool.
+  This can then be used with resources or data sources that require a hpegl_vmaas_network_pool,
+  such as the hpegl_vmaas_network resource (for creating non NSX-T segments).
 ---
 # hpegl_vmaas_network_pool (Data Source)
 

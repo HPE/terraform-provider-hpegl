@@ -4,9 +4,9 @@ page_title: "hpegl_vmaas_instance_clone Resource - vmaas-terraform-resources-clo
 subcategory: "vmaas"
 description: |-
     Instance clone resource facilitates creating,
-      updating and deleting cloned virtual machines.
-      For creating an instance clone, provide a unique name and all the Mandatory(Required) parameters.
-      All optional parameters will be inherited from parent resource if not provided.
+  updating and deleting cloned virtual machines.
+  For creating an instance clone, provide a unique name and all the Mandatory(Required) parameters.
+  All optional parameters will be inherited from parent resource if not provided.
 ---
 
 -> Compatible version >= 5.2.4

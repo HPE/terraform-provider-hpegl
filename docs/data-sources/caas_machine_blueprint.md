@@ -3,7 +3,7 @@ page_title: "hpegl_caas_machine_blueprint Data Source - terraform-provider-hpegl
 subcategory: "caas"
 description: |-
   Machine Blueprint data source allows reading machine blueprint data
-              based on blueprint name and appliance ID. Required inputs are name and site_id
+  based on blueprint name and appliance ID. Required inputs are name and site_id
 ---
 # hpegl_caas_machine_blueprint (Data Source)
 

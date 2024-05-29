@@ -4,7 +4,7 @@ page_title: "hpegl_vmaas_load_balancer_profile Resource - vmaas-terraform-resour
 subcategory: "vmaas"
 description: |-
     loadbalancer Profile resource facilitates creating, updating
-          and deleting NSX-T Network Load Balancer Profiles.
+  and deleting NSX-T Network Load Balancer Profiles.
 ---
 
 # Resource hpegl_vmaas_load_balancer_profile

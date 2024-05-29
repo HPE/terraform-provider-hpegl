@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_environment Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaasenvironment data source can be used to discover the ID/Code of a hpegl vmaas environment.
-          This can then be used with resources or data sources that require a hpeglvmaasenvironment,
-          such as the hpeglvmaasinstance resource.
+  The hpegl_vmaas_environment data source can be used to discover the ID/Code of a hpegl vmaas environment.
+  This can then be used with resources or data sources that require a hpegl_vmaas_environment,
+  such as the hpegl_vmaas_instance resource.
 ---
 # hpegl_vmaas_environment (Data Source)
 

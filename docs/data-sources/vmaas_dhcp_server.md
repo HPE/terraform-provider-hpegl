@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_dhcp_server Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaasdhcpserver data source can be used to discover the ID of a hpegl vmaas DHCP server.
-          This can then be used with resources or data sources that require a hpeglvmaasdhcpserver,
-          such as the hpeglvmaasdhcp_server resource.
+  The hpegl_vmaas_dhcp_server data source can be used to discover the ID of a hpegl vmaas DHCP server.
+  This can then be used with resources or data sources that require a hpegl_vmaas_dhcp_server,
+  such as the hpegl_vmaas_dhcp_server resource.
 ---
 # hpegl_vmaas_dhcp_server (Data Source)
 

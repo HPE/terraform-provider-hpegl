@@ -18,10 +18,26 @@ Current supported services:
 
 This provider requires 64-bit versions of the terraform binary to work properly.
 
-Note that an API client must be used with this provider.  For information on how to
-create an API client see [here](http://www.hpe.com/info/greenlakecentral-create-api-client).
+## API Client
 
-The following env-vars can be used to supply API client creds and related information to
+Note that an API client must be used with this provider.  The provider supports two different types
+of API Client corresponding to two different version of GreenLake IAM:
+- [glcs](#glcs-API-Client)
+- [glp](#glp-API-Client)
+
+The version of IAM used by the provider is determined by the `HPEGL_IAM_VERSION` environment variable.
+It can have two values corresponding to the two versions of IAM: `glcs` and `glp`. If the variable is not set,
+the provider will default to `glcs`.
+
+Note that most GreenLake installations use the `glcs` version of IAM.  The exceptions are "Disconnected"
+installations which use the `glp` version of IAM.
+
+At present only `metal` resources and data-sources are supported with the `glp` version of IAM.
+
+### glcs API Client
+For information on how to create a glcs API client see [here](http://www.hpe.com/info/greenlakecentral-create-api-client).
+
+The following env-vars can be used to supply glcs API client creds and related information to
 the provider:
 
 ```bash
@@ -30,6 +46,21 @@ export HPEGL_USER_ID=< API client id >
 export HPEGL_USER_SECRET=< API client secret >
 export HPEGL_IAM_SERVICE_URL=< the "issuer" URL for the API client  >
 ```
+
+### glp API Client
+For information on glp API Clients see [here](https://developer.greenlake.hpe.com/docs/greenlake/services/#configuring-api-client-credentials)
+
+The following env-vars can be used to supply glp API client creds and related information to
+the provider:
+
+```bash
+export HPEGL_IAM_VERSION=glp
+export HPEGL_USER_ID=< API client id >
+export HPEGL_USER_SECRET=< API client secret >
+export HPEGL_IAM_SERVICE_URL=< the "Token URL" for API clients, can be found on the API Client creation screen  >
+```
+
+Note that the `HPEGL_IAM_VERSION` environment variable must be set to `glp` to use the glp API client.
 
 
 ## Example Usage
@@ -64,13 +95,15 @@ provider "hpegl" {
 - `api_vended_service_client` (Boolean) Declare if the API client being used is an API-vended one or not.  Defaults to "true"
             i.e. the client is API-vended.  The value can be set using the HPEGL_API_VENDED_SERVICE_CLIENT env-var.
 - `caas` (Block Set, Max: 1) (see [below for nested schema](#nestedblock--caas))
-- `iam_service_url` (String) The IAM service URL to be used to generate tokens.  In the case of API-vended API clients
-            (the default) then this should be set to the "issuer url" for the client.  In the case of non-API-vended
-            API clients use the appropriate GL "client" URL. Can be set by HPEGL_IAM_SERVICE_URL env-var
+- `iam_service_url` (String) The IAM service URL to be used to generate tokens.  In the case of GLCS API clients
+            (the default) then this should be set to the "issuer url" for the client.  In the case of GLP
+            API clients use the appropriate "Token URL" from the API screen. Can be set by HPEGL_IAM_SERVICE_URL env-var
 - `iam_token` (String) The IAM token to be used with the client(s).  Note that in normal operation
                 an API client is used.  Passing-in a token means that tokens will not be generated or refreshed.
+- `iam_version` (String) The IAM version to be used.  Can be set by HPEGL_IAM_VERSION env-var. Valid values are: 
+			[glcs glp]The default is glcs.
 - `metal` (Block Set, Max: 1) (see [below for nested schema](#nestedblock--metal))
-- `tenant_id` (String) The tenant-id to be used, can be set by HPEGL_TENANT_ID env-var
+- `tenant_id` (String) The tenant-id to be used for GLCS IAM, can be set by HPEGL_TENANT_ID env-var
 - `user_id` (String) The user id to be used, can be set by HPEGL_USER_ID env-var
 - `user_secret` (String) The user secret to be used, can be set by HPEGL_USER_SECRET env-var
 - `vmaas` (Block Set, Max: 1) (see [below for nested schema](#nestedblock--vmaas))
@@ -88,8 +121,10 @@ Optional:
 
 Optional:
 
-- `gl_token` (Boolean) Field indicating whether the token is GreenLake IAM issued token or Metal Service issued one,
+- `gl_token` (Boolean) Field indicating whether the token is GreenLake (GLCS or GLP) IAM issued token or Metal Service issued one,
 				can also be set with the HPEGL_METAL_GL_TOKEN env-var
+- `glp_role` (String) Field indicating the GLP role to be used, can also be set with the HPEGL_METAL_GLP_ROLE env-var
+- `glp_workspace` (String) Field indicating the GLP workspace to be used, can also be set with the HPEGL_METAL_GLP_WORKSPACE env-var
 - `project_id` (String) The Metal project-id to use, can also be set with the HPEGL_METAL_PROJECT_ID env-var
 - `rest_url` (String) The Metal portal rest-url to use, can also be set with the HPEGL_METAL_REST_URL env-var
 - `space_name` (String) The space-name to use with Metal, only required for project creation operations,

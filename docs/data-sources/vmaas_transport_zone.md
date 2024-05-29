@@ -2,8 +2,8 @@
 page_title: "hpegl_vmaas_transport_zone Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaastransportzone data source can be used to discover the ID of a hpegl vmaas transport zone.
-          This can then be used with resources or data sources that require an hpeglvmaastransportzone
+  The hpegl_vmaas_transport_zone data source can be used to discover the ID of a hpegl vmaas transport zone.
+  This can then be used with resources or data sources that require an hpegl_vmaas_transport_zone
 ---
 # hpegl_vmaas_transport_zone (Data Source)
 

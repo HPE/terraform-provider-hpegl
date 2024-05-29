@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_network Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaasnetwork data source can be used to discover the ID of a hpegl vmaas network.
-          This can then be used with resources or data sources that require a hpeglvmaasnetwork,
-          such as the hpeglvmaasinstance resource.
+  The hpegl_vmaas_network data source can be used to discover the ID of a hpegl vmaas network.
+  This can then be used with resources or data sources that require a hpegl_vmaas_network,
+  such as the hpegl_vmaas_instance resource.
 ---
 # hpegl_vmaas_network (Data Source)
 

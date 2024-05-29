@@ -4,7 +4,7 @@ page_title: "hpegl_vmaas_router Resource - vmaas-terraform-resources"
 subcategory: "vmaas"
 description: |-
     Router resource facilitates creating,
-          updating and deleting NSX-T Tier0/Tier1 Network Routers.
+  updating and deleting NSX-T Tier0/Tier1 Network Routers.
 ---
 
 # Resource hpegl_vmaas_router

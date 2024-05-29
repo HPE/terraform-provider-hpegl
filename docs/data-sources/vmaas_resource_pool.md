@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_resource_pool Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaasresourcepool data source can be used to discover the ID of an hpegl vmaas resource pool.
-          This can then be used with resources or data sources that require an hpeglvmaasresourcepool,
-          such as the hpeglvmaasinstance resource.
+  The hpegl_vmaas_resource_pool data source can be used to discover the ID of an hpegl vmaas resource pool.
+  This can then be used with resources or data sources that require an hpegl_vmaas_resource_pool,
+  such as the hpegl_vmaas_instance resource.
 ---
 # hpegl_vmaas_resource_pool (Data Source)
 

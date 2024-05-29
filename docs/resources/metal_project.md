@@ -45,6 +45,7 @@ resource "hpegl_metal_project" "project" {
 
 - `permitted_images` (Set of String) List of permitted OS service images
 - `sites` (Set of String) List of Permitted Site IDs
+- `volume_replication_enabled` (Boolean) Volume replication is enabled for the project if set.
 
 ### Read-Only
 

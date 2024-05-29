@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_template Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaastemplate data source can be used to discover the ID of a hpegl vmaas template.
-          This can then be used with resources or data sources that require a hpeglvmaastemplate,
-          such as the hpeglvmaasinstance resource.
+  The hpegl_vmaas_template data source can be used to discover the ID of a hpegl vmaas template.
+  This can then be used with resources or data sources that require a hpegl_vmaas_template,
+  such as the hpegl_vmaas_instance resource.
 ---
 # hpegl_vmaas_template (Data Source)
 

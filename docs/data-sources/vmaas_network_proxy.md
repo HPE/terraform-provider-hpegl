@@ -2,9 +2,9 @@
 page_title: "hpegl_vmaas_network_proxy Data Source - terraform-provider-hpegl"
 subcategory: "vmaas"
 description: |-
-  The hpeglvmaasnetworkproxy data source can be used to discover the ID of an hpeglvmaasnetworkproxy.
-          This can then be used with resources or data sources that require an hpeglvmaasnetworkproxy,
-          such as the hpeglvmaas_network resource (for creating non NSX-T segments).
+  The hpegl_vmaas_network_proxy data source can be used to discover the ID of an hpegl_vmaas_network_proxy.
+  This can then be used with resources or data sources that require an hpegl_vmaas_network_proxy,
+  such as the hpegl_vmaas_network resource (for creating non NSX-T segments).
 ---
 # hpegl_vmaas_network_proxy (Data Source)
 
