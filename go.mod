@@ -9,7 +9,7 @@ require (
 	github.com/hashicorp/terraform-plugin-docs v0.19.2
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.34.0
 	github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.54
-	github.com/hewlettpackard/hpegl-provider-lib v0.0.15
+	github.com/hewlettpackard/hpegl-provider-lib v0.0.16
 )
 
 require (

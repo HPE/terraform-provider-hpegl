@@ -401,8 +401,8 @@ github.com/hewlettpackard/hpegl-metal-client v1.5.13 h1:c4Gb9Gu449LmN0eoDVTwGgkg
 github.com/hewlettpackard/hpegl-metal-client v1.5.13/go.mod h1:E72/o32a5WwVAUhXvXEUKZOGiSA84hsTS+xezFqtbgU=
 github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.54 h1:kJGLQlrqi1VxXkGvvyclt8EST38mV0WQ/+VkQh10X14=
 github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.54/go.mod h1:q1rzaxEJL+9K3/E8NzFzBq9POxOYr4kU1ePSPKJufI8=
-github.com/hewlettpackard/hpegl-provider-lib v0.0.15 h1:yDqJNUYDq37LjpwoqvNKv2RS2s5gCEL+qQ3MD0WXIdw=
-github.com/hewlettpackard/hpegl-provider-lib v0.0.15/go.mod h1:9lEPIb9rKqxZNPkwcgRN+3/rAkpyXCk3KR8GFO5xaZ4=
+github.com/hewlettpackard/hpegl-provider-lib v0.0.16 h1:d2Thflf2n4Ew+R/GbMjOuMbxVY1CJjs3htX//qTEdFg=
+github.com/hewlettpackard/hpegl-provider-lib v0.0.16/go.mod h1:9lEPIb9rKqxZNPkwcgRN+3/rAkpyXCk3KR8GFO5xaZ4=
 github.com/hexops/gotextdiff v1.0.3 h1:gitA9+qJrrTCsiCl7+kh75nPqQt1cx4ZkudSTLoUqJM=
 github.com/hexops/gotextdiff v1.0.3/go.mod h1:pSWU5MAI3yDq+fZBTazCSJysOMbxWL1BSow5/V2vxeg=
 github.com/huandu/xstrings v1.3.3 h1:/Gcsuc1x8JVbJ9/rlye4xZnVAbEkGauT8lbebqcQws4=
