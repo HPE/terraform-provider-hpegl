@@ -75,10 +75,11 @@ func NewClientMap(ctx context.Context, d *schema.ResourceData) (map[string]inter
 	// Now check if there is a .gltform file, if so proceed with Metal initialisation.
 	if cfg, err := gltform.GetGLConfig(); err == nil {
 		// Initialise the metal client
-		metalConfig, err := metal.NewConfig("", metal.WithTRF(trf))
+		metalConfig, err := createMetalConfig(cfg, trf)
 		if err != nil {
 			return nil, diag.Errorf("error in creating metal client: %s", err)
 		}
+		// Refresh available resources if project ID is provided
 		if cfg.ProjectID != "" {
 			if err := metalConfig.RefreshAvailableResources(); err != nil {
 				return nil, diag.Errorf("error in refreshing available resources for metal: %s", err)
@@ -88,4 +89,14 @@ func NewClientMap(ctx context.Context, d *schema.ResourceData) (map[string]inter
 	}
 
 	return c, nil
+}
+
+// createMetalConfig creates a metal config
+func createMetalConfig(cfg *gltform.Gljwt, trf retrieve.TokenRetrieveFuncCtx) (*metal.Config, error) {
+	// If GLP role and workspace are provided, use them
+	if cfg.GLPRole != "" && cfg.GLPWorkspace != "" {
+		return metal.NewConfig("", metal.WithTRF(trf), metal.WithRole(cfg.GLPRole), metal.WithWorkspace(cfg.GLPWorkspace))
+	}
+
+	return metal.NewConfig("", metal.WithTRF(trf))
 }
