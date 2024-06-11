@@ -3,7 +3,7 @@ layout: ""
 page_title: "hpegl_vmaas_instance_clone Resource - vmaas-terraform-resources-clone"
 subcategory: "vmaas"
 description: |-
-    Instance clone resource facilitates creating,
+  Instance clone resource facilitates creating,
   updating and deleting cloned virtual machines.
   For creating an instance clone, provide a unique name and all the Mandatory(Required) parameters.
   All optional parameters will be inherited from parent resource if not provided.
@@ -158,12 +158,12 @@ Required:
 Optional:
 
 - `interface_id` (Number) Unique ID to identify a network interface type.
-- `name` (String) name of the interface
 
 Read-Only:
 
 - `internal_id` (Number) Unique ID to identify a network internal ID.
 - `is_primary` (Boolean) Flag that identifies if a given network is primary. Primary network cannot be deleted.
+- `name` (String) name of the interface
 
 
 <a id="nestedblock--config"></a>

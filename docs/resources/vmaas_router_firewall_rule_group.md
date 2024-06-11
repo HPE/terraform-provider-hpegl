@@ -3,7 +3,7 @@ layout: ""
 page_title: "hpegl_vmaas_router_firewall_rule_group Resource - vmaas-terraform-resources"
 subcategory: "vmaas"
 description: |-
-    
+  
 ---
 
 -> Compatible version >= 5.2.12

@@ -3,7 +3,7 @@ layout: ""
 page_title: "hpegl_vmaas_dhcp_server Resource - vmaas-terraform-resources"
 subcategory: "vmaas"
 description: |-
-    Server resource facilitates creating, updating
+  Server resource facilitates creating, updating
   and deleting Dhcp Server.
 ---
 

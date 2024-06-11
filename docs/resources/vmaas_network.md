@@ -3,7 +3,7 @@ layout: ""
 page_title: "hpegl_vmaas_network Resource - vmaas-terraform-resources"
 subcategory: "vmaas"
 description: |-
-    Network resource facilitates creating,
+  Network resource facilitates creating,
   updating and deleting NSX-T Networks.
 ---
 
