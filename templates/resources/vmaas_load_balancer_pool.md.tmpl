@@ -3,7 +3,7 @@ layout: ""
 page_title: "hpegl_vmaas_load_balancer_pool Resource - vmaas-terraform-resources"
 subcategory: {{ $arr := split .Name "_" }}"{{ index $arr 1 }}"
 description: |-
-  {{ .Description | plainmarkdown | trimspace | prefixlines "  " }}
+{{ .Description | plainmarkdown | trimspace | prefixlines "  " }}
 ---
 
 # Resource hpegl_vmaas_load_balancer_pool

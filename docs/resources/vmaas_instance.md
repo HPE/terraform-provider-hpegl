@@ -3,7 +3,7 @@ layout: ""
 page_title: "hpegl_vmaas_instance Resource - vmaas-terraform-resources"
 subcategory: "vmaas"
 description: |-
-    This Instance resource facilitates creating,
+  This Instance resource facilitates creating,
   updating and deleting virtual machines. HPE recommends that you use the VMware as type for provisioning.
 ---
 
@@ -222,12 +222,12 @@ Required:
 Optional:
 
 - `interface_id` (Number) Unique ID to identify a network interface type.
-- `name` (String) name of the interface
 
 Read-Only:
 
 - `internal_id` (Number) Unique ID to identify a network internal ID.
 - `is_primary` (Boolean) Flag that identifies if a given network is primary. Primary network cannot be deleted.
+- `name` (String) name of the interface
 
 
 <a id="nestedblock--volume"></a>

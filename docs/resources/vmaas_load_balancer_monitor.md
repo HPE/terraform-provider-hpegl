@@ -3,7 +3,7 @@ layout: ""
 page_title: "hpegl_vmaas_load_balancer_monitor Resource - vmaas-terraform-resources"
 subcategory: "vmaas"
 description: |-
-    Loadbalancer Monitor resource facilitates creating, updating
+  Loadbalancer Monitor resource facilitates creating, updating
   and deleting NSX-T Network Load Balancer Monitors.
 ---
 
