@@ -4,7 +4,7 @@ go 1.21.9
 
 require (
 	github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.11
-	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.26
+	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.27
 	github.com/golangci/golangci-lint v1.59.1
 	github.com/hashicorp/terraform-plugin-docs v0.19.4
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.34.0
@@ -25,7 +25,7 @@ require (
 	github.com/Djarvur/go-err113 v0.0.0-20210108212216-aea10b59be24 // indirect
 	github.com/GaijinEntertainment/go-exhaustruct/v3 v3.2.0 // indirect
 	github.com/HewlettPackard/hpegl-containers-go-sdk v0.0.16 // indirect
-	github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.7 // indirect
+	github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.9 // indirect
 	github.com/Kunde21/markdownfmt/v3 v3.1.0 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver/v3 v3.2.1 // indirect
@@ -245,7 +245,7 @@ require (
 	google.golang.org/appengine v1.6.8 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240528184218-531527333157 // indirect
 	google.golang.org/grpc v1.64.0 // indirect
-	google.golang.org/protobuf v1.34.1 // indirect
+	google.golang.org/protobuf v1.34.2 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
