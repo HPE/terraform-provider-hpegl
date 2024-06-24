@@ -35,7 +35,7 @@ The following examples use Bash on Linux (x64).
    > `$PLUGIN_DIRECTORY/$SOURCEHOSTNAME/$SOURCENAMESPACE/$NAME/$VERSION/$OS_$ARCH/`
 
    ```console
-   mkdir -p ~/.terraform.d/plugins/local/hashicorp/hpegl/${RELEASE}/linux_amd64
+   mkdir -p ~/.terraform.d/plugins/registry.terraform.io/hpe/hpegl/${RELEASE}/linux_amd64
    ```
 
 4. Copy the extracted plugin to a target system and move to the Terraform plugins directory.
@@ -47,13 +47,13 @@ The following examples use Bash on Linux (x64).
 5. Verify the presence of the plugin in the Terraform plugins directory.
 
    ```console
-   cd ~/.terraform.d/plugins/local/hashicorp/hpegl/${RELEASE}/linux_amd64
+   cd ~/.terraform.d/plugins/registry.terraform.io/hpe/hpegl/${RELEASE}/linux_amd64
    ls
    ```
 
 ### macOS
 
-The following example uses Bash (default) on macOS (Intel).
+The following example uses Bash (default) on macOS (Apple Silicon).
 
 1. On a macOS operating system with Internet access, install wget with [Homebrew](https://brew.sh).
 
@@ -65,13 +65,13 @@ The following example uses Bash (default) on macOS (Intel).
 
    ```console
    RELEASE=x.y.z
-   wget -q https://github.com/HPE/terraform-provider-hpegl/releases/download/v${RELEASE}/terraform-provider-hpegl_${RELEASE}_darwin_amd64.zip
+   wget -q https://github.com/HPE/terraform-provider-hpegl/releases/download/v${RELEASE}/terraform-provider-hpegl_${RELEASE}_darwin_arm64.zip
    ```
 
 3. Extract the plugin.
 
    ```console
-   unzip terraform-provider-hpegl_${RELEASE}_darwin_amd64.zip -d terraform-provider-hpegl_${RELEASE}
+   unzip terraform-provider-hpegl_${RELEASE}_darwin_arm64.zip -d terraform-provider-hpegl_${RELEASE}
    ```
 
 4. Create a directory for the provider.
@@ -83,19 +83,19 @@ The following example uses Bash (default) on macOS (Intel).
    > `$PLUGIN_DIRECTORY/$SOURCEHOSTNAME/$SOURCENAMESPACE/$NAME/$VERSION/$OS_$ARCH/`
 
    ```console
-   mkdir -p ~/.terraform.d/plugins/local/hashicorp/hpegl/${RELEASE}/darwin_amd64
+   mkdir -p ~/.terraform.d/plugins/registry.terraform.io/hpe/hpegl/${RELEASE}/darwin_arm64
    ```
 
 5. Copy the extracted plugin to a target system and move to the Terraform plugins directory.
 
    ```console
-   mv terraform-provider-hpegl_${RELEASE}/terraform-provider-hpegl_v${RELEASE} ~/.terraform.d/plugins/local/hashicorp/hpegl/${RELEASE}/darwin_amd64
+   mv terraform-provider-hpegl_${RELEASE}/terraform-provider-hpegl_v${RELEASE} ~/.terraform.d/plugins/registry.terraform.io/hpe/hpegl/${RELEASE}/darwin_arm64
    ```
 
 6. Verify the presence of the plugin in the Terraform plugins directory.
 
    ```console
-   cd ~/.terraform.d/plugins/local/hashicorp/hpegl/${RELEASE}/darwin_amd64
+   cd ~/.terraform.d/plugins/registry.terraform.io/hpe/hpegl/${RELEASE}/darwin_arm64
    ls
    ```
 
@@ -126,15 +126,15 @@ The following examples use PowerShell on Windows (x64).
    > `$PLUGIN_DIRECTORY/$SOURCEHOSTNAME/$SOURCENAMESPACE/$NAME/$VERSION/$OS_$ARCH/`
 
    ```powershell
-   New-Item $ENV:APPDATA\terraform.d\plugins\local\hashicorp\hpegl\${RELEASE}\ -Name "windows_amd64" -ItemType "directory"
+   New-Item $ENV:APPDATA\terraform.d\plugins\registry.terraform.io/hpe\hpegl\${RELEASE}\ -Name "windows_amd64" -ItemType "directory"
 
-   Move-Item terraform-provider-hpegl_v${RELEASE}.exe $ENV:APPDATA\terraform.d\plugins\local\hashicorp\hpegl\${RELEASE}\windows_amd64\terraform-provider-hpegl_v${RELEASE}.exe
+   Move-Item terraform-provider-hpegl_v${RELEASE}.exe $ENV:APPDATA\terraform.d\plugins\registry.terraform.io/hpe\hpegl\${RELEASE}\windows_amd64\terraform-provider-hpegl_v${RELEASE}.exe
    ```
 
 4. Verify the presence of the plugin in the Terraform plugins directory.
 
    ```powershell
-   cd $ENV:APPDATA\terraform.d\plugins\local\hashicorp\hpegl\${RELEASE}\windows_amd64
+   cd $ENV:APPDATA\terraform.d\plugins\registry.terraform.io\hpe\hpegl\${RELEASE}\windows_amd64
    dir
    ```
 
