@@ -8,6 +8,10 @@
 
 This is the main repo for the GreenLake terraform provider which provides terraform support fot GreenLake services.
 
+## Install the terraform-provider-hpegl binaries manually
+
+See the [INSTALL.md](INSTALL.md) file for instructions on how to install the binaries manually.
+
 ## Prerequisites
 
 1. Terraform version >= v0.13 and 64-bit [install terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
