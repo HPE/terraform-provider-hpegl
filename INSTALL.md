@@ -9,6 +9,15 @@ The latest release of the provider can be found on [`https://github.com/HPE/terr
 
 This can be useful in environments that do not allow direct access to the Internet.
 
+## Install Scripts
+
+See [linux](./scripts/install-hpegl-provider.sh), [windows](./scripts/install-hpegl-provider-windows.ps1), and
+[macOS](./scripts/install-hpegl-provider-macos.sh) install scripts that will download the latest release of the provider
+and install it in the appropriate location for your operating system.
+
+Then skip to [Configure the Terraform Configuration Files](#configure-the-terraform-configuration-files) to complete the
+steps.
+
 ### Linux
 
 The following examples use Bash on Linux (x64).
