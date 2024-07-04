@@ -15,7 +15,7 @@ then
 fi
 
 repo="HPE/terraform-provider-hpegl"
-macos_hpegl_dir="${HOME}/.terraform.d/plugins/local/hpe/hpegl"
+macos_hpegl_dir="${HOME}/.terraform.d/plugins/registry.terraform.io/hpe/hpegl"
 
 get_latest_release () {
   local release_url="https://api.github.com/repos/${repo}/releases/latest"

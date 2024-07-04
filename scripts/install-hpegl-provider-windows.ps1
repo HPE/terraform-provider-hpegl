@@ -3,7 +3,7 @@ param ($VERSION)
 $os="windows"
 $arch="amd64"
 $repo="HPE/terraform-provider-hpegl"
-$windows_hpegl_dir="$env:appdata\terraform.d\plugins\local\hpe\hpegl"
+$windows_hpegl_dir="$env:appdata\terraform.d\plugins\registry.terraform.io\hpe\hpegl"
 
 $users_pwd = Get-Location
 

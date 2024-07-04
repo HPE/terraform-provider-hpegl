@@ -5,7 +5,7 @@ set -e
 os="linux"
 arch="amd64"
 repo="HPE/terraform-provider-hpegl"
-linux_hpegl_dir="${HOME}/.local/share/terraform/plugins/local/hpe/hpegl"
+linux_hpegl_dir="${HOME}/.local/share/terraform/plugins/registry.terraform.io/hpe/hpegl"
 
 get_latest_release () {
   local release_url="https://api.github.com/repos/${repo}/releases/latest"
