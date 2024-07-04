@@ -14,8 +14,8 @@ then
   arch="arm64"
 fi
 
-repo="HewlettPackard/terraform-provider-hpegl"
-macos_hpegl_dir="${HOME}/.terraform.d/plugins/registry.terraform.io/hewlettpackard/hpegl"
+repo="HPE/terraform-provider-hpegl"
+macos_hpegl_dir="${HOME}/.terraform.d/plugins/local/hpe/hpegl"
 
 get_latest_release () {
   local release_url="https://api.github.com/repos/${repo}/releases/latest"
