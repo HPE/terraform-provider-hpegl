@@ -1,4 +1,4 @@
-// (C) Copyright 2020-2022 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2020-2024 Hewlett Packard Enterprise Development LP
 
 package resources
 
@@ -10,6 +10,9 @@ import (
 	resmetal "github.com/hewlettpackard/hpegl-metal-terraform-resources/pkg/registration"
 )
 
+// SupportedServices returns the list of supported services.
+// Note: we will need to implement a ServiceRegistration interface which doesn't have
+// SupportedResources() or SupportedDataSources() for new "framework" providers.
 func SupportedServices() []registration.ServiceRegistration {
 	return []registration.ServiceRegistration{
 		resmetal.Registration{},
