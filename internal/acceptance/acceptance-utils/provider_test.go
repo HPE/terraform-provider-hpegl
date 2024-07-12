@@ -1,4 +1,4 @@
-// Copyright (c) 2016-2020 Hewlett Packard Enterprise Development LP.
+// Copyright (c) 2016-2024 Hewlett Packard Enterprise Development LP.
 
 package acceptancetest
 
@@ -31,6 +31,9 @@ func testAccPreCheck(t *testing.T) {
 	// }
 }
 
+// TestProvider tests the SDK v2.0 provider.  Leaving this here for now.  We might need
+// to remove this as we add new "framework" provider code
+// TODO remove this test
 func TestProvider(t *testing.T) {
 	if err := hpegl.ProviderFunc()().InternalValidate(); err != nil {
 		t.Fatalf("%s\n", err)
@@ -38,6 +41,7 @@ func TestProvider(t *testing.T) {
 	testAccPreCheck(t)
 }
 
+// TODO remove this test
 func TestProviderInterface(t *testing.T) {
 	var _ *schema.Provider = hpegl.ProviderFunc()()
 }
