@@ -77,7 +77,7 @@ this field to identify whether snapshot got deleted (because of reconfigure or a
 ## Example usage for creating new instance with all possible attributes
 
 ```terraform
-# (C) Copyright 2021 Hewlett Packard Enterprise Development LP
+# (C) Copyright 2021-2024 Hewlett Packard Enterprise Development LP
 
 # create instance with all possible options
 resource "hpegl_vmaas_instance" "tf_instance" {
@@ -98,12 +98,14 @@ resource "hpegl_vmaas_instance" "tf_instance" {
     name         = "root_vol"
     size         = 5
     datastore_id = data.hpegl_vmaas_datastore.c_3par.id
+    storage_type = data.hpegl_vmaas_instance_disk_type.vmaas_cloud_vmware_thin_lazy.id
   }
 
   volume {
     name         = "local_vol"
     size         = 5
     datastore_id = data.hpegl_vmaas_datastore.c_3par.id
+    storage_type = data.hpegl_vmaas_instance_disk_type.vmware_thin.id
   }
 
   labels = ["test_label"]
@@ -243,6 +245,8 @@ Required:
 Optional:
 
 - `root` (Boolean) true if volume is root
+- `storage_type` (Number) Storage type ID can be obtained from hpegl_vmaas_instance_disk_type
+							data source.
 
 Read-Only:
 
