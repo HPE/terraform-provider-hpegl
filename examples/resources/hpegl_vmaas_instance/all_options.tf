@@ -1,4 +1,4 @@
-# (C) Copyright 2021 Hewlett Packard Enterprise Development LP
+# (C) Copyright 2021-2024 Hewlett Packard Enterprise Development LP
 
 # create instance with all possible options
 resource "hpegl_vmaas_instance" "tf_instance" {
@@ -19,12 +19,14 @@ resource "hpegl_vmaas_instance" "tf_instance" {
     name         = "root_vol"
     size         = 5
     datastore_id = data.hpegl_vmaas_datastore.c_3par.id
+    storage_type = data.hpegl_vmaas_instance_disk_type.vmaas_cloud_vmware_thin_lazy.id
   }
 
   volume {
     name         = "local_vol"
     size         = 5
     datastore_id = data.hpegl_vmaas_datastore.c_3par.id
+    storage_type = data.hpegl_vmaas_instance_disk_type.vmware_thin.id
   }
 
   labels = ["test_label"]

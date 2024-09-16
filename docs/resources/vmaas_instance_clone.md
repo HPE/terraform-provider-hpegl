@@ -111,6 +111,8 @@ resource "hpegl_vmaas_instance_clone" "tf_instance_clone" {
 - `network` (Block List, Min: 1, Max: 5) Details of the network to which the instance should belong. (see [below for nested schema](#nestedblock--network))
 - `source_instance_id` (Number) Instance ID of the source instance. For getting source instance ID
 		use 'hpeg_vmaas_instance' resource.
+- `volume` (Block List, Min: 1) A list of volumes to be created inside a provisioned instance.
+				It can have a root volume and other secondary volumes. (see [below for nested schema](#nestedblock--volume))
 
 ### Optional
 
@@ -137,8 +139,6 @@ resource "hpegl_vmaas_instance_clone" "tf_instance_clone" {
 				 should be unique for each snapshot. Any change in name or description will result in the
 				 creation of a new snapshot. (see [below for nested schema](#nestedblock--snapshot))
 - `tags` (Map of String) A list of key and value pairs used to tag instances of similar type.
-- `volume` (Block List) A list of volumes to be created inside a provisioned instance.
-				It can have a root volume and other secondary volumes. (see [below for nested schema](#nestedblock--volume))
 
 ### Read-Only
 
@@ -164,6 +164,27 @@ Read-Only:
 - `internal_id` (Number) Unique ID to identify a network internal ID.
 - `is_primary` (Boolean) Flag that identifies if a given network is primary. Primary network cannot be deleted.
 - `name` (String) name of the interface
+
+
+<a id="nestedblock--volume"></a>
+### Nested Schema for `volume`
+
+Required:
+
+- `datastore_id` (String) Datastore ID can be obtained from hpegl_vmaas_datastore
+							data source. Use the value 'auto' so that the datastore is automatically selected.
+- `name` (String) Unique name for the volume.
+- `size` (Number) Size of the volume in GB.
+
+Optional:
+
+- `root` (Boolean) true if volume is root
+- `storage_type` (Number) Storage type ID can be obtained from hpegl_vmaas_instance_disk_type
+							data source.
+
+Read-Only:
+
+- `id` (Number) ID for the volume
 
 
 <a id="nestedblock--config"></a>
@@ -192,25 +213,6 @@ Optional:
 - `id` (Number) ID of the snapshot.
 - `is_snapshot_exists` (Boolean) Flag which will be set to be true if the snapshot with the name
 							exists.
-
-
-<a id="nestedblock--volume"></a>
-### Nested Schema for `volume`
-
-Required:
-
-- `datastore_id` (String) Datastore ID can be obtained from hpegl_vmaas_datastore
-							data source. Use the value 'auto' so that the datastore is automatically selected.
-- `name` (String) Unique name for the volume.
-- `size` (Number) Size of the volume in GB.
-
-Optional:
-
-- `root` (Boolean) true if volume is root
-
-Read-Only:
-
-- `id` (Number) ID for the volume
 
 
 <a id="nestedatt--containers"></a>
