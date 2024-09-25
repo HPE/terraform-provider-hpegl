@@ -1,0 +1,28 @@
+---
+layout: ""
+page_title: "hpegl_vmaas_morpheus_details Data-source - vmaas-terraform-data-sources"
+subcategory: {{ $arr := split .Name "_" }}"{{ index $arr 1 }}"
+description: |-
+{{ .Description | plainmarkdown | trimspace | prefixlines "  " }}
+---
+
+-> Compatible version >= 5.2.4
+
+# Data-source hpegl_vmaas_morpheus_details
+
+{{ .Description | trimspace }}
+
+`hpegl_vmaas_morpheus_details` data-source supports fetching the details of the on-prem Morpheus instance.
+
+## Example usage with the Morpheus provider - one location and one space-name
+
+{{tffile "examples/data-sources/hpegl_vmaas_morpheus_details/minimal.tf"}}
+
+## Example usage with the Morpheus provider - multiple locations and/or space-names
+
+{{tffile "examples/data-sources/hpegl_vmaas_morpheus_details/multiple.tf"}}
+
+-> Note that multiple hpegl provider stanzas along with provider aliasing should be used in the case
+   where there are multiple VMaaS locations and/or space-names
+
+{{ .SchemaMarkdown | trimspace }}
