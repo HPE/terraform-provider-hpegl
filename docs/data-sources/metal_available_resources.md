@@ -219,6 +219,8 @@ Read-Only:
 
 Read-Only:
 
+- `active_site` (String)
+- `created_site` (String)
 - `description` (String)
 - `flavor` (String)
 - `flavor_id` (String)
@@ -227,12 +229,15 @@ Read-Only:
 - `location` (String)
 - `location_id` (String)
 - `name` (String)
+- `replication_enabled` (Boolean)
 - `shareable` (Boolean)
 - `size` (Number)
+- `size_in_use` (Number)
 - `state` (String)
 - `status` (String)
 - `storage_pool` (String)
 - `storage_pool_id` (String)
+- `unmanaged` (Boolean)
 - `volume_collection` (String)
 - `volume_collection_id` (String)
 - `wwn` (String)

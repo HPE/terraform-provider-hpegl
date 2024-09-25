@@ -57,12 +57,17 @@ resource "hpegl_metal_volume" "test_vols" {
 
 ### Read-Only
 
+- `active_site` (String) The site where the remote copy role for the volume is Primary at the time of most recent import.
+- `created_site` (String) The site where the volume was originally created.
 - `flavor_id` (String) The flavor of the volume to be created.
 - `id` (String) The ID of this resource.
 - `location_id` (String) LocationID.
+- `replication_enabled` (Boolean) Indicates whether replication is enabled for this volume.
+- `size_in_use` (Number) The amount of the volume currently used as reported by the array in GBytes.
 - `state` (String) The volume provisioning state.
 - `status` (String) The volume provisioning status.
 - `storage_pool_id` (String) The storage pool of the volume to be created.
+- `unmanaged` (Boolean) Indicates whether the volume is a native Metal created one or an external one.
 - `wwn` (String) The volume serial number.
 
 
