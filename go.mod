@@ -9,7 +9,7 @@ require (
 	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.30
 	github.com/golangci/golangci-lint v1.61.0
 	github.com/hashicorp/terraform-plugin-docs v0.19.4
-	github.com/hashicorp/terraform-plugin-go v0.23.0
+	github.com/hashicorp/terraform-plugin-go v0.24.0
 	github.com/hashicorp/terraform-plugin-mux v0.16.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.34.0
 	github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.61
@@ -246,7 +246,7 @@ require (
 	golang.org/x/tools v0.24.0 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240903143218-8af14fe29dc1 // indirect
-	google.golang.org/grpc v1.66.0 // indirect
+	google.golang.org/grpc v1.66.2 // indirect
 	google.golang.org/protobuf v1.34.2 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
