@@ -42,6 +42,6 @@ func TestProvider(t *testing.T) {
 }
 
 // TODO remove this test
-func TestProviderInterface(t *testing.T) {
+func TestProviderInterface(_ *testing.T) {
 	var _ *schema.Provider = hpegl.ProviderFunc()()
 }
