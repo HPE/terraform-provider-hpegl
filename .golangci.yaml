@@ -22,6 +22,19 @@ linters-settings:
   funlen:
     lines: 90
     statements: 60
+  depguard:
+    rules:
+      Main:
+        allow:
+          - $gostd
+          - github.com/hashicorp/terraform-plugin-go
+          - github.com/hashicorp/terraform-plugin-mux
+          - github.com/hashicorp/terraform-plugin-sdk
+          - github.com/HPE/terraform-provider-hpegl
+          - github.com/hewlettpackard/hpegl-provider-lib
+          - github.com/hewlettpackard/hpegl-metal-terraform-resources
+          - github.com/HewlettPackard/hpegl-containers-terraform-resources
+          - github.com/HewlettPackard/hpegl-vmaas-terraform-resources
 
 linters:
   enable-all: true
