@@ -1,6 +1,7 @@
 .idea/
 vendor/
 bin/
+dist/
 env.sh
 terraform-provider-hpegl
 build/
