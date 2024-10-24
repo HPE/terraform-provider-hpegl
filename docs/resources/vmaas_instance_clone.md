@@ -178,6 +178,8 @@ Required:
 
 Optional:
 
+- `controller` (String) Storage controller ID can be obtained from hpegl_vmaas_instance_storage_controller
+							data source.
 - `root` (Boolean) true if volume is root
 - `storage_type` (Number) Storage type ID can be obtained from hpegl_vmaas_instance_disk_type
 							data source.
