@@ -1,7 +1,6 @@
 module github.com/HPE/terraform-provider-hpegl
 
-go 1.22.5
-toolchain go1.22.8
+go 1.22.8
 
 require (
 	github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.11
