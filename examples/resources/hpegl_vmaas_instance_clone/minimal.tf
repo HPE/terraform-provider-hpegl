@@ -7,4 +7,9 @@ resource "hpegl_vmaas_instance_clone" "minimal_instance" {
   network {
     id = data.hpegl_vmaas_network.blue_net.id
   }
+  volume {
+    name         = "root_vol"
+    size         = 5
+    datastore_id = data.hpegl_vmaas_datastore.c_3par.id
+  }
 }

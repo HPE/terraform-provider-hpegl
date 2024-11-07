@@ -293,8 +293,6 @@ Read-Only:
 - `id` (Number)
 - `ip` (String)
 - `max_cores` (Number)
-- `max_memory` (Number)
-- `max_storage` (Number)
 - `name` (String)
 - `server` (Set of Object) (see [below for nested schema](#nestedobjatt--containers--server))
 

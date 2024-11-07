@@ -39,11 +39,13 @@ resource "hpegl_vmaas_instance_clone" "minimal_instance" {
   network {
     id = data.hpegl_vmaas_network.blue_net.id
   }
+  volume {
+    name         = "root_vol"
+    size         = 5
+    datastore_id = data.hpegl_vmaas_datastore.c_3par.id
+  }
 }
 ```
-
--> On cloning an instance, the parent volume will be appended to the child volume. If the child volume
-name is the same as the parent volume name, the duplicate volume name is used.
 
 
 ## Example usage for creating cloned instance with all available attributes.
@@ -228,8 +230,6 @@ Read-Only:
 - `id` (Number)
 - `ip` (String)
 - `max_cores` (Number)
-- `max_memory` (Number)
-- `max_storage` (Number)
 - `name` (String)
 - `server` (Set of Object) (see [below for nested schema](#nestedobjatt--containers--server))
 
