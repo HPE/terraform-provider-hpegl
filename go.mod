@@ -6,7 +6,7 @@ require (
 	github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.11
 	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.36
 	github.com/golangci/golangci-lint v1.62.0
-	github.com/hashicorp/terraform-plugin-docs v0.20.0
+	github.com/hashicorp/terraform-plugin-docs v0.20.1
 	github.com/hashicorp/terraform-plugin-go v0.25.0
 	github.com/hashicorp/terraform-plugin-mux v0.17.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.35.0
