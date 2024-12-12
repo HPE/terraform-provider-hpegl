@@ -136,7 +136,7 @@ Optional:
 
 Optional:
 
-- `api_url` (String) The URL to use for the VMaaS API, can also be set with the HPEGL_VMAAS_API_URL env var
+- `allow_insecure` (Boolean) Not to be used in production. To perform client connection ignoring TLS, it can also be set with the INSECURE env var
 - `broker_url` (String) The URL to use for the VMaaS Broker API, can also be set with the HPEGL_VMAAS_BROKER_URL env var
 - `location` (String) Location of GL VMaaS Service, can also be set with the HPEGL_VMAAS_LOCATION env var.
 - `space_name` (String) It can also be set with the HPEGL_VMAAS_SPACE_NAME env var. When `HPEGL_IAM_VERSION` is `glcs` it refers to IAM Space name of the GL VMaaS Service i.e., Default. When `HPEGL_IAM_VERSION` is `glp` it refers to GLP Workspace ID.
