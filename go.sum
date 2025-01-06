@@ -61,10 +61,10 @@ github.com/HewlettPackard/hpegl-containers-go-sdk v0.0.16 h1:5YXtw8RlGY9vwp/jwAA
 github.com/HewlettPackard/hpegl-containers-go-sdk v0.0.16/go.mod h1:rHDxAIj4FrgUc6JksOM0llQhGUpV732wsi19vKwyXSc=
 github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.11 h1:Nqh4jg8Ac3lvMqVwVQ2/kmZ2RtXJkJgmb38aebDY2LI=
 github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.11/go.mod h1:VaBTjqKXpfwdcYU5iT91cTY+bNYq8VbraSQS+qxKNGY=
-github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.17 h1:X/NkYLOinn3u2y3orIPI1yFEzcmPVtqn3SSI8cpIWok=
-github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.17/go.mod h1:tsKOAAbEQnpXAzqjcZUGzRiVp9QfRViKoTOdIltIMFI=
-github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.37 h1:sHLDVvred2wBEM7biuj5T2h59OLKOZYAIi5IP6J65xI=
-github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.37/go.mod h1:Pg2r3LrtaIoVj+ZVGDWOxOxvvNs0XEBtULOoqVebkSA=
+github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.18 h1:1EauKKdCyjU07ndZSo+slU2WnkY7QvR5NZsKRRSlpF0=
+github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.18/go.mod h1:tsKOAAbEQnpXAzqjcZUGzRiVp9QfRViKoTOdIltIMFI=
+github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.38 h1:O7XLQKdyt/ZUa7VjI5wW0IMN0or+TF25TQDvypiOIK0=
+github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.38/go.mod h1:nnocYw/lsLYmFE2G0A53F93iW7BYZ5LfrTw5xlJpUk4=
 github.com/Kunde21/markdownfmt/v3 v3.1.0 h1:KiZu9LKs+wFFBQKhrZJrFZwtLnCCWJahL+S+E/3VnM0=
 github.com/Kunde21/markdownfmt/v3 v3.1.0/go.mod h1:tPXN1RTyOzJwhfHoon9wUr4HGYmWgVxSQN6VBJDkrVc=
 github.com/Masterminds/goutils v1.1.1 h1:5nUrii3FMTL5diU80unEVvNevw1nH4+ZV4DSLVJLSYI=
@@ -173,6 +173,8 @@ github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc h1:U9qPSI2PIWSS1
 github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/denis-tingaikin/go-header v0.5.0 h1:SRdnP5ZKvcO9KKRP1KJrhFR3RrlGuD+42t4429eC9k8=
 github.com/denis-tingaikin/go-header v0.5.0/go.mod h1:mMenU5bWrok6Wl2UsZjy+1okegmwQ3UgWl4V1D8gjlY=
+github.com/dlclark/regexp2 v1.11.0 h1:G/nrcoOa7ZXlpoa/91N3X7mM3r8eIlMBBJZvsz/mxKI=
+github.com/dlclark/regexp2 v1.11.0/go.mod h1:DHkYz0B9wPfa6wondMfaivmHpzrQ3v9q8cnmRbL6yW8=
 github.com/emirpasic/gods v1.18.1 h1:FXtiHYKDGKCW2KzwZKx0iC0PQmdlorYgdFG9jPXJ1Bc=
 github.com/emirpasic/gods v1.18.1/go.mod h1:8tpGGwCnJ5H4r6BWwaV6OrWmMoPhUl5jm/FMNAnJvWQ=
 github.com/envoyproxy/go-control-plane v0.9.0/go.mod h1:YTl/9mNaCwkRvm6d1a2C3ymFceY/DCBVvsKhRF0iEA4=
