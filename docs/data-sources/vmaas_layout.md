@@ -4,13 +4,13 @@ subcategory: "vmaas"
 description: |-
   The hpegl_vmaas_layout data source can be used to discover the ID of a hpegl vmaas layout.
   This can then be used with resources or data sources that require a hpegl_vmaas_layout,
-  such as the hpegl_vmaas_instance resource.
+  such as the hpegl_vmaas_instance resource or hpegl_vmaas_instance_storage_controller datasource.
 ---
 # hpegl_vmaas_layout (Data Source)
 
 The hpegl_vmaas_layout data source can be used to discover the ID of a hpegl vmaas layout.
 		This can then be used with resources or data sources that require a hpegl_vmaas_layout,
-		such as the hpegl_vmaas_instance resource.
+		such as the hpegl_vmaas_instance resource or hpegl_vmaas_instance_storage_controller datasource.
 
 ## Example Usage
 

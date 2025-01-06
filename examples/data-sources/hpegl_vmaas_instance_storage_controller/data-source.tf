@@ -1,12 +1,8 @@
 # (C) Copyright 2024 Hewlett Packard Enterprise Development LP
 
-variable "instance_id" {
-  type    = number
-  default = 0
-}
-data "hpegl_vmaas_instance_storage_controller" "scsi3" {
-  instance_id      = var.instance_id
-  controller_type  = "scsi"
+data "hpegl_vmaas_instance_storage_controller" "scsi_0" {
+  layout_id        = data.hpegl_vmaas_layout.vmware.id
+  controller_name  = "SCSI VMware Paravirtual"
   bus_number       = 0
-  interface_number = 3
+  interface_number = 0
 }
