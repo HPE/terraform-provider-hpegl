@@ -59,6 +59,7 @@ resource "hpegl_metal_volume" "test_vols" {
 
 - `active_site` (String) The site where the remote copy role for the volume is Primary at the time of most recent import.
 - `created_site` (String) The site where the volume was originally created.
+- `export_count` (Number) The number of active exports for this volume
 - `flavor_id` (String) The flavor of the volume to be created.
 - `id` (String) The ID of this resource.
 - `location_id` (String) LocationID.

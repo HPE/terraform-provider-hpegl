@@ -222,6 +222,7 @@ Read-Only:
 - `active_site` (String)
 - `created_site` (String)
 - `description` (String)
+- `export_count` (Number)
 - `flavor` (String)
 - `flavor_id` (String)
 - `id` (String)

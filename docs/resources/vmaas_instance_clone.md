@@ -181,7 +181,7 @@ Required:
 Optional:
 
 - `controller` (String) Storage controller ID can be obtained from hpegl_vmaas_instance_storage_controller
-							data source.
+							data source. Can not be customized for the first volume. This field can not be updated once volume is created.
 - `root` (Boolean) true if volume is root
 - `storage_type` (Number) Storage type ID can be obtained from hpegl_vmaas_instance_disk_type
 							data source.

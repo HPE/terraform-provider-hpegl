@@ -17,15 +17,11 @@ The hpegl_vmaas_instance_storage_controller data source can be used to discover 
 ```terraform
 # (C) Copyright 2024 Hewlett Packard Enterprise Development LP
 
-variable "instance_id" {
-  type    = number
-  default = 0
-}
-data "hpegl_vmaas_instance_storage_controller" "scsi3" {
-  instance_id      = var.instance_id
-  controller_type  = "scsi"
+data "hpegl_vmaas_instance_storage_controller" "scsi_0" {
+  layout_id        = data.hpegl_vmaas_layout.vmware.id
+  controller_name  = "SCSI VMware Paravirtual"
   bus_number       = 0
-  interface_number = 3
+  interface_number = 0
 }
 ```
 
@@ -35,9 +31,12 @@ data "hpegl_vmaas_instance_storage_controller" "scsi3" {
 ### Required
 
 - `bus_number` (Number) The Bus sequence for a storage controller type
-- `controller_type` (String) The storage controller name displayed in an instance. Supported values are `IDE`, `SCSI`
-- `instance_id` (Number) Unique ID to identify an instance
-- `interface_number` (Number) The interface number to be allocated
+- `controller_name` (String) The controller name displayed in an instance storage controller section.
+- `layout_id` (String) The layout ID of an instance.
+
+### Optional
+
+- `interface_number` (Number) The interface number to be allocated. When not provided, the interface number is automatically allocated.
 
 ### Read-Only
 

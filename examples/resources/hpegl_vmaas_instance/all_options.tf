@@ -27,7 +27,14 @@ resource "hpegl_vmaas_instance" "tf_instance" {
     size         = 5
     datastore_id = data.hpegl_vmaas_datastore.c_3par.id
     storage_type = data.hpegl_vmaas_instance_disk_type.vmware_thin.id
-    controller   = data.hpegl_vmaas_instance_storage_controller.scsi3.id
+    controller   = data.hpegl_vmaas_instance_storage_controller.scsi_0.id
+  }
+  volume {
+    name         = "data_vol"
+    size         = 5
+    datastore_id = data.hpegl_vmaas_datastore.c_3par.id
+    storage_type = data.hpegl_vmaas_instance_disk_type.vmware_thin.id
+    controller   = data.hpegl_vmaas_instance_storage_controller.scsi_0.id
   }
 
   labels = ["test_label"]
