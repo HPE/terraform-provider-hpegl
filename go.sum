@@ -63,8 +63,8 @@ github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.11 h1:Nqh4jg
 github.com/HewlettPackard/hpegl-containers-terraform-resources v0.0.11/go.mod h1:VaBTjqKXpfwdcYU5iT91cTY+bNYq8VbraSQS+qxKNGY=
 github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.18 h1:1EauKKdCyjU07ndZSo+slU2WnkY7QvR5NZsKRRSlpF0=
 github.com/HewlettPackard/hpegl-vmaas-cmp-go-sdk v0.1.18/go.mod h1:tsKOAAbEQnpXAzqjcZUGzRiVp9QfRViKoTOdIltIMFI=
-github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.38 h1:O7XLQKdyt/ZUa7VjI5wW0IMN0or+TF25TQDvypiOIK0=
-github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.38/go.mod h1:nnocYw/lsLYmFE2G0A53F93iW7BYZ5LfrTw5xlJpUk4=
+github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.39 h1:LPExrvwrPkg3PukPBnmggg5YceXWaN/dtAorjdoU5Nc=
+github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.39/go.mod h1:nnocYw/lsLYmFE2G0A53F93iW7BYZ5LfrTw5xlJpUk4=
 github.com/Kunde21/markdownfmt/v3 v3.1.0 h1:KiZu9LKs+wFFBQKhrZJrFZwtLnCCWJahL+S+E/3VnM0=
 github.com/Kunde21/markdownfmt/v3 v3.1.0/go.mod h1:tPXN1RTyOzJwhfHoon9wUr4HGYmWgVxSQN6VBJDkrVc=
 github.com/Masterminds/goutils v1.1.1 h1:5nUrii3FMTL5diU80unEVvNevw1nH4+ZV4DSLVJLSYI=
