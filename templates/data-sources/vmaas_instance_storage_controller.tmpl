@@ -1,0 +1,23 @@
+---
+layout: ""
+page_title: "hpegl_vmaas_instance_storage_controller Data-source - vmaas-terraform-data-sources"
+subcategory: {{ $arr := split .Name "_" }}"{{ index $arr 1 }}"
+description: |-
+{{ .Description | plainmarkdown | trimspace | prefixlines "  " }}
+---
+
+-> Compatible version >= 5.2.4
+
+# Data-source hpegl_vmaas_instance_storage_controller
+
+{{ .Description | trimspace }}
+
+## Example usage
+
+{{tffile "examples/data-sources/hpegl_vmaas_instance_storage_controller/data-source.tf"}}
+
+- During volume addition for an instance, if the interface or bus details are wrong, then TF will exit with VM as unknow state.
+- During creation of an instance, the first volume will always be `SCSI VMware Paravirtual - SCSI 0:0`.
+- Controller of a created volume cannot be modified. But volume can be deleted and re-created with correct virtual adaptor info.
+
+{{ .SchemaMarkdown | trimspace }}
