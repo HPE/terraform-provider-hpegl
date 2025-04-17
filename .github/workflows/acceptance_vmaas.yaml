@@ -14,7 +14,7 @@ env:
   HPEGL_VMAAS_SPACE_NAME: ${{ secrets.VMAAS_HPEGL_VMAAS_SPACE_NAME}}
 jobs:
   acc:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         go: [ '1.20' ]
