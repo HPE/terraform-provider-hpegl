@@ -13,7 +13,7 @@ env:
   HPEGL_IAM_SERVICE_URL: ${{ secrets.CAAS_HPEGL_IAM_SERVICE_URL }}
 jobs:
   ci:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         go: [ '1.20' ]
