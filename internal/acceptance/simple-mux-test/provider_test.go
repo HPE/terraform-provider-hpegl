@@ -3,7 +3,6 @@
 package simplemuxtest
 
 import (
-	"context"
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-go/tfprotov5"
@@ -16,7 +15,7 @@ import (
 // an equivalent of "InternalValidate" for the mux server, so this is the best we can do.
 // Note that this isn't an acceptance test, leaving it here for now.
 func TestMuxServer(t *testing.T) {
-	ctx := context.Background()
+	ctx := t.Context() // Use t.Context() instead of context.Background()
 	providers := hpegl.ProvidersForMux()
 	muxServer, err := tf5muxserver.NewMuxServer(ctx, providers...)
 	if err != nil {
