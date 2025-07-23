@@ -7,7 +7,7 @@ require (
 	github.com/HewlettPackard/hpegl-vmaas-terraform-resources v0.1.40
 	github.com/golangci/golangci-lint v1.64.8
 	github.com/hashicorp/terraform-plugin-docs v0.21.0
-	github.com/hashicorp/terraform-plugin-go v0.27.0
+	github.com/hashicorp/terraform-plugin-go v0.28.0
 	github.com/hashicorp/terraform-plugin-mux v0.17.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.37.0
 	github.com/hewlettpackard/hpegl-metal-terraform-resources v1.3.66
