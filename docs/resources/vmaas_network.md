@@ -16,7 +16,20 @@ Network resource facilitates creating,
 `hpegl_vmaas_network` resource supports NSX-T network creation.
 For more information, see [Private cloud networking using VMware NSX-T](https://www.hpe.com/info/HPE-GreenLake-private-cloud-networking).
 
+~> **Note on creating networks with Terraform**
+When using Terraform to create networks, each network creation operation triggers a cloud/NSX refresh, 
+which can take 5–10 minutes to fully complete. Terraform includes internal logic to handle this refresh, 
+but it is not instantaneous. If you create multiple networks in parallel, each operation may trigger a 
+separate refresh, leading to multiple NSX/Cloud refreshes and potential API failures.
+
+-> **Recommended Approach**
+• Create networks one at a time.<br>
+• After each network is created, wait for 5–10 minutes to allow the backend refresh to complete.<br>
+• Proceed with creating the next network only after the previous one has fully settled.<br><br>
+**This approach ensures stability and prevents conflicts or errors caused by overlapping refresh operations.**
+
 For creating an NSX-T network, see the following examples.
+
 
 ## Example usage for creating Static NSX-T Network with all possible attributes
 
