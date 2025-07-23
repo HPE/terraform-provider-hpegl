@@ -59,8 +59,6 @@ resource "hpegl_vmaas_load_balancer_virtual_server" "tf_lb_virtual_server" {
 - `lb_id` (Number) Parent lb ID, lb_id can be obtained by using LB datasource/resource.
 - `name` (String) Name of Network loadbalancer virtual server name
 - `pool` (Number) Pool Id, Get the `id` from hpegl_vmaas_load_balancer_pool datasource to obtain the Pool Id, It is recommended that you attach a pool to the Virtual Server to have a correct LB functionality
-- `ssl_client_cert` (Number) ssl_client_cert Id, Get the `id` from hpegl_vmaas_load_balancer_virtual_server_ssl_cert datasource to obtain the ssl_client_cert Id, SSLClientCert is needed only for https based load balancer
-- `ssl_server_cert` (Number) ssl_server_cert Id, Get the `id` from hpegl_vmaas_load_balancer_virtual_server_ssl_cert datasource to obtain the ssl_server_cert Id, SSLServerCert is needed only for https based load balancer
 - `type` (String) Vip protocol of Network loadbalancer virtual server
 - `vip_address` (String) Vip_address of Network loadbalancer virtual server
 - `vip_port` (String) Vip_port of network loadbalancer virtual server
@@ -72,7 +70,9 @@ resource "hpegl_vmaas_load_balancer_virtual_server" "tf_lb_virtual_server" {
 - `http_application_profile` (Block List, Max: 1) HTTP Profile configuration (see [below for nested schema](#nestedblock--http_application_profile))
 - `persistence` (String) Persistence type for Network loadbalancer virtual server
 - `sourceip_persistence_profile` (Block List, Max: 1) HTTP profile configuration (see [below for nested schema](#nestedblock--sourceip_persistence_profile))
+- `ssl_client_cert` (Number) ssl_client_cert Id, Get the `id` from hpegl_vmaas_load_balancer_virtual_server_ssl_cert datasource to obtain the ssl_client_cert Id, SSLClientCert is needed only for https based load balancer
 - `ssl_client_config` (Block List) virtual server Configuration (see [below for nested schema](#nestedblock--ssl_client_config))
+- `ssl_server_cert` (Number) ssl_server_cert Id, Get the `id` from hpegl_vmaas_load_balancer_virtual_server_ssl_cert datasource to obtain the ssl_server_cert Id, SSLServerCert is needed only for https based load balancer
 - `ssl_server_config` (Block List) virtual server Configuration (see [below for nested schema](#nestedblock--ssl_server_config))
 - `tcp_application_profile` (Block List, Max: 1) TCP Profile configuration (see [below for nested schema](#nestedblock--tcp_application_profile))
 - `udp_application_profile` (Block List, Max: 1) UDP profile configuration (see [below for nested schema](#nestedblock--udp_application_profile))

@@ -138,6 +138,7 @@ Read-Only:
 - `location` (String)
 - `location_id` (String)
 - `name` (String)
+- `no_ip_pool` (Boolean)
 - `purpose` (String)
 - `vlan` (Number)
 - `vni` (Number)
