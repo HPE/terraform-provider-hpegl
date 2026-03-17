@@ -35,7 +35,7 @@ vendor: go.mod go.sum
 
 docs-generate: vendor
 	# Installing vend
-	go get -d github.com/nomad-software/vend
+	go install github.com/nomad-software/vend@v1.0.3
 
 	# Generate vendor
 	vend

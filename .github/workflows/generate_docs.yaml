@@ -1,0 +1,32 @@
+name: Generate Docs
+
+on:
+  pull_request:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.1.1
+        if: ${{ github.event.commits[0].author.name != 'github-actions[bot]' }}
+        with:
+          ssh-key: ${{ secrets.GH_ACTION_KEY }}
+          fetch-depth: 2
+          ref: ${{ github.head_ref }}
+      - name: "actor name"
+        run: |
+          echo "${{ github.event }}"
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.21.10'
+      # - name: Generate Docs
+      #   run: |
+      #     make docs-generate
+      # - name: Push changes
+      #   run: |
+      #     git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      #     git config --global user.name "github-actions[bot]"
+      #     git add .
+      #     git commit -m "[dependabot skip] Update terraform docs"
+      #     git push
